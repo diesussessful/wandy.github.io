@@ -1,0 +1,70 @@
+<html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Index</title>
+	<link rel="stylesheet" type="text/css" href="_css/_sty_admindex.css">
+
+	<script src="_scripts/visualizar_produto.js">
+	</script>
+	<script src="_scripts/dinamica_admindex.js">
+	</script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+</head>
+
+<body style="margin: 0px;border:none;">
+	<div id="main">
+
+		<div class="top-menu"></div>
+
+		<div onclick="admdashboard(true,false)" class="btn-user" href=""><img src="_imagens\_icones\user.png"></div>
+
+		<h1 class="titulo">Dashboard</h1>
+	</div>
+
+
+	
+	<!--ativar barra lateral permante, troque o "none" por "block"-->
+	<div id="lateral-menu" class="sidenav">
+
+		<div onclick="admdashboard(false,true)" id = "id-btn-lateral-add" class="btn-lateral-add"><img src="_imagens\_icones\add.png"><h4 class="lbl-lateral-add">Adicionar</h4></div>
+		
+	</div>
+
+	<div id="adicionar-produto">
+		<div class="addproduto-estilo" id="info-produto">
+		
+			<h2 style="left: 209px;top: 161px;">Titulo do produto</h2>
+			<input id="p_titulo" type="text" name="titulo_produto" style="border-left-width: 5px;position:relative;left: 207px;top: 160px;height: 24px;">
+			<!--...............................................-->
+			<h2 style="left: 209px;top: 160px;">Categoria</h2>
+			<input id="p_categoria" type="text" name="categoria-produto" style="border-left-width: 5px;position:relative;left: 209px;top: 153px;border-top-width: 1px;margin-top: 7px;margin-bottom: 12.450;height: 24px;">
+			<!--...............................................-->
+			<h2 style="left: 209px;top: 141px;">Preço</h2>
+			<input id="p_preco" type="text" name="preco_produto" style="border-left-width: 5px;position:relative;left: 209px;top: 134px;margin-top: 7px;height: 24px;">
+			<!--...............................................-->
+			<h2 style="left: 209px;top: 134px;">Informações</h2>
+			<input id="p_info" type="text" name="info_produto" style="position:relative;left: 209px;top: 127px;height: 60px;margin-top: 7px;">
+			<!--...............................................-->
+			<h2 style="left: 209px;top: 127px;">Imagem<h3 class="aviso">Resolução obrigatória: 215x312</h3></h2>
+			<input id="p_imagem" onchange="lerURL(this)" type="file" name="imagem_produto" accept="image/png, image/jpeg, image/jpg" style="position:relative;left: 209px;top: 120px;height: 22px;width: 300px;margin-top: 7px;">
+			<button style="cursor:pointer;" class="botao-visu"  onclick="visualizar()">Visualizar</button>
+			
+			</div>
+
+			<h6 class="separador-add" >   </h6>
+			<div id = "produto_visu" class="visuali-produto" style=" ">
+				<a href=""><img id="v_imagem" src="_imagens/jeansmarca.jpg"></a>
+				<h2 id="v_titulo" class="produto-titulo">Kalvin</h2>
+				<h2 id="v_info" style="font-size:13px;" class="produto-info">Calça Jeans azul</h2>
+				<h2 id="v_preco" class="produto-preco">R$250,00</h2>
+		   </div>
+		   <button style="cursor:pointer;" class="botao-salvar"  >Adicionar à loja</button>
+	</div>
+	
+	
+
+
+</body>
+</html>
