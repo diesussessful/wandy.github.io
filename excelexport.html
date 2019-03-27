@@ -1,0 +1,148 @@
+
+<!-- saved from url=(0112)http://htmlpreview.github.io/?https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/exportslx.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/exportslx.html">--><base href=".">
+
+<script>
+
+       function fnExcelReport(){
+  var tab_text="<table border='2px'>";
+  var textRange; var j=0;
+  tab = document.getElementById('table').cloneNode(true);
+  
+  for(j = 0 ; j < tab.rows.length ; j++) 
+  {
+    var row = tab.rows[j];
+    var numberOfCells = row.cells.length;
+    // Altere o número 4 pelo número de colunas no TBODY
+    // A cada linha de registro na tabela, sera excluído as duas ultimas colunas,
+    // pois a coluna ACAO no THEAD ta setado o atributo 'colspan=2'
+    if (numberOfCells === 3) {
+      row.deleteCell(-1);
+      row.deleteCell(-1);
+    } else {
+      // Remove a coluna ACAO
+      row.deleteCell(-1);
+    }
+    tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+  }
+
+  tab_text=tab_text+"</table>";
+  tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+  tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+  tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf("MSIE "); 
+
+  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+  {
+    txtArea1.document.open("txt/html","replace");
+    txtArea1.document.write(tab_text);
+    txtArea1.document.close();
+    txtArea1.focus(); 
+    sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+  }  
+  else                 //other browser not tested on IE 11
+    sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+  return (sa);}
+    </script>
+    <style>
+        table {
+    border: 1px solid #ccc;
+}
+table thead {
+  background: #069;
+  color: #FFF;
+}
+table thead tr th {
+  width: 140px;
+}
+table td {
+    padding: 4px;
+    text-transform: uppercase;
+}
+table tr:nth-child(2n+0) td {
+    background: #e7e7e7;
+}
+
+button {
+    background: #069;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 30px;
+    text-transform: uppercase;
+}
+    </style>
+    <script type="text/htmlpreview" src="./htmlpreview.github.io_files/snippet-javascript-console.min.js.download"></script><style type="text/css">.as-console-wrapper { position: fixed; bottom: 0; left: 
+
+0; right: 0; max-height: 150px; overflow-y: scroll; overflow-x: hidden; border-top: 1px solid #000; display: none; }
+.as-console { background: #e9e9e9; border: 1px solid #ccc; display: table; width: 100%; border-collapse: collapse; }
+.as-console-row { display: table-row; font-family: monospace; font-size: 13px; }
+.as-console-row:after { display: table-cell; padding: 3px 6px; color: rgba(0,0,0,.35); border: 1px solid #ccc; content: attr(data-date); vertical-align: 
+
+top; }
+.as-console-row + .as-console-row > * { border: 1px solid #ccc; }
+.as-console-row-code { width: 100%; white-space: pre-wrap; padding: 3px 5px; display: table-cell; font-family: monospace; font-size: 13px; vertical-
+
+align: middle; }
+.as-console-error:before { content: 'Error: '; color: #f00; }
+.as-console-assert:before { content: 'Assertion failed: '; color: #f00; }
+.as-console-info:before { content: 'Info: '; color: #00f; }
+.as-console-warning:before { content: 'Warning: '; color: #e90 }
+@-webkit-keyframes flash { 0% { background: rgba(255,240,0,.25); } 100% { background: none; } }
+@-moz-keyframes flash { 0% { background: rgba(255,240,0,.25); } 100% { background: none; } }
+@-ms-keyframes flash { 0% { background: rgba(255,240,0,.25); } 100% { background: none; } }
+@keyframes flash { 0% { background: rgba(255,240,0,.25); } 100% { background: none; } }
+.as-console-row-code, .as-console-row:after { -webkit-animation: flash 1s; -moz-animation: flash 1s; -ms-animation: flash 1s; animation: flash 1s; }
+
+</style>
+    </head>
+<body>
+    <table id="table">
+    <thead>
+        <tr>
+            <th>Coluna 1</th>
+            <th>Coluna 2</th>
+            <th colspan="2" class="remover">Coluna 3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>teste</td>
+            <td>teste</td>
+            <td class="remover">teste</td>
+            <td class="remover">teste</td>
+        </tr>
+<tr>
+            <td>teste</td>
+            <td>teste</td>
+            <td class="remover">teste</td>
+            <td class="remover">teste</td>
+        </tr>
+<tr>
+            <td>teste</td>
+            <td>teste</td>
+            <td class="remover">teste</td>
+            <td class="remover">teste</td>
+        </tr>
+        <tr>
+            <td>teste</td>
+            <td>teste</td>
+            <td class="remover">teste</td>
+            <td class="remover">teste</td>
+        </tr>
+        <tr>
+            <td>teste</td>
+            <td>teste</td>
+            <td class="remover">teste</td>
+            <td class="remover">teste</td>
+        </tr>
+    </tbody>
+</table>
+<p><button onclick="fnExcelReport()">Exportar Excel</button></p>
+    
+
+<div class="as-console-wrapper"><div class="as-console"></div></div>
+</body></html>
