@@ -450,7 +450,7 @@ function closeNav() {
        <span onclick="closespan()" class="close">&times;</span>
 
   <!-- Modal Content (The Image) -->
-       <img onclick="trocarimg()" onerror="this.onerror=null; trocarimg(1)" class="modal-content" id="img01">
+       <img onclick="trocarimg()" onerror="trocarimg(1)" class="modal-content" id="img01">
 
   <!-- Modal Caption (Image Text) -->
        <div id="caption"></div>
@@ -481,5 +481,27 @@ function mudarImagem()
 {
   var imagem = document.getElementById("modalImg.src")
 }
+		function trocarimg(x)
+{
+ var link = document.getElementById("img01").src
+ var imgnum;
+imgnum = document.getElementById("img01").src[92] + document.getElementById("img01").src[93];
+if(x != 1)
+{
+var num = Number(imgnum[1]);
+num += 1;
+}else
+{
+num = 1;
+}
+
+ var rep = link.replace(imgnum,"-" + num.toString());
+ document.getElementById("img01").src = rep;
+
+console.log(x);
+
+ 
+}
+		
 	</script>
 </body></html>
