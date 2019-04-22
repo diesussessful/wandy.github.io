@@ -1,5 +1,6 @@
 <html lang="pt-br"><head>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Index</title>
 	<script type="text/javascript">
        function fnExcelReport(){
@@ -96,17 +97,18 @@ align: middle; }
     left: 620px;
     margin-top: 7.44;
 	font-family: 'Open Sans', sans-serif;
-	right: 50%;
-	left: 50%;
+	
+	left: 50px;
 	width: 200px;
 	height: 43px;
 }
 .top-menu
 {
 	height: 60px;
-	width: 100%;
 	background-color: #323232;
 	top: 0;
+  width: 100%;
+
 }
 div#main
 {
@@ -132,13 +134,16 @@ div#btn-menu
 {
 	font-family: 'Open Sans', sans-serif;
 	margin-bottom: 20px;
-	position: absolute;
-	left: 25%;
-	top: 20%;	
-	height: 400px;
+	position: relative;
+  float: left;
+  margin-right:20px;
+  max-width: 215px; 
+  max-height: 400px;
+	top: 20px;	
+	
 	padding-right: 10px;
 	padding-bottom: 10px;
-	padding-left: 10px;
+	padding-left: 15px;
 }
 div.visuali-produto:hover
 {
@@ -146,8 +151,8 @@ div.visuali-produto:hover
 }
 img#v_imagem
 {
-	width: 215px; 
-	height: 315px;
+	max-width: 215px; 
+	max-height: 315px;
 }
 .produto-titulo
 {
@@ -336,7 +341,7 @@ function closeNav() {
 	<div id="main">
     <span onclick="openNav()">☰</span>
     <h1 class="titulo" style="
-    left: 10%;
+    left: 50px;
     width: 300px;
     ">0</h1>
 		<div class="top-menu"></div>
@@ -367,21 +372,9 @@ function closeNav() {
 	    <p><button onclick="fnExcelReport()">Exportar Excel</button></p>
 </div>
     
-    
-	
-			
-	
-
 	<!--ativar barra lateral permante, troque o "none" por "block"-->
-			<div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;
-	margin-bottom: 20px;
-	position: absolute;
-	left: 15%;
-	top: 20%;	
-	height: 400px;
-	padding-right: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;">
+			<div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
+	
 				<img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
 				<h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2>
 				<h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
@@ -389,15 +382,8 @@ function closeNav() {
 				<button id="incluir" onclick="incluirPedido(this.parentElement)" > Incluir </button>
 		   </div>
 
-       <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;
-  margin-bottom: 20px;
-  position: absolute;
-  left: 60%;
-  top: 20%; 
-  height: 400px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;">
+       <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif; ">
+  
         <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00C03G_C84MX_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SAFADO L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
