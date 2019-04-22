@@ -382,12 +382,28 @@ function closeNav() {
 	padding-right: 10px;
 	padding-bottom: 10px;
 	padding-left: 10px;">
-				<img id="v_imagem" onclick= "openmodal()" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
+				<img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
 				<h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2>
 				<h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
 				<h2 id="v_preco" class="produto-preco">R$800</h2>
 				<button id="incluir" onclick="incluirPedido(this.parentElement)" > Incluir </button>
 		   </div>
+
+       <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;
+  margin-bottom: 20px;
+  position: absolute;
+  left: 60%;
+  top: 20%; 
+  height: 400px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;">
+        <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00C03G_C84MX_01-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">SAFADO L.32</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$1.300</h2>
+        <button id="incluir" onclick="incluirPedido(this.parentElement)" > Incluir </button>
+       </div>
 <div id="myModal" class="modal">
 
   <!-- The Close Button -->
@@ -408,9 +424,9 @@ var modal = document.getElementById('myModal');
 var img = document.getElementById('v_imagem');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
-function openmodal(){
+function openmodal(srcX){
   modal.style.display = "block";
-  modalImg.src = img.src;
+  modalImg.src = srcX;
   captionText.innerHTML = this.alt;
 }
 // Get the <span> element that closes the modal
