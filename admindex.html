@@ -153,6 +153,7 @@ img#v_imagem
 {
 	max-width: 215px; 
 	max-height: 315px;
+  cursor: pointer;
 }
 .produto-titulo
 {
@@ -163,23 +164,7 @@ img#v_imagem
 {
 	height: 20px;
 }
-.separador-add
-{
-	border-style:groove;
-	position:absolute;
-	left: 568px;
-	border-top-width: 1px;
-	margin-top: 49.978;
-	padding-top: 484px;
-	border-right-width: 1px;
-	border-left-width: 1px;
-	width: 0px;
-	margin-top: 1px;
-	margin-bottom: 0px;
-	z-index:99;bottom: 361px;
-	border-bottom-width: 9px;
-    top: 107px;
-}
+
 .botao-visu
 {
 	position:absolute;
@@ -381,7 +366,7 @@ function closeNav() {
 				<h2 id="v_preco" class="produto-preco">R$800</h2>
 				<button id="incluir" onclick="incluirPedido(this.parentElement)" > Incluir </button>
 		   </div>
-
+      
        <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif; ">
   
         <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00C03G_C84MX_01-1.jpg">
@@ -413,7 +398,7 @@ var captionText = document.getElementById("caption");
 function openmodal(srcX){
   modal.style.display = "block";
   modalImg.src = srcX;
-  captionText.innerHTML = this.alt;
+  captionText.innerHTML = "Detalhes do Produto"
 }
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
