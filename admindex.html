@@ -143,8 +143,9 @@ div#btn-menu
   top: 20px;  
   
   padding-right: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 27px;
   padding-left: 15px;
+
 }
 div.visuali-produto:hover
 {
@@ -160,11 +161,18 @@ img#v_imagem
 {
     width: 200px;
     height: 20px;
+    font-size: 17px;
 }
 .produto-preco
 {
-  height: 20px;
+  height: 28px;
  
+}
+.produto-descri
+{
+  font-size: 10px;
+    margin-bottom: 5px;
+    margin-top: 1px;
 }
 .botao-visu
 {
@@ -195,13 +203,11 @@ h2#v_titulo
 }
 h2#v_preco
 {
-
   position: relative;
     margin-bottom: 10.92;
     margin-top: 0.92;
   font-size:17px;
 }
-
 .circulo
 {
    background: radial-gradient( 5px -9px, circle, white 8%, red 26px );
@@ -380,7 +386,8 @@ function closeNav() {
         <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
-        <h2 id="v_preco" class="produto-preco">R$800</h2>
+        <h2 id="v_preco" class="produto-preco">R$859 | R$1.6950</h2>
+        <h2 id = "v_descri" class = "produto-descri">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
         <button id="incluir" onclick="incluirPedido(this.parentElement)" > Incluir </button>
        </div>
       
@@ -390,7 +397,8 @@ function closeNav() {
         <h2 id="v_titulo" class="produto-titulo">SAFADO L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco"> R$856 | R$1.300  </h2>
-        <button id="incluir" onclick="incluirPedido(this.parentElement)" > Incluir </button>
+        <h2 id = "v_descri" class = "produto-descri">Jeans Safado com perna larga da coxa ao tornozelo</h2>
+        <button id="incluir"  onclick="incluirPedido(this.parentElement)" > Incluir </button>
        </div>
 
        </div>
