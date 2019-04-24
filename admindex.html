@@ -368,8 +368,8 @@ function closeNav() {
     <thead>
         <tr>
             <th>Nome</th>
-            <th>Ref</th>
             <th>Valor</th>
+            <th>Ref</th>
         </tr>
     </thead>
     <tbody>
@@ -388,6 +388,7 @@ function closeNav() {
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$859 | R$1.6950</h2>
         <h2 id = "v_descri" class = "produto-descri">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
+        <h2 id = "referencia" style="display: none;">00S7VG084UU</h2>
         <button id="incluir" onclick="incluirPedido(this.parentElement)" > Incluir </button>
        </div>
       
@@ -398,6 +399,7 @@ function closeNav() {
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco"> R$856 | R$1.300  </h2>
         <h2 id = "v_descri" class = "produto-descri">Jeans Safado com perna larga da coxa ao tornozelo</h2>
+        <h2 id = "referencia" style="display: none;">00C03GC84MX</h2>
         <button id="incluir"  onclick="incluirPedido(this.parentElement)" > Incluir </button>
        </div>
 
@@ -470,7 +472,12 @@ for(var i = 0; i  < 3; i++)
    else if(i == 1){
    var texto = document.createTextNode(tags[3].innerText);
    novaCelula.appendChild(texto);
-   }else
+   }
+   else if(i == 2){
+   var texto = document.createTextNode(tags[5].innerText);
+   novaCelula.appendChild(texto);
+   }
+   else
    {
     var texto = document.createTextNode("X");
     novaCelula.appendChild(texto);
