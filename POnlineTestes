@@ -1,0 +1,775 @@
+<html lang="pt-br"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  <script type="text/javascript">
+       function fnExcelReport(){
+  var tab_text="<table border='2px'>";
+  var textRange; var j=0;
+  tab = document.getElementById('table').cloneNode(true);
+  
+  for(j = 0 ; j < tab.rows.length ; j++) 
+  {
+    var row = tab.rows[j];
+    var numberOfCells = row.cells.length;
+    // Altere o número 4 pelo número de colunas no TBODY
+    // A cada linha de registro na tabela, sera excluído as duas ultimas colunas,
+    // pois a coluna ACAO no THEAD ta setado o atributo 'colspan=2'
+    if (numberOfCells === 3) {
+      
+    } else {
+      // Remove a coluna ACAO
+      row.deleteCell(-1);
+    }
+    tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+  }
+  tab_text=tab_text+"</table>";
+  tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+  tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+  tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf("MSIE "); 
+  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+  {
+    txtArea1.document.open("txt/html","replace");
+    txtArea1.document.write(tab_text);
+    txtArea1.document.close();
+    txtArea1.focus(); 
+    sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+  }  
+  else                 //other browser not tested on IE 11
+    sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text)); 
+  return (sa);}
+    </script>
+    <style>
+        table {
+    
+}
+table thead {
+  background: #2d2d2d;
+  color: #FFF;
+}
+table thead tr th {
+  width: 140px;
+}
+table td {
+    color: white;
+    text-transform: uppercase;
+    font-size: 11px;
+    text-align: center;
+}
+table tr:nth-child(2n+0) td {
+    
+}
+button {
+    background: #2d2d2d;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 30px;
+    text-transform: uppercase;
+}
+    </style>
+    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+
+
+
+    <style type="text/css">.as-console-wrapper { position: fixed; bottom: 0; left: 
+0; right: 0; max-height: 150px; overflow-y: scroll; overflow-x: hidden; border-top: 1px solid #000; display: none; }
+.as-console { background: #e9e9e9; border: 1px solid #ccc; display: table; width: 100%; border-collapse: collapse; }
+.as-console-row { display: table-row; font-family: monospace; font-size: 13px; }
+.as-console-row:after { display: table-cell; padding: 3px 6px; color: rgba(0,0,0,.35); border: 1px solid #ccc; content: attr(data-date); vertical-align: 
+top; }
+.as-console-row + .as-console-row > * { border: 1px solid #ccc; }
+.as-console-row-code { width: 100%; white-space: pre-wrap; padding: 3px 5px; display: table-cell; font-family: monospace; font-size: 13px; vertical-
+align: middle; }
+.as-console-error:before { content: 'Error: '; color: #f00; }
+.as-console-assert:before { content: 'Assertion failed: '; color: #f00; }
+.as-console-info:before { content: 'Info: '; color: #00f; }
+.as-console-warning:before { content: 'Warning: '; color: #e90 }
+@-webkit-keyframes flash { 0% { background: rgba(255,240,0,.25); } 100% { background: none; } }
+@-moz-keyframes flash { 0% { background: rgba(255,240,0,.25); } 100% { background: none; } }
+@-ms-keyframes flash { 0% { background: rgba(255,240,0,.25); } 100% { background: none; } }
+@keyframes flash { 0% { background: rgba(255,240,0,.25); } 100% { background: none; } }
+.as-console-row-code, .as-console-row:after { -webkit-animation: flash 1s; -moz-animation: flash 1s; -ms-animation: flash 1s; animation: flash 1s; }
+</style>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+.titulo
+{
+    position: absolute;
+    top: 0;
+    color: #FAFAFA;
+    left: 620px;
+    margin-top: 7.44;
+    font-family: 'Open Sans', sans-serif;
+    left: 50px;
+    width: 200px;
+    height: 43px;
+    font-size: 29px;
+}
+.sub-titulo
+{
+    position: absolute;
+    top: 0;
+    color: #FAFAFA;
+    left: 620px;
+    margin-top: 7.44;
+    font-family: 'Open Sans', sans-serif;
+    left: 50px;
+    width: 200px;
+    height: 43px;
+    font-size: 10px;
+}
+.top-menu
+{
+  font-family: 'Open Sans', sans-serif;
+  height: 90px;
+  background-color: #323232;
+  top: 0;
+  width: 100%;
+}
+
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: 50px;
+
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+div#main
+{
+  z-index: 100;
+  position: static;
+  width:100%;
+}
+div#btn-menu
+{
+  font-size: 70px;
+  padding-left: 20px;
+  position: absolute;
+  top: 0;
+  color:#9A9A9A;
+}
+.main
+{
+  position: absolute;
+  margin-left: 160px;
+  padding: 0px 10px;
+}
+.visuali-produto
+{
+  font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+    position: relative;
+    margin-right: 20px;
+    max-width: 215px;
+    max-height: 400px;
+    top: 20px;
+    padding-right: 10px;
+    display: inline-block;
+    padding-bottom: 27px;
+    padding-left: 15px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+div.visuali-produto:hover
+{
+  box-shadow: 1px 2px 2px 2px rgba(0,0,0,0.5);
+}
+img#v_imagem
+{
+  max-width: 215px; 
+  max-height: 315px;
+  cursor: pointer;
+}
+.produto-titulo
+{
+    width: 200px;
+    height: 20px;
+    font-size: 17px;
+}
+.produto-preco
+{
+  height: 28px;
+ 
+}
+.produto-descri
+{
+  font-size: 10px;
+    margin-bottom: 5px;
+    margin-top: 1px;
+}
+.botao-visu
+{
+  position:absolute;
+  background-color: #FC6042;
+  height: 35px;
+  width: 90px;
+  border:0px;
+  color:#FAFAFA;
+    top: 520.625;
+    left: 210px;
+}
+    h2#v_info
+{
+  color:#9A9A9A;
+  font-size:13px;
+  margin-bottom: 2.79;
+  margin-top: 3.79;
+  font-size:13px;
+  width: 200px;
+}
+h2#v_titulo
+{
+    margin-top: 1.92;
+    margin-bottom: 2.92;
+    height: 30px;
+  position: relative;
+}
+h2#v_preco
+{
+  position: relative;
+    margin-bottom: 10.92;
+    margin-top: 0.92;
+  font-size:17px;
+}
+.circulo
+{
+   background: radial-gradient( 5px -9px, circle, white 8%, red 26px );
+    background-color: red;
+    border: 2px solid white;
+    border-radius: 12px;
+    box-shadow: 1px 1px 1px black;
+    color: white;
+    font: bold 15px/13px Helvetica, Verdana, Tahoma;
+    height: 14px;
+    min-width: 9px;
+    padding: 1px 3px 0 3px;
+    text-align: center;
+    position: inherit;
+    margin-left: 20px;
+}
+    /* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+span {
+    position: absolute;
+    color: azure;
+    font-size: 41px;
+    font-style: inherit;
+    cursor: pointer;
+}
+    /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+       </style>
+
+<!-----------GRADEEEEEE---------->
+<style type="text/css">
+div#ModalGrade
+{
+  animation-name: zoom;
+  animation-duration: 0.6s;
+display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(255,255,255,1); /* Black w/ opacity */
+  font-family: 'Open Sans', sans-serif;
+}
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+@media only screen and (max-width: 700px){
+  .tabelaGrade {
+    width: 100%;
+  }
+}
+div#Grade
+{
+margin:0 auto;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+    width: max-content;
+    font-family: 'Open Sans', sans-serif;
+} 
+table#tabelaGrade
+{
+}      
+table#tabelaGrade td#gradetr
+{
+     color: black;
+    border: 1px solid #acbcd8c2;
+    position: absolute;
+    width: 40px;
+    height: 24px;
+    font-size: larger;
+    margin-left: 50px;
+}
+table#tabelaGrade input
+{
+    width: 60px;
+    height: 23px;
+    
+}
+table#tabelaGrade tr
+{
+ background-color:white;
+ color: black;
+ 
+}
+div#InfoNome
+{
+    text-align: center;
+    font-size: 30px;
+    
+}
+div#InfoRef{
+    text-align: center;
+    font-size: 16px;
+    
+}
+div#InfoValor
+{
+  text-align: center;
+  font-size: 22px;
+  color: green;
+}
+}
+div#ValorTotal
+{
+    
+}
+table#tabelaGrade thead
+{
+background-color: white;
+}
+</style>
+
+
+
+
+  <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "300px";
+}
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+</head>
+
+<body style="margin: 0px;border:none;">
+  
+
+
+  <div id="main">
+    <span style="
+    margin-top: 10px;" onclick="openNav()">
+      <div id = "notificacao" class="circulo">0</div>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="34px" viewBox="-59 0 473 473.913" width="34px"><linearGradient id="lg1"><stop offset="0" stop-color="#ECE9E6"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient><linearGradient id="linear0" gradientUnits="userSpaceOnUse" x1="177.457095" x2="177.457095" xlink:href="#lg1" y1="14.626" y2="460.945"/><linearGradient id="linear1" gradientUnits="userSpaceOnUse" x1="126.472095" x2="126.472095" xlink:href="#lg1" y1="14.626" y2="460.945"/><path d="m348.570312 123.914062h-72.113281v-28.613281c0-52.550781-42.949219-95.300781-95.5-95.300781s-95.5 42.75-95.5 95.300781v28.613281h-79.113281c-1.570312-.015624-3.082031.601563-4.1875 1.714844-1.109375 1.113282-1.722656 2.628906-1.699219 4.199219v261.097656c-.007812 45.757813 37.027344 82.886719 82.785157 82.988281h188.429687c45.757813-.101562 82.792969-37.230468 82.785156-82.988281v-261.097656c.023438-1.570313-.589843-3.085937-1.699219-4.199219-1.105468-1.113281-2.617187-1.730468-4.1875-1.714844zm-251.113281-28.613281c0-45.933593 37.566407-83.300781 83.5-83.300781 45.933594 0 83.5 37.367188 83.5 83.300781v28.613281h-167zm245 295.625c.015625 39.132813-31.652343 70.894531-70.785156 70.988281h-188.429687c-39.132813-.09375-70.800782-31.855468-70.785157-70.988281v-255.011719h73v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h167v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h66zm0 0" fill="url(#linear0)"/><path d="m77.683594 310.914062h97.574218c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6h-97.574218c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6zm0 0" fill="url(#linear1)"/><path d="m77.683594 344.914062c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6h199.546875c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6zm0 0" fill="url(#linear0)"/></svg>
+    </span>
+
+    <div class="top-menu">
+
+      <div id="tituloDiv" = style=" position: absolute; top: -3;">
+       <h1 class="titulo" style="
+        position: absolute;
+        left: 65px;
+        width: 100px;
+        margin-bottom: 10px;
+      
+       ">DIESEL</h1>
+
+       <h2 class="sub-titulo" style="
+         position: absolute;
+         left: 70px;
+         width: 100px;
+         margin-top: 1px;
+         top: 38px;
+         margin-bottom: 1px;
+         height: 20px;
+       
+       
+       ">Pedidos Online</h2>
+      </div>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">5 Pocktes Male</a>
+        <a href="#news">5 Pockets Female</a>
+        <a href="#contact">Collection Male</a>
+        <a href="#about">Collection Female</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i></a>
+</div>
+       
+
+    </div>
+
+
+  </div>  
+    <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">◄</a>
+
+
+  <table id="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Ref</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+
+    </tbody>
+</table>
+      <p><button onclick="fnExcelReport()">Exportar Excel</button></p>
+</div>
+    
+  <div id="5_pkt_male_corpo" style="margin: auto;position: sticky;text-align: center;">
+      <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
+  
+        <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$859 | R$1.695</h2>
+        <h2 id = "v_descri" class = "produto-descri">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
+        <h2 id = "referencia" style="display: none;">00S7VG084UU</h2>
+        <button id="incluir" onclick="abrirGrade(this.parentElement)" > Escolher Grade </button>
+       </div>
+      
+       <div id="produto_visu" class="visuali-produto"  style="">
+  
+        <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00C03G_C84MX_01-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">SAFADO L.32</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco"> R$856 | R$1.300  </h2>
+        <h2 id = "v_descri" class = "produto-descri">Jeans Safado com perna larga da coxa ao tornozelo</h2>
+        <h2 id = "referencia" style="display: none;">00C03GC84MX</h2>
+        <button id="incluir"  onclick="abrirGrade(this.parentElement)" > Escolher Grade </button>
+       </div>
+
+       </div>
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+       <span onclick="closespan()" class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+       <img onclick="trocarimg()" onerror="trocarimg(1)" class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+       <div id="caption"></div>
+   </div>
+
+   <!-- GRADE -->
+   <div id="ModalGrade" class="modalGrade" style="display: none;">
+     <span onclick="fecharGrade()" class="close">&times;</span>
+
+     <div id="InfoNome" >Buster</div>
+     
+     <div id="InfoValor" >R$800 | R$1300 </div>
+     <div id="InfoRef" >00SDHB05678</div>
+
+    <div id="Grade">
+    
+    
+      <table id="tabelaGrade">
+    <thead id=>
+
+        <tr>
+            <th>Grade</th>
+            <th>Quantidade</th>
+      
+        </tr>
+    </thead>
+    <tbody>
+
+         <tr>
+            <td id="gradetr">27</td>
+            <td><input id="input" type="Number" name=""></td>
+
+         </tr>
+         <tr>
+            <td id="gradetr">28</td>
+            <td><input id="input" type="Number" name=""></td>
+         </tr>
+
+    </tbody>
+     </table>
+
+     <div id="ValorTotal" >Total: 1000</div>   
+
+   </div>
+
+   <!-- SCRIPTS -->
+        <script>
+// Get the modal
+var modal = document.getElementById('myModal');
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('v_imagem');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+function openmodal(srcX){
+  modal.style.display = "block";
+  modalImg.src = srcX;
+  captionText.innerHTML = "Detalhes do Produto"
+}
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+function closespan() { 
+  modal.style.display = "none";
+}
+function mudarImagem()
+{
+  var imagem = document.getElementById("modalImg.src")
+}
+    function trocarimg(x)
+{
+ var link = document.getElementById("img01").src
+ var imgnum;
+imgnum = document.getElementById("img01").src[92] + document.getElementById("img01").src[93];
+if(x != 1)
+{
+var num = Number(imgnum[1]);
+num += 1;
+}else
+{
+num = 1;
+}
+ var rep = link.replace(imgnum,"-" + num.toString());
+ document.getElementById("img01").src = rep;
+console.log(x);
+ 
+}
+ function incluirPedido(produto)
+{
+var tabela = document.getElementById("table").getElementsByTagName("tbody").item(0);
+var novalinha = tabela.insertRow(tabela.rows.length);
+ var tags = produto.getElementsByTagName("*");
+for(var i = 0; i  < 3; i++)
+{
+   var novaCelula = novalinha.insertCell(i);
+   if(i == 0){
+   var texto = document.createTextNode(tags[1].innerText);
+   novaCelula.appendChild(texto);
+   }
+   else if(i == 1){
+   var texto = document.createTextNode(tags[3].innerText);
+   novaCelula.appendChild(texto);
+   }
+   else if(i == 2){
+   var texto = document.createTextNode(tags[5].innerText);
+   novaCelula.appendChild(texto);
+   }
+   else
+   {
+    var texto = document.createTextNode("X");
+    novaCelula.appendChild(texto);
+   }
+}
+var itensLen = document.getElementById("table").getElementsByTagName("tr");
+document.getElementById("notificacao").innerText = itensLen.length - 1;
+}
+    
+//GRADEEEEEE------------------------------------------------
+var ModalGrade = document.getElementById('ModalGrade');
+var infoNome = document.getElementById("InfoNome");
+var infoValor = document.getElementById("InfoValor");
+var infoRef = document.getElementById("InfoRef");
+function abrirGrade(produtoinf){
+ console.log(produtoinf)
+  var infosTag = produtoinf.getElementsByTagName("*");
+  //nome
+  infoNome.innerText = infosTag[1].innerText;
+  //valor
+  infoValor.innerText = infosTag[3].innerText;
+  //referencia
+  infoRef.innerText = infosTag[5].innerText;
+  ModalGrade.style.display = "block";
+}
+function fecharGrade() { 
+  ModalGrade.style.display = "none";
+}
+  </script>
+</body></html>
