@@ -543,6 +543,11 @@ function myFunction() {
     x.className = "topnav";
   }
 }
+
+
+
+
+
 </script>
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -815,6 +820,7 @@ function abrirGrade(produtoinf){
    var input = document.createElement("input");
    input.setAttribute("id","input");
    input.setAttribute("type","Number");
+   input.setAttribute("onchange","valortotal()");
    novaCelulaG.appendChild(input);
    }
 
@@ -827,6 +833,27 @@ function abrirGrade(produtoinf){
   infoRef.innerText = infosTag[4].innerText;
   ModalGrade.style.display = "block";
 }
+ function valortotal()
+{
+
+var valortotal = document.getElementById("ValorTotal"); 
+var tabela = document.getElementById("tabelaGrade").getElementsByTagName("tr");  
+var valor = Number(document.getElementById("InfoValor").innerText.replace("R$",""));
+var quantidade = 0
+
+
+for(var i = 1;i < tabela.length ;i++)
+{
+  quantidade += Number(tabela.item(i).cells[1].childNodes[0].value)
+}
+
+valortotal.innerText = "Total: R$" + (quantidade * valor);
+console.log(quantidade * valor);
+
+}
+
+
+
 function fecharGrade() { 
   ModalGrade.style.display = "none";
 }
