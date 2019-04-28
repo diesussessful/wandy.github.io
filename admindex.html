@@ -15,7 +15,7 @@
     // Altere o número 4 pelo número de colunas no TBODY
     // A cada linha de registro na tabela, sera excluído as duas ultimas colunas,
     // pois a coluna ACAO no THEAD ta setado o atributo 'colspan=2'
-    if (numberOfCells === 3) {
+    if (numberOfCells === 5) {
       
     } else {
       // Remove a coluna ACAO
@@ -112,7 +112,6 @@ align: middle; }
     left: 0px;
        
 }
-
 div#tituloDiv
 {
     position: absolute;
@@ -120,7 +119,6 @@ div#tituloDiv
     margin: auto;
     text-align: center;
     width: 100%;
-
 }
 h2#season
 {
@@ -507,6 +505,12 @@ div#InfoNome
     font-size: 30px;
     
 }
+div#InfoVarejo
+{
+    text-align: center;
+    font-size: 15px;
+    
+}
 div#InfoRef{
     text-align: center;
     font-size: 16px;
@@ -604,6 +608,7 @@ function myFunction() {
             <th>Nome</th>
             <th>Valor</th>
             <th>Ref</th>
+            <th>Varejo</th>
         </tr>
     </thead>
     <tbody>
@@ -662,9 +667,9 @@ function myFunction() {
      <span onclick="fecharGrade()" class="close">&times;</span>
 
      <div id="InfoNome" >Buster</div>
-     
-     <div id="InfoValor" >R$800 | R$1300 </div>
      <div id="InfoRef" >00SDHB05678</div>
+     <div id="InfoValor" >R$800</div>
+     <div id="InfoVarejo" >Varejo</div>
 
     <div id="Grade">
     
@@ -740,10 +745,13 @@ console.log(x);
 }
  function incluirPedido(produto)
 {
+
+var tags = document.getElementById("ModalGrade").getElementsByTagName("*");
+
 var tabela = document.getElementById("table").getElementsByTagName("tbody").item(0);
 var novalinha = tabela.insertRow(tabela.rows.length);
- var tags = produto.getElementsByTagName("*");
-for(var i = 0; i  < 3; i++)
+
+for(var i = 0; i  < 5; i++)
 {
    var novaCelula = novalinha.insertCell(i);
    if(i == 0){
@@ -758,8 +766,21 @@ for(var i = 0; i  < 3; i++)
    }
    //ref
    else if(i == 2){
-   var texto = document.createTextNode(tags[5].innerText);
+   var texto = document.createTextNode(tags[2].innerText);
    novaCelula.appendChild(texto);
+   }
+   else if(i == 3){
+   var texto = document.createTextNode(tags[4].innerText);
+   novaCelula.appendChild(texto);
+   }
+   else if(i == 4){
+     var gradeTamanhos = document.getElementById("tabelaGrade").getElementsByTagName("tr");
+     
+    for(var x = 1;x<gradeTamanhos.length;x++){
+     var texto = document.createTextNode(gradeTamanhos[x].innerText +" -- " + gradeTamanhos.item(x).cells[1].childNodes[0].value + " | ");
+       novaCelula.appendChild(texto);
+   }
+
    }
    else
    {
@@ -776,6 +797,7 @@ var ModalGrade = document.getElementById('ModalGrade');
 var infoNome = document.getElementById("InfoNome");
 var infoValor = document.getElementById("InfoValor");
 var infoRef = document.getElementById("InfoRef");
+var infoVarejo = document.getElementById("InfoVarejo");
 function abrirGrade(produtoinf){
   
   //Iniciando a colocação da grade;
@@ -812,10 +834,18 @@ function abrirGrade(produtoinf){
    //Informações do produto
   //nome
   infoNome.innerText = infosTag[1].innerText;
+   
+  //referencia
+  infoRef.innerText = infosTag[7].innerText;
+  
   //valor
   infoValor.innerText = infosTag[3].innerText;
-  //referencia
-  infoRef.innerText = infosTag[4].innerText;
+
+  //varejo 
+  infoVarejo.innerText = infosTag[4].innerText;
+
+  
+  
   ModalGrade.style.display = "block";
 }
  function valortotal()
