@@ -255,14 +255,26 @@ img#v_imagem
 }
 .produto-preco
 {
-  height: 28px;
+  height: 12px;
  
+}
+h2#v_precoVarejo.produto-preco
+{
+    height: 9px;
+    font-size: 13;
+    color: #903f3f;    
+    margin-top: 10px;
+    margin-bottom: 10.79;
+
 }
 .produto-descri
 {
   font-size: 10px;
-    margin-bottom: 5px;
+    
     margin-top: 1px;
+
+    margin-bottom: 4px;
+
 }
 .botao-visu
 {
@@ -286,6 +298,7 @@ img#v_imagem
 }
 h2#v_titulo
 {
+    margin: auto;
     margin-top: 1.92;
     margin-bottom: 2.92;
     height: 30px;
@@ -293,6 +306,7 @@ h2#v_titulo
 }
 h2#v_preco
 {
+      color: #1c5821;
   position: relative;
     margin-bottom: 10.92;
     margin-top: 0.92;
@@ -366,8 +380,8 @@ span {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  
+  background-color: rgba(255,255,255,1); /* Black w/ opacity */
 }
 /* Modal Content (Image) */
 .modal-content {
@@ -612,7 +626,8 @@ function myFunction() {
         <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
-        <h2 id="v_preco" class="produto-preco">R$859 | R$1.695</h2>
+        <h2 id="v_preco" class="produto-preco">R$859</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.695</h2>
         <h2 id = "v_descri" class = "produto-descri">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;34;37</h2>
         <h2 id = "referencia" style="display: none;">00S7VG084UU</h2>
@@ -624,7 +639,8 @@ function myFunction() {
         <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00C03G_C84MX_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SAFADO L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
-        <h2 id="v_preco" class="produto-preco"> R$856 | R$1.300  </h2>
+        <h2 id="v_preco" class="produto-preco"> R$856  </h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.695</h2>
         <h2 id = "v_descri" class = "produto-descri">Jeans Safado com perna larga da coxa ao tornozelo</h2>
         <h2 id="grade" style="display:none;">25;36;47;58;69;32</h2>
         <h2 id = "referencia" style="display: none;">00C03GC84MX</h2>
@@ -772,7 +788,7 @@ function abrirGrade(produtoinf){
   //Iniciando a colocação da grade;
   var infosTag = produtoinf.getElementsByTagName("*");
    //Modificar aqui caso algum elemento seja incuido no produto
-   var grade = infosTag[5].innerText.split(";",30);
+   var grade = infosTag[6].innerText.split(";",30);
    console.log(grade);
 
    var tabelaG = document.getElementById("tabelaGrade").getElementsByTagName("tbody").item(0);
@@ -808,7 +824,7 @@ function abrirGrade(produtoinf){
   //valor
   infoValor.innerText = infosTag[3].innerText;
   //referencia
-  infoRef.innerText = infosTag[6].innerText;
+  infoRef.innerText = infosTag[4].innerText;
   ModalGrade.style.display = "block";
 }
 function fecharGrade() { 
