@@ -97,29 +97,50 @@ align: middle; }
     @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 .titulo
 {
-    position: absolute;
+    
     top: 0;
     color: #FAFAFA;
-    left: 620px;
     margin-top: 7.44;
     font-family: 'Open Sans', sans-serif;
-    left: 50px;
-    width: 200px;
+    left: 50px; 
     height: 43px;
-    font-size: 29px;
+    font-size: 29px; 
+    position: relative;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+    left: 0px;
+       
 }
-.sub-titulo
+
+div#tituloDiv
 {
     position: absolute;
-    top: 0;
-    color: #FAFAFA;
-    left: 620px;
-    margin-top: 7.44;
-    font-family: 'Open Sans', sans-serif;
-    left: 50px;
-    width: 200px;
-    height: 43px;
-    font-size: 10px;
+    top: -3;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+
+}
+h2#season
+{
+   position: absolute;
+    /* left: 250px; */
+    
+    width: 100%;
+    margin-top: 9px;
+    top: 21px;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 12px;
+    top: 21px;
+    font-size: 14px;
+    font-size: italic;
+    margin-bottom: 1px;
+    height: 20px;
+    color: #fff900;
+    right: 0px;
+    left: 0px;
 }
 .top-menu
 {
@@ -129,23 +150,17 @@ align: middle; }
   top: 0;
   width: 100%;
 }
-
-
-
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: #333;
   overflow: hidden;
-
     margin: 0 auto;
     width: 100%;
     text-align: center;
     position: relative;
     top: 50px;
     z-index: 1;
-
 }
-
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -154,24 +169,20 @@ align: middle; }
     text-align: center;
     padding: 10px 10px 10px 10px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 12px;
     margin: 0 auto;
     position: relative;
-
 }
-
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
-
 /* Add an active class to highlight the current page */
 .active {
   background-color: #323232;
   color: white;
 }
-
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
   display: none;
@@ -184,7 +195,6 @@ align: middle; }
     display: block;
   }
 }
-
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
@@ -199,9 +209,6 @@ align: middle; }
     text-align: left;
   }
 }
-
-
-
 div#main
 {
   z-index: 100;
@@ -266,16 +273,13 @@ h2#v_precoVarejo.produto-preco
     color: #903f3f;    
     margin-top: 10px;
     margin-bottom: 10.79;
-
 }
 .produto-descri
 {
   font-size: 10px;
     
     margin-top: 1px;
-
     margin-bottom: 4px;
-
 }
 .botao-visu
 {
@@ -369,6 +373,7 @@ span {
     font-size: 41px;
     font-style: inherit;
     cursor: pointer;
+    z-index: 1;
 }
     /* The Modal (background) */
 .modal {
@@ -398,7 +403,7 @@ span {
   width: 80%;
   max-width: 700px;
   text-align: center;
-  color: #ccc;
+  color: #424040;
   padding: 10px 0;
   height: 150px;
 }
@@ -441,16 +446,16 @@ div#ModalGrade
 {
   animation-name: zoom;
   animation-duration: 0.6s;
-display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 5; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+display: none; 
+  position: fixed; 
+  z-index: 5; 
+  padding-top: 10px; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(255,255,255,1); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgba(255,255,255,1); opacity 
   font-family: 'Open Sans', sans-serif;
 }
 @keyframes zoom {
@@ -544,11 +549,6 @@ function myFunction() {
     x.className = "topnav";
   }
 }
-
-
-
-
-
 </script>
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -568,26 +568,15 @@ function myFunction() {
 
     <div class="top-menu">
 
-      <div id="tituloDiv" = style=" position: absolute; top: -3;">
-       <h1 class="titulo" style="
-        position: absolute;
-        left: 65px;
-        width: 100px;
-        margin-bottom: 10px;
-      
-       ">DIESEL</h1>
+      <div id="tituloDiv" = style=" ">
+       <h1 class="titulo" style=" ">DIESEL</h1>
 
-       <h2 class="sub-titulo" style="
-         position: absolute;
-         left: 70px;
-         width: 100px;
-         margin-top: 1px;
-         top: 38px;
-         margin-bottom: 1px;
-         height: 20px;
        
-       
-       ">Pedidos Online</h2>
+
+       <h2 id = "season" class="sub-titulo" style="
+        
+        
+       ">SUMMER SPRING 2019</h2>
       </div>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -629,7 +618,7 @@ function myFunction() {
 
       <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
   
-        <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
+        <img id="v_imagem" onclick= "openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$859</h2>
@@ -637,12 +626,13 @@ function myFunction() {
         <h2 id = "v_descri" class = "produto-descri">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;34;37</h2>
         <h2 id = "referencia" style="display: none;">00S7VG084UU</h2>
+        <h2 id = "v_detalhes" class = "produto-descri" style="display: none;" >Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
         <button id="incluir" onclick="abrirGrade(this.parentElement)" > Escolher Grade </button>
        </div>
       
        <div id="produto_visu" class="visuali-produto"  style="">
   
-        <img id="v_imagem" onclick= "openmodal(this.src)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00C03G_C84MX_01-1.jpg">
+        <img id="v_imagem" onclick= "openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00C03G_C84MX_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SAFADO L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco"> R$856  </h2>
@@ -650,6 +640,7 @@ function myFunction() {
         <h2 id = "v_descri" class = "produto-descri">Jeans Safado com perna larga da coxa ao tornozelo</h2>
         <h2 id="grade" style="display:none;">25;36;47;58;69;32</h2>
         <h2 id = "referencia" style="display: none;">00C03GC84MX</h2>
+        <h2 id = "v_detalhes" class = "produto-descri" style="display: none;" >Jeans Safado com perna larga da coxa ao tornozelo</h2>
         <button id="incluir"  onclick="abrirGrade(this.parentElement)" > Escolher Grade </button>
        </div>
 
@@ -703,7 +694,7 @@ function myFunction() {
      </table>
 
      <div id="ValorTotal" >Total: 1000</div>   
-     <button id="incluir" >Incluir grade</button>
+     <button id="incluir" onclick="incluirPedido()">Incluir grade</button>
    </div>
 
    <!-- SCRIPTS -->
@@ -714,10 +705,10 @@ var modal = document.getElementById('myModal');
 var img = document.getElementById('v_imagem');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
-function openmodal(srcX){
+function openmodal(srcX,detalhes){
   modal.style.display = "block";
   modalImg.src = srcX;
-  captionText.innerHTML = "Detalhes do Produto"
+  captionText.innerHTML = detalhes.getElementsByTagName("*")[8].innerText;
 }
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -775,11 +766,7 @@ for(var i = 0; i  < 3; i++)
     var texto = document.createTextNode("X");
     novaCelula.appendChild(texto);
    }
-
-
 }
-
-
 var itensLen = document.getElementById("table").getElementsByTagName("tr");
 document.getElementById("notificacao").innerText = itensLen.length - 1;
 }
@@ -796,9 +783,7 @@ function abrirGrade(produtoinf){
    //Modificar aqui caso algum elemento seja incuido no produto
    var grade = infosTag[6].innerText.split(";",30);
    console.log(grade);
-
    var tabelaG = document.getElementById("tabelaGrade").getElementsByTagName("tbody").item(0);
-
    //Limpando a tabela de tamanho antes de criar
     var limpar = document.getElementById("tabelaGrade");
      var len = limpar.rows.length;
@@ -824,7 +809,6 @@ function abrirGrade(produtoinf){
    input.setAttribute("onchange","valortotal()");
    novaCelulaG.appendChild(input);
    }
-
    //Informações do produto
   //nome
   infoNome.innerText = infosTag[1].innerText;
@@ -836,25 +820,17 @@ function abrirGrade(produtoinf){
 }
  function valortotal()
 {
-
 var valortotal = document.getElementById("ValorTotal"); 
 var tabela = document.getElementById("tabelaGrade").getElementsByTagName("tr");  
 var valor = Number(document.getElementById("InfoValor").innerText.replace("R$",""));
 var quantidade = 0
-
-
 for(var i = 1;i < tabela.length ;i++)
 {
   quantidade += Number(tabela.item(i).cells[1].childNodes[0].value)
 }
-
 valortotal.innerText = "Total: R$" + (quantidade * valor);
 console.log(quantidade * valor);
-
 }
-
-
-
 function fecharGrade() { 
   ModalGrade.style.display = "none";
 }
