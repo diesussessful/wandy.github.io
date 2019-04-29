@@ -233,12 +233,8 @@ div#btn-menu
 
 .categorias
 {
+animation: fadein 1s;
 
--webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 1s; /* Firefox < 16 */
-        -ms-animation: fadein 1s; /* Internet Explorer */
-         -o-animation: fadein 1s; /* Opera < 12.1 */
-            animation: fadein 1s;
 
 }
 @keyframes fadein {
@@ -694,7 +690,7 @@ function myFunction() {
         <img id="v_imagem" onclick= "openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SXJN_084ZD_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SLANDY L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
-        <h2 id="v_preco" class="produto-preco">R$452</h2>
+        <h2 id="v_preco" class="produto-preco">R$452,27</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$995</h2>
         <h2 id = "v_descri" class = "produto-descri">SLANDY</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
@@ -709,7 +705,7 @@ function myFunction() {
         <img id="v_imagem" onclick= "openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJNL_069CM_02-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">KRAILEY-B-NE</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
-        <h2 id="v_preco" class="produto-preco">R$497</h2>
+        <h2 id="v_preco" class="produto-preco">R$497,73</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00</h2>
         <h2 id = "v_descri" class = "produto-descri">KRAILEY-B-NE</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
@@ -804,7 +800,7 @@ function myFunction() {
     </tbody>
      </table>
 
-     <div id="ValorTotal" >Total: 0</div>   
+     <div id="ValorTotal" >Total: 1000</div>   
      <button id="incluir" onclick="incluirPedido()">Incluir grade</button>
    </div>
 
@@ -831,24 +827,27 @@ function mudarImagem()
 {
   var imagem = document.getElementById("modalImg.src")
 }
+
+
     function trocarimg(x)
 {
- var link = document.getElementById("img01").src
- var imgnum;
-imgnum = document.getElementById("img01").src[92] + document.getElementById("img01").src[93];
-if(x != 1)
-{
-var num = Number(imgnum[1]);
-num += 1;
-}else
-{
-num = 1;
+    var link = document.getElementById("img01").src
+    var imgnum;
+    imgnum = document.getElementById("img01").src[92] + document.getElementById("img01").src[93];
+    if(x != 1)
+      {
+        var num = Number(imgnum[1]);
+        num += 1;
+      }else
+      {
+        num = 1;
+      }
+      var rep = link.replace(imgnum,"-" + num.toString());
+      document.getElementById("img01").src = rep;
+      console.log(x); 
 }
- var rep = link.replace(imgnum,"-" + num.toString());
- document.getElementById("img01").src = rep;
-console.log(x);
- 
-}
+
+
  function incluirPedido(produto)
 {
 var tags = document.getElementById("ModalGrade").getElementsByTagName("*");
@@ -895,6 +894,8 @@ for(var i = 0; i  < 6; i++)
     novaCelula.appendChild(texto);
    }
 }
+document.getElementById("incluir").innerText = "Incluido aos pedidos";
+document.getElementById("incluir").style.background = "#1c7d24";
 var itensLen = document.getElementById("table").getElementsByTagName("tr");
 document.getElementById("notificacao").innerText = itensLen.length - 1;
 }
@@ -949,7 +950,8 @@ function abrirGrade(produtoinf){
   infoValor.innerText = infosTag[3].innerText;
   //varejo 
   infoVarejo.innerText = infosTag[4].innerText;
-  
+  document.getElementById("incluir").innerText = "INCLUIR GRADE";
+  document.getElementById("incluir").style.background = "#2d2d2d"; 
   
   ModalGrade.style.display = "block";
 }
