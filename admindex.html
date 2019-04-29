@@ -159,7 +159,7 @@ h2#season
     width: 100%;
     text-align: center;
     position: relative;
-    top: 50px;
+    top: 53px;
     z-index: 1;
 }
 /* Style the links inside the navigation bar */
@@ -319,16 +319,13 @@ h2#v_preco
     margin-top: 0.92;
   font-size:17px;
 }
-
 img#v_expandicon
 {
-
     position: absolute;
     left: 206.5;
     top: 266.667;
     width: 16px;
     cursor: pointer;
-
 }
 .circulo
 {
@@ -494,9 +491,7 @@ table#tabelaGrade
   box-shadow: 0 0 2px 0px black;
     width: 293px;
     height: 223px;
-
 }      
-
 button#incluir
 {
     top: 10px;
@@ -515,7 +510,6 @@ button#incluir
     right: 3px;
     position: relative;
 }
-
 table#tabelaGrade td#gradetr
 {
      color: black;
@@ -567,7 +561,6 @@ div#ValorTotal
 {
     
     margin-top: 10px;
-
 }
 table#tabelaGrade thead
 {
@@ -587,6 +580,23 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+
+function alterarCategoria(categoria)
+{
+if(categoria == 1)
+{
+ document.getElementById("5_pkt_male_corpo").style.display = "block";
+ document.getElementById("5_pkt_female_corpo").style.display = "none";
+}
+if(categoria == 2)
+{
+ document.getElementById("5_pkt_male_corpo").style.display = "none";
+ document.getElementById("5_pkt_female_corpo").style.display = "block";
+}
+
+}
+
+
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -627,8 +637,8 @@ function myFunction() {
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
       <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">5 Pockets Male</a>
-        <a href="#news">5 Pockets Female</a>
+        <a onclick="alterarCategoria(1)" style="cursor: pointer;"class="active">5 Pockets Male</a>
+        <a onclick="alterarCategoria(2)" style="cursor: pointer;">5 Pockets Female</a>
         <a href="#contact">Collection Male</a>
         <a href="#about">Collection Female</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -662,8 +672,28 @@ function myFunction() {
 </table>
       <p><button onclick="fnExcelReport()">Exportar Excel</button></p>
 </div>
-    
-  <div id="5_pkt_male_corpo" style="margin: auto;position: sticky;text-align: center;">
+  <div id="5_pkt_female_corpo" style="margin: auto;position: sticky;text-align: center;display: none;">
+
+    <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
+  
+        <img id="v_imagem" onclick= "openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SXJN_084ZD_01-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">SLANDY L.32</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$452,27</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$995</h2>
+        <h2 id = "v_descri" class = "produto-descri">SLANDY</h2>
+        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
+        <h2 id = "referencia" style="display: none;">00SXJN084ZD</h2>
+        <h2 id = "v_detalhes" class = "produto-descri" style="display: none;" >SLANDY</h2>
+        <button id="" onclick="abrirGrade(this.parentElement)" > Escolher Grade </button>
+        <img id="v_expandicon" onclick = "openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+       </div>
+
+
+
+
+  </div>  
+  <div id="5_pkt_male_corpo" style="margin: auto;position: sticky;text-align: center;display: block;">
 
       <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
   
