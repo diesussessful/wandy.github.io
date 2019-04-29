@@ -115,6 +115,35 @@ align: middle; }
     left: 0px;
        
 }
+
+.ModalInicio
+{
+    display: block;
+    background-color: #fafbfb;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+}
+.banner
+{
+    width: 300px;
+    margin: auto;
+    height: 300px;
+    background-color: #fffa3e;
+    position: relative;
+    top: 100px;
+    color: #2743d4;
+    font-family: 'Anton', sans-serif;
+    padding-top: 30px;
+    text-align: center;
+    box-shadow: 0 0 5px 0px black;
+
+
+}
+
+
 div#tituloDiv
 {
     position: absolute;
@@ -461,6 +490,8 @@ span {
 }
        </style>
 
+
+
 <!-----------GRADEEEEEE---------->
 <style type="text/css">
 div#ModalGrade
@@ -643,7 +674,7 @@ function myFunction() {
        <h2 id = "season" class="sub-titulo" style="
         
         
-       ">SUMMER SPRING 2019</h2>
+       ">SPRING & SUMMER 2019</h2>
       </div>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -763,6 +794,20 @@ function myFunction() {
   <!-- Modal Caption (Image Text) -->
        <div id="caption"></div>
    </div>
+  
+<!-- TELA DE INICIO -->
+    <div id="Inicio" class="ModalInicio" style="display: block;">
+     <span onclick="fecharInicio(this.parentElement)" class="close">&times;</span>
+     <div id="banner" class="banner">
+       
+       <h1>SS19 SPRING & SUMMER</h1>
+       <h2 style="font-size: medium;">AV.PAULISTA, 1009 - 7º</h2>
+       <h3 style="font-size: medium;">Contatos 11.99281-1160 - 11.99951-5652 - 11.97612-9119</h3>
+
+       <a style="text-decoration: blink;" href="https://www.instagram.com/diesel_brasil/">@DIESEL_BRASIL</a>
+
+     </div>
+     </div>
 
    <!-- GRADE -->
    <div id="ModalGrade" class="modalGrade" style="display: none;">
@@ -970,6 +1015,9 @@ console.log(quantidade * valor);
 }
 function fecharGrade() { 
   ModalGrade.style.display = "none";
+}
+function fecharInicio(x) { 
+  x.style.display = "none";
 }
   </script>
 </body></html>
