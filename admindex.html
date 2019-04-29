@@ -15,11 +15,11 @@
     // Altere o número 4 pelo número de colunas no TBODY
     // A cada linha de registro na tabela, sera excluído as duas ultimas colunas,
     // pois a coluna ACAO no THEAD ta setado o atributo 'colspan=2'
-    if (numberOfCells === 5) {
+    if (numberOfCells === 7) {
       
     } else {
       // Remove a coluna ACAO
-      row.deleteCell(-1);
+      //row.deleteCell(-1);
     }
     tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
   }
@@ -244,7 +244,7 @@ div#btn-menu
     padding-bottom: 27px;
     padding-left: 15px;
     margin: 0 auto;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 div.visuali-produto:hover
 {
@@ -433,7 +433,7 @@ span {
   position: absolute;
   top: 15px;
   right: 35px;
-  color: #f1f1f1;
+  color: #ada8a8;
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
@@ -461,7 +461,7 @@ div#ModalGrade
 display: none; 
   position: fixed; 
   z-index: 5; 
-  padding-top: 10px; 
+  padding-top: 30px;
   left: 0;
   top: 0;
   width: 100%; 
@@ -535,6 +535,7 @@ table#tabelaGrade tr
 {
  background-color:white;
  color: black;
+ height: 30px;
  
 }
 div#InfoNome
@@ -578,7 +579,7 @@ background-color: white;
 
   <script>
 function openNav() {
-  document.getElementById("mySidenav").style.width = "300px";
+  document.getElementById("mySidenav").style.width = "350px";
 }
 /* Set the width of the side navigation to 0 */
 function closeNav() {
@@ -648,7 +649,9 @@ function myFunction() {
             <th>Nome</th>
             <th>Valor</th>
             <th>Ref</th>
-            <th>Varejo</th>
+            <th style="display: none;" >Varejo</th>
+            <th>Valor Total</th>
+            <th style="display: none;" >Grade</th>
         </tr>
     </thead>
     <tbody>
@@ -669,7 +672,7 @@ function myFunction() {
         <h2 id="v_preco" class="produto-preco">R$859</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.695</h2>
         <h2 id = "v_descri" class = "produto-descri">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
-        <h2 id="grade" style="display:none;">27;28;29;30;34;37</h2>
+        <h2 id="grade" style="display:none;">27;28;29;30;34;37;40;47</h2>
         <h2 id = "referencia" style="display: none;">00S7VG084UU</h2>
         <h2 id = "v_detalhes" class = "produto-descri" style="display: none;" >Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
         <button id="" onclick="abrirGrade(this.parentElement)" > Escolher Grade </button>
@@ -698,8 +701,8 @@ function myFunction() {
        <span onclick="closespan()" class="close">&times;</span>
 
   <!-- Modal Content (The Image) -->
-       <img onclick="trocarimg()" onerror="trocarimg(1)" class="modal-content" id="img01">
-
+       <img onload="carregandoIcone(this)" onclick="trocarimg()" onerror="trocarimg(1)" class="modal-content" id="img01">
+        
   <!-- Modal Caption (Image Text) -->
        <div id="caption"></div>
    </div>
@@ -790,7 +793,7 @@ console.log(x);
 var tags = document.getElementById("ModalGrade").getElementsByTagName("*");
 var tabela = document.getElementById("table").getElementsByTagName("tbody").item(0);
 var novalinha = tabela.insertRow(tabela.rows.length);
-for(var i = 0; i  < 5; i++)
+for(var i = 0; i  < 6; i++)
 {
    var novaCelula = novalinha.insertCell(i);
    if(i == 0){
@@ -811,6 +814,7 @@ for(var i = 0; i  < 5; i++)
    else if(i == 3){
    var texto = document.createTextNode(tags[4].innerText);
    novaCelula.appendChild(texto);
+   novaCelula.setAttribute("style","display:none;");
    }
    else if(i == 4){
      var gradeTamanhos = document.getElementById("tabelaGrade").getElementsByTagName("tr");
@@ -818,7 +822,11 @@ for(var i = 0; i  < 5; i++)
     for(var x = 1;x<gradeTamanhos.length;x++){
      var texto = document.createTextNode(gradeTamanhos[x].innerText +" -- " + gradeTamanhos.item(x).cells[1].childNodes[0].value + " | ");
        novaCelula.appendChild(texto);
+       novaCelula.setAttribute("style","display:none;");
    }
+   }else if(i == 5){
+   var texto = document.createTextNode(document.getElementById("ValorTotal").innerText.replace("Total: ",""));
+   novaCelula.appendChild(texto);
    }
    else
    {
