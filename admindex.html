@@ -230,6 +230,21 @@ div#btn-menu
   margin-left: 160px;
   padding: 0px 10px;
 }
+
+.categorias
+{
+
+-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 .visuali-produto
 {
   font-family: 'Open Sans', sans-serif;
@@ -672,7 +687,7 @@ function myFunction() {
 </table>
       <p><button onclick="fnExcelReport()">Exportar Excel</button></p>
 </div>
-  <div id="5_pkt_female_corpo" style="margin: auto;position: sticky;text-align: center;display: none;">
+  <div id="5_pkt_female_corpo" class="Categorias" style="margin: auto;position: sticky;text-align: center;display: none;">
 
     <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
   
@@ -689,11 +704,26 @@ function myFunction() {
         <img id="v_expandicon" onclick = "openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
 
+        <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
+  
+        <img id="v_imagem" onclick= "openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJNL_069CM_02-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">KRAILEY-B-NE</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$497,73</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00</h2>
+        <h2 id = "v_descri" class = "produto-descri">KRAILEY-B-NE</h2>
+        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
+        <h2 id = "referencia" style="display: none;">00SJNL069CM</h2>
+        <h2 id = "v_detalhes" class = "produto-descri" style="display: none;" >KRAILEY-B-NE</h2>
+        <button id="" onclick="abrirGrade(this.parentElement)" > Escolher Grade </button>
+        <img id="v_expandicon" onclick = "openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+       </div>
+
 
 
 
   </div>  
-  <div id="5_pkt_male_corpo" style="margin: auto;position: sticky;text-align: center;display: block;">
+  <div id="5_pkt_male_corpo" class="Categorias" style="margin: auto;position: sticky;text-align: center;display: block;">
 
       <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
   
