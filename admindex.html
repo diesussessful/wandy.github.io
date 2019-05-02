@@ -12,10 +12,8 @@
   {
     var row = tab.rows[j];
     var numberOfCells = row.cells.length;
-    // Altere o número 4 pelo número de colunas no TBODY
-    // A cada linha de registro na tabela, sera excluído as duas ultimas colunas,
-    // pois a coluna ACAO no THEAD ta setado o atributo 'colspan=2'
-    if (numberOfCells === 7) {
+    
+    if (numberOfCells === 8) {
       
     } else {
       // Remove a coluna ACAO
@@ -35,7 +33,7 @@
     txtArea1.document.write(tab_text);
     txtArea1.document.close();
     txtArea1.focus(); 
-    sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+    sa=txtArea1.document.execCommand("SaveAs",true,"PedidoOnline.xls");
   }  
   else                 //other browser not tested on IE 11
     sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text)); 
@@ -115,7 +113,6 @@ align: middle; }
     left: 0px;
        
 }
-
 .ModalInicio
 {
     display: block;
@@ -139,11 +136,7 @@ align: middle; }
     padding-top: 30px;
     text-align: center;
     box-shadow: 0 0 5px 0px black;
-
-
 }
-
-
 div#tituloDiv
 {
     position: absolute;
@@ -259,12 +252,9 @@ div#btn-menu
   margin-left: 160px;
   padding: 0px 10px;
 }
-
 .categorias
 {
 animation: fadein 1s;
-
-
 }
 @keyframes fadein {
     from { opacity: 0; }
@@ -615,30 +605,26 @@ background-color: white;
 
   <script>
 function openNav() {
-  document.getElementById("mySidenav").style.width = "350px";
+  document.getElementById("mySidenav").style.width = "400px";
 }
 /* Set the width of the side navigation to 0 */
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-
 function alterarCategoria(categoria)
 {
 if(categoria == 1)
 {
- document.getElementById("5_pkt_male_corpo").style.display = "block";
- document.getElementById("5_pkt_female_corpo").style.display = "none";
+ document.getElementById("5Pockets_Male").style.display = "block";
+ document.getElementById("5Pockets_Female").style.display = "none";
 }
 if(categoria == 2)
 {
- document.getElementById("5_pkt_male_corpo").style.display = "none";
- document.getElementById("5_pkt_female_corpo").style.display = "block";
+ document.getElementById("5Pockets_Male").style.display = "none";
+ document.getElementById("5Pockets_Female").style.display = "block";
 }
-
 }
-
-
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -705,6 +691,7 @@ function myFunction() {
           <th style="display: none;" >Varejo</th>
             <th style="display: none;" >Grade</th>
             <th>Valor Total</th>
+            <th>Categoria</th>
         </tr>
     </thead>
     <tbody>
@@ -712,9 +699,9 @@ function myFunction() {
 
     </tbody>
 </table>
-      <p><button onclick="fnExcelReport()">Exportar Excel</button></p>
+      <p><button onclick="fnExcelReport()">Baixar para Excel</button></p>
 </div>
-  <div id="5_pkt_female_corpo" class="Categorias" style="margin: auto;position: sticky;text-align: center;display: none;">
+  <div id="5Pockets_Female" class="Categorias" style="margin: auto;position: sticky;text-align: center;display: none;">
 
     <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
   
@@ -750,7 +737,7 @@ function myFunction() {
 
 
   </div>  
-  <div id="5_pkt_male_corpo" class="Categorias" style="margin: auto;position: sticky;text-align: center;display: block;">
+  <div id="5Pockets_Male" class="Categorias" style="margin: auto;position: sticky;text-align: center;display: block;">
 
       <div id="produto_visu" class="visuali-produto"  style=" font-family: 'Open Sans', sans-serif;">
   
@@ -845,7 +832,7 @@ function myFunction() {
     </tbody>
      </table>
 
-     <div id="ValorTotal" >Total: 1000</div>   
+     <div id="ValorTotal" >Total: 0</div>   
      <button id="incluir" onclick="incluirPedido()">Incluir grade</button>
    </div>
 
@@ -857,6 +844,9 @@ var modal = document.getElementById('myModal');
 var img = document.getElementById('v_imagem');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
+
+var prod;
+
 function openmodal(srcX,detalhes){
   modal.style.display = "block";
   modalImg.src = detalhes.getElementsByTagName("*")[0].src;
@@ -872,8 +862,6 @@ function mudarImagem()
 {
   var imagem = document.getElementById("modalImg.src")
 }
-
-
     function trocarimg(x)
 {
     var link = document.getElementById("img01").src
@@ -891,16 +879,24 @@ function mudarImagem()
       document.getElementById("img01").src = rep;
       console.log(x); 
 }
-
-
  function incluirPedido(produto)
 {
 var tags = document.getElementById("ModalGrade").getElementsByTagName("*");
 var tabela = document.getElementById("table").getElementsByTagName("tbody").item(0);
 var novalinha = tabela.insertRow(tabela.rows.length);
+console.log(prod);
+var categoria = prod.parentElement.getAttribute("id");
+   //Adiciona a categoria na planilha
+   var novaCelula = novalinha.insertCell(0);
+   var texto = document.createTextNode(categoria);
+
+   novaCelula.appendChild(texto);
 for(var i = 0; i  < 6; i++)
 {
    var novaCelula = novalinha.insertCell(i);
+   
+   
+
    if(i == 0){
     //nome
    var texto = document.createTextNode(tags[1].innerText);
@@ -952,7 +948,7 @@ var infoValor = document.getElementById("InfoValor");
 var infoRef = document.getElementById("InfoRef");
 var infoVarejo = document.getElementById("InfoVarejo");
 function abrirGrade(produtoinf){
-  
+  prod = produtoinf;
   //Iniciando a colocação da grade;
   var infosTag = produtoinf.getElementsByTagName("*");
    //Modificar aqui caso algum elemento seja incuido no produto
@@ -996,8 +992,7 @@ function abrirGrade(produtoinf){
   //varejo 
   infoVarejo.innerText = infosTag[4].innerText;
   document.getElementById("incluir").innerText = "INCLUIR GRADE";
-  document.getElementById("incluir").style.background = "#2d2d2d";
-  document.getElementById("ValorTotal").innerText = "Total: 0";
+  document.getElementById("incluir").style.background = "#2d2d2d"; 
   
   ModalGrade.style.display = "block";
 }
