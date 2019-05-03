@@ -161,7 +161,7 @@ h2#season
     font-size: italic;
     margin-bottom: 1px;
     height: 20px;
-    color: #77750e;
+    color: #5f5e33;
     right: 0px;
     left: 0px;
 }
@@ -1069,21 +1069,21 @@ for(var i = 0; i  < 6; i++)
    
    if(i == 0){
     //nome
-   var texto = document.createTextNode(tags[1].innerText);
+   var texto = document.createTextNode(tags[2].innerText);
    novaCelula.appendChild(texto);
    }
    //valor
    else if(i == 1){
-   var texto = document.createTextNode(tags[3].innerText);
+   var texto = document.createTextNode(tags[4].innerText);
    novaCelula.appendChild(texto);
    }
    //ref
    else if(i == 2){
-   var texto = document.createTextNode(tags[2].innerText);
+   var texto = document.createTextNode(tags[3].innerText);
    novaCelula.appendChild(texto);
    }
    else if(i == 3){
-   var texto = document.createTextNode(tags[4].innerText);
+   var texto = document.createTextNode(tags[5].innerText);
    novaCelula.appendChild(texto);
    novaCelula.setAttribute("style","display:none;");
    }
