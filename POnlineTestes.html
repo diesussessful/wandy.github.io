@@ -278,6 +278,7 @@ animation: fadein 1s;
     padding-left: 10px;
     margin: 0 auto;
     margin-bottom: 25px;
+    cursor: pointer;
   
 }
 div.visuali-produto:hover
@@ -485,7 +486,7 @@ span {
 
 
 
-<!-----------GRADEEEEEE---------->
+<!---GRADEEEEEE-->
 <style type="text/css">
 div#ModalGrade
 {
@@ -494,7 +495,7 @@ div#ModalGrade
 display: none; 
   position: fixed; 
   z-index: 5; 
-  padding-top: 30px;
+  padding-bottom: : 30px;
   left: 0;
   top: 0;
   width: 100%; 
@@ -514,12 +515,16 @@ display: none;
 }
 div#Grade
 {
-margin:0 auto;
-    margin: 0 auto;
+
+    
+    margin-top: 40px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
     text-align: center;
-    margin-top: 100px;
     width: max-content;
     font-family: 'Open Sans', sans-serif;
+
 } 
 table#tabelaGrade
 {
@@ -578,6 +583,9 @@ div#InfoVarejo
 {
     text-align: center;
     font-size: 15px;
+
+    margin-bottom: 15px;
+
     
 }
 div#InfoRef{
@@ -601,6 +609,102 @@ table#tabelaGrade thead
 {
 background-color: white;
 }
+
+div#corpo_modal_grade
+{
+
+    height: 100%;
+    position: relative;
+    text-align: center;
+    
+    display: table;
+    margin: 0 auto;
+    top: 55px;
+}
+div#detalhe_expandivel
+{
+
+    /* margin: auto; */
+    margin-right: auto;
+    margin-left: auto;
+    width: 101px;
+    /* border: 5px black; */
+    height: 21px;
+    padding-bottom: 10px;
+    text-align: center;
+    padding-top: 10px;
+    padding-right: 100px;
+    box-shadow: 0 0 1px black;
+    padding-left: 95px;
+    
+    margin-top: 10px;
+
+
+
+}
+img#imgGrade
+{
+    box-shadow: 0 0 1px 0px #b5b5b5;
+
+}
+
+h4#detalheshide
+{
+    display: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    color: black;
+    display: block;
+    width: 289px;
+    height: 208px;
+    position: relative;
+    left: 0px;
+    top: -95px;
+    left: -94px;
+    bottom: 0px;
+    
+}
+
+div#conteiner
+{
+    float: left;
+    width: 300px;
+    display: table-cell;
+    padding-bottom: 3px;
+    margin-left: 0px
+    height: 466px;
+    
+}
+
+div#gradeResponsiva
+{
+    max-width: 301px;
+    max-height: 320px;
+    
+    float: left;
+   
+    margin-right: 15px;
+
+    position: relative;
+    margin-bottom: 82px;
+    height: 361px;
+    margin-left: 0;
+}
+
+@media  (max-width: 700px){
+  div#gradeResponsiva {
+    max-width: 301px;
+    max-height: 320px;
+    
+    float: none;
+   
+    position: relative;
+    margin-bottom: 82px;
+    height: 361px;
+    margin-left: 0;
+  }
 </style>
 
 
@@ -636,6 +740,27 @@ function myFunction() {
     x.className = "topnav";
   }
 }
+var hide = true;
+function detalheExpand(x)
+{
+  if(hide){
+  
+  document.getElementById("detalhe_expandivel").style.transition = "0.1s";
+  document.getElementById("detalhe_expandivel").style.padding = "100px 100px";
+  document.getElementById("detalheshide").style.display = "block";
+  document.getElementById("h3hide").style.display = "none";
+  hide = false;
+  }else
+  {
+  
+  document.getElementById("detalhe_expandivel").style.transition = "0.1s";
+  document.getElementById("detalhe_expandivel").style.padding = "10px 100px"
+  document.getElementById("detalheshide").style.display = "none";
+  document.getElementById("h3hide").style.display = "block";
+  hide = true;
+  }
+}
+
 </script>
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -706,9 +831,9 @@ function myFunction() {
 </div>
   <div id="5Pockets_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
 
-    <div id="produto_visu" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
+    <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
-        <img id="v_imagem" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SXJN_084ZD_01-1.jpg">
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SXJN_084ZD_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SLANDY L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$452.27</h2>
@@ -717,13 +842,12 @@ function myFunction() {
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SXJN084ZD</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
-        <button id="" onclick="abrirGrade(this.parentElement)"> Escolher Grade </button>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
 
-        <div id="produto_visu" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
+        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
-        <img id="v_imagem" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJNL_069CM_02-1.jpg">
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJNL_069CM_02-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">KRAILEY-B-NE</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$497.73</h2>
@@ -731,8 +855,7 @@ function myFunction() {
         <h2 id="v_descri" class="produto-descri">KRAILEY-B-NE</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SJNL069CM</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;">KRAILEY-B-NE</h2>
-        <button id="" onclick="abrirGrade(this.parentElement)"> Escolher Grade </button>
+        <h2 id="v_detalhes" class="produto-descri" style="display: none;">KRAILEY-B-NE</h2>   
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
 
@@ -742,9 +865,9 @@ function myFunction() {
   </div>  
   <div id="5Pockets_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: block;">
 
-      <div id="produto_visu" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
+      <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
-        <img id="v_imagem" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$859</h2>
@@ -753,13 +876,12 @@ function myFunction() {
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00S7VG084UU</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
-        <button id="" onclick="abrirGrade(this.parentElement)"> Escolher Grade </button>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
       
-       <div id="produto_visu" class="visuali-produto" style="">
+       <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
   
-        <img id="v_imagem" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00C03G_C84MX_01-1.jpg">
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00C03G_C84MX_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SAFADO L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco"> R$856  </h2>
@@ -768,7 +890,6 @@ function myFunction() {
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00C03GC84MX</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">Jeans Safado com perna larga da coxa ao tornozelo</h2>
-        <button id="" onclick="abrirGrade(this.parentElement)"> Escolher Grade </button>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
 
@@ -802,11 +923,56 @@ function myFunction() {
    <!-- GRADE -->
    <div id="ModalGrade" class="modalGrade" style="display: none;">
      <span onclick="fecharGrade()" class="close">×</span>
+     
 
+
+    <div id="corpo_modal_grade" style="
+    height: 100%;
+    position: relative;
+    text-align: center;
+    /* margin: auto; */
+    /* left: auto; */
+    display: table;
+    margin: 0 auto;
+    /* margin-left: 10%; */
+    /* margin-right: 50%; */
+" >
      <div id="InfoNome">Buster</div>
      <div id="InfoRef">00SDHB05678</div>
      <div id="InfoValor">R$800</div>
      <div id="InfoVarejo">Varejo</div>
+
+     <div id="gradeResponsiva"
+   style=""> <img onclick="openmodal(this.src,this.parentElement)"  style="
+    max-width: 300px;
+    max-height: 424px;
+    " id="imgGrade" src=""> </div>
+    <div id="conteiner" style="
+    
+    float: left;
+    width: 300px;
+    display: table-cell;
+    padding-bottom: 3px;
+    /* display: contents; */
+    height: 466px;
+    
+
+">
+    <div id ="detalhe_expandivel" onclick="detalheExpand(this)"> 
+    <h3 id = "h3hide" style="
+    margin-top: 0px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: black;
+    ">Detalhes</h3>
+
+    <h4 id="detalheshide" style="
+    display: none;
+    ">Tudo que você pode esperar encontrar em uma coleção de Jeans da Diesel.As lavagens que você espera, procura e deseja encontrar em qualquer coleção de jeans que valha a pena. Um Jeans para cada ocasião. Do mais básico ao mais detalhado. Do mais escuro ao mais claro. Um Jeans para todos os dias. Todos os momentos. Mas não para todo mundo.</h4>
+     
+     </div>
 
     <div id="Grade">
     
@@ -838,7 +1004,8 @@ function myFunction() {
      <div id="ValorTotal">Total: 0</div>   
      <button id="incluir" onclick="incluirPedido()">Incluir grade</button>
    </div>
-
+   </div>
+   </div>
    <!-- SCRIPTS -->
         <script>
 // Get the modal
@@ -847,13 +1014,12 @@ var modal = document.getElementById('myModal');
 var img = document.getElementById('v_imagem');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
-
 var prod;
-
 function openmodal(srcX,detalhes){
   modal.style.display = "block";
+  document.getElementById("myModal").style.zIndex = "10";
   modalImg.src = detalhes.getElementsByTagName("*")[0].src;
-  captionText.innerHTML = detalhes.getElementsByTagName("*")[8].innerText;
+ // captionText.innerHTML = detalhes.getElementsByTagName("*")[8].innerText;
 }
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -892,14 +1058,15 @@ var categoria = prod.parentElement.getAttribute("id");
    //Adiciona a categoria na planilha
    var novaCelula = novalinha.insertCell(0);
    var texto = document.createTextNode(categoria);
-
    novaCelula.appendChild(texto);
+   prod.style.boxShadow = "0 0 2px 0px #47b374";
+   //prod.getElementsByTagName("button").item(0).style.backgroundColor = "#1c7d24";
+   //prod.getElementsByTagName("button").item(0).innerText = "Incluído"; 
 for(var i = 0; i  < 6; i++)
 {
    var novaCelula = novalinha.insertCell(i);
    
    
-
    if(i == 0){
     //nome
    var texto = document.createTextNode(tags[1].innerText);
@@ -952,6 +1119,7 @@ var infoRef = document.getElementById("InfoRef");
 var infoVarejo = document.getElementById("InfoVarejo");
 function abrirGrade(produtoinf){
   prod = produtoinf;
+   document.getElementById("imgGrade").src = prod.getElementsByTagName("img").item(0).src;
   //Iniciando a colocação da grade;
   var infosTag = produtoinf.getElementsByTagName("*");
    //Modificar aqui caso algum elemento seja incuido no produto
@@ -995,7 +1163,9 @@ function abrirGrade(produtoinf){
   //varejo 
   infoVarejo.innerText = infosTag[4].innerText;
   document.getElementById("incluir").innerText = "INCLUIR GRADE";
-  document.getElementById("incluir").style.background = "#2d2d2d"; 
+  document.getElementById("incluir").style.background = "#2d2d2d";
+  document.getElementById("ValorTotal").innerText = "Total";
+  document.getElementById("ValorTotal").style.color = "#1c7d24"; 
   
   ModalGrade.style.display = "block";
 }
@@ -1018,6 +1188,7 @@ function fecharGrade() {
 function fecharInicio(x) { 
   x.style.display = "none";
 }
+
   </script>
 
 </div></body></html>
