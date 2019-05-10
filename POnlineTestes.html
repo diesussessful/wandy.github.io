@@ -165,6 +165,11 @@ h2#season
     right: 0px;
     left: 0px;
 }
+span#sacola
+{
+  z-index: 10;
+}
+
 .top-menu
 {
   font-family: 'Open Sans', sans-serif;
@@ -279,6 +284,7 @@ animation: fadein 1s;
     margin: 0 auto;
     margin-bottom: 25px;
     cursor: pointer;
+    display: inline-grid;
   
 }
 div.visuali-produto:hover
@@ -382,7 +388,7 @@ img#v_expandicon
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 11; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #111; /* Black*/
@@ -515,7 +521,6 @@ display: none;
 }
 div#Grade
 {
-
     
     margin-top: 40px;
     margin-right: auto;
@@ -524,7 +529,6 @@ div#Grade
     text-align: center;
     width: max-content;
     font-family: 'Open Sans', sans-serif;
-
 } 
 table#tabelaGrade
 {
@@ -583,9 +587,7 @@ div#InfoVarejo
 {
     text-align: center;
     font-size: 15px;
-
     margin-bottom: 15px;
-
     
 }
 div#InfoRef{
@@ -609,10 +611,8 @@ table#tabelaGrade thead
 {
 background-color: white;
 }
-
 div#corpo_modal_grade
 {
-
     height: 100%;
     position: relative;
     text-align: center;
@@ -623,7 +623,6 @@ div#corpo_modal_grade
 }
 div#detalhe_expandivel
 {
-
     /* margin: auto; */
     margin-right: auto;
     margin-left: auto;
@@ -638,16 +637,11 @@ div#detalhe_expandivel
     padding-left: 95px;
     
     margin-top: 10px;
-
-
-
 }
 img#imgGrade
 {
     box-shadow: 0 0 1px 0px #b5b5b5;
-
 }
-
 h4#detalheshide
 {
     display: none;
@@ -666,7 +660,6 @@ h4#detalheshide
     bottom: 0px;
     
 }
-
 div#conteiner
 {
     float: left;
@@ -677,7 +670,6 @@ div#conteiner
     height: 466px;
     
 }
-
 div#gradeResponsiva
 {
     max-width: 301px;
@@ -686,13 +678,11 @@ div#gradeResponsiva
     float: left;
    
     margin-right: 15px;
-
     position: relative;
     margin-bottom: 82px;
     height: 361px;
     margin-left: 0;
 }
-
 @media  (max-width: 700px){
   div#gradeResponsiva {
     max-width: 301px;
@@ -706,10 +696,6 @@ div#gradeResponsiva
     margin-left: 0;
   }
 </style>
-
-
-
-
   <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "400px";
@@ -760,38 +746,27 @@ function detalheExpand(x)
   hide = true;
   }
 }
-
 </script>
-
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 </head>
-
 <body style="margin: 0px;border:none;">
   
-
-
   <div id="main">
-    <span style="
+    <span id = "sacola" style="
     margin-top: 10px;" onclick="openNav()">
       <div id="notificacao" class="circulo">0</div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="34px" viewBox="-59 0 473 473.913" width="34px"><linearGradient id="lg1"><stop offset="0" stop-color="#382d2d"></stop><stop offset="1" stop-color="#868686"></stop></linearGradient><linearGradient id="linear0" gradientUnits="userSpaceOnUse" x1="177.457095" x2="177.457095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><linearGradient id="linear1" gradientUnits="userSpaceOnUse" x1="126.472095" x2="126.472095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><path d="m348.570312 123.914062h-72.113281v-28.613281c0-52.550781-42.949219-95.300781-95.5-95.300781s-95.5 42.75-95.5 95.300781v28.613281h-79.113281c-1.570312-.015624-3.082031.601563-4.1875 1.714844-1.109375 1.113282-1.722656 2.628906-1.699219 4.199219v261.097656c-.007812 45.757813 37.027344 82.886719 82.785157 82.988281h188.429687c45.757813-.101562 82.792969-37.230468 82.785156-82.988281v-261.097656c.023438-1.570313-.589843-3.085937-1.699219-4.199219-1.105468-1.113281-2.617187-1.730468-4.1875-1.714844zm-251.113281-28.613281c0-45.933593 37.566407-83.300781 83.5-83.300781 45.933594 0 83.5 37.367188 83.5 83.300781v28.613281h-167zm245 295.625c.015625 39.132813-31.652343 70.894531-70.785156 70.988281h-188.429687c-39.132813-.09375-70.800782-31.855468-70.785157-70.988281v-255.011719h73v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h167v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h66zm0 0" fill="url(#linear0)"></path><path d="m77.683594 310.914062h97.574218c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6h-97.574218c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6zm0 0" fill="url(#linear1)"></path><path d="m77.683594 344.914062c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6h199.546875c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6zm0 0" fill="url(#linear0)"></path></svg>
     </span>
-
     <div class="top-menu">
-
       <div id="tituloDiv" =="" style=" ">
        <h1 class="titulo" style=" ">DIESEL</h1>
-
        
-
        <h2 id="season" class="sub-titulo" style="
         
         
        ">SPRING &amp; SUMMER 2019</h2>
       </div>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
       <div class="topnav" id="myTopnav">
         <a onclick="alterarCategoria(1);myFunction()" style="cursor: pointer;" class="active">5 Pockets Male</a>
         <a onclick="alterarCategoria(2);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">5 Pockets Female</a>
@@ -801,15 +776,10 @@ function detalheExpand(x)
         <i class="fa fa-bars"></i></a>
 </div>
        
-
     </div>
-
-
   </div>  
     <div id="mySidenav" class="sidenav" style="width: 0px;">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">◄</a>
-
-
   <table id="table">
     <thead>
         <tr>
@@ -824,13 +794,11 @@ function detalheExpand(x)
     </thead>
     <tbody>
         
-
     </tbody>
 </table>
       <p><button onclick="fnExcelReport()">Baixar para Excel</button></p>
 </div>
   <div id="5Pockets_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
-
     <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SXJN_084ZD_01-1.jpg">
@@ -847,6 +815,21 @@ function detalheExpand(x)
 
         <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SMMV_086AW_01-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">D-EBBEY L.32</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$497,73</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00 </h2>
+        <h2 id="v_descri" class="produto-descri">Bootcut style with a low waist and higher back coverage.</h2>
+        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
+        <h2 id="referencia" style="display: none;">00SMMV086AW</h2>
+        <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
+        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+       </div>
+
+
+        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
+  
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJNL_069CM_02-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">KRAILEY-B-NE</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
@@ -858,13 +841,8 @@ function detalheExpand(x)
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">KRAILEY-B-NE</h2>   
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
-
-
-
-
   </div>  
   <div id="5Pockets_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: block;">
-
       <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
@@ -893,14 +871,25 @@ function detalheExpand(x)
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
 
+       <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
+  
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SW1Q_087AM_02-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">THOMMER L.32</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$361.36</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido:R$795,00 </h2>
+        <h2 id="v_descri" class="produto-descri">Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa.</h2>
+        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
+        <h2 id="referencia" style="display: none;">00SW1Q087AM</h2>
+        <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
+        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+       </div>
+
        </div>
 <div id="myModal" class="modal">
-
   <!-- The Close Button -->
        <span onclick="closespan()" class="close">×</span>
-
   <!-- Modal Content (The Image) -->
-
        <img  onclick="trocarimg()" onerror="trocarimg(1)" class="modal-content" id="img01">
         
   <!-- Modal Caption (Image Text) -->
@@ -915,18 +904,13 @@ function detalheExpand(x)
        <h1>SS19 SPRING &amp; SUMMER</h1>
        <h2 style="font-size: medium;">AV.PAULISTA, 1009 - 7º</h2>
        <h3 style="font-size: medium;">Contatos 11.99281-1160 - 11.99951-5652 - 11.97612-9119</h3>
-
        <a style="text-decoration: blink;" href="https://www.instagram.com/diesel_brasil/">@DIESEL_BRASIL</a>
-
      </div>
      </div>
-
    <!-- GRADE -->
    <div id="ModalGrade" class="modalGrade" style="display: none;">
      <span onclick="fecharGrade()" class="close">×</span>
      
-
-
     <div id="corpo_modal_grade" style="
     height: 100%;
     position: relative;
@@ -942,7 +926,6 @@ function detalheExpand(x)
      <div id="InfoRef">00SDHB05678</div>
      <div id="InfoValor">R$800</div>
      <div id="InfoVarejo">Varejo</div>
-
      <div id="gradeResponsiva"
    style=""> <img onclick="openmodal(this.src,this.parentElement)"  style="
     max-width: 300px;
@@ -957,7 +940,6 @@ function detalheExpand(x)
     /* display: contents; */
     height: 466px;
     
-
 ">
     <div id ="detalhe_expandivel" onclick="detalheExpand(this)"> 
     <h3 id = "h3hide" style="
@@ -968,19 +950,16 @@ function detalheExpand(x)
     font-size: 15px;
     color: black;
     ">Detalhes</h3>
-
     <h4 id="detalheshide" style="
     display: none;
     ">Tudo que você pode esperar encontrar em uma coleção de Jeans da Diesel.As lavagens que você espera, procura e deseja encontrar em qualquer coleção de jeans que valha a pena. Um Jeans para cada ocasião. Do mais básico ao mais detalhado. Do mais escuro ao mais claro. Um Jeans para todos os dias. Todos os momentos. Mas não para todo mundo.</h4>
      
      </div>
-
     <div id="Grade">
     
     
       <table id="tabelaGrade">
     <thead id="">
-
         <tr>
             <th>Grade</th>
             <th>Quantidade</th>
@@ -988,20 +967,16 @@ function detalheExpand(x)
         </tr>
     </thead>
     <tbody>
-
          <tr>
             <td id="gradetr">27</td>
             <td><input id="input" type="Number" name=""></td>
-
          </tr>
          <tr>
             <td id="gradetr">28</td>
             <td><input id="input" type="Number" name=""></td>
          </tr>
-
     </tbody>
      </table>
-
      <div id="ValorTotal">Total: 0</div>   
      <button id="incluir" onclick="incluirPedido()">Incluir grade</button>
    </div>
@@ -1035,11 +1010,9 @@ function mudarImagem()
     function trocarimg(x)
 {
     
-
     var link = document.getElementById("img01").src;
     var imgnum;
     imgnum = document.getElementById("img01").src[92] + document.getElementById("img01").src[93];
-
     if(x != 1)
       {
         var num = Number(imgnum[1]);
@@ -1049,34 +1022,42 @@ function mudarImagem()
         num = 1;
       }
       var rep = link.replace(imgnum,"-" + num.toString());
-
       //document.getElementById("img01").src = "https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/Spinner-1s-200px.gif";
-
       //document.getElementById("img01").onload = function()
       //{
         document.getElementById("img01").src = rep;
       //}
-
       
       
       console.log(x); 
 }
-
-
  function incluirPedido(produto)
 {
+ var inputVazio = document.getElementsByTagName("input"); 
+
+  for (var ii = 0; ii < inputVazio.length;ii++)
+  {
+    if(inputVazio[ii].value != "")
+    {
+
 var tags = document.getElementById("ModalGrade").getElementsByTagName("*");
 var tabela = document.getElementById("table").getElementsByTagName("tbody").item(0);
 var novalinha = tabela.insertRow(tabela.rows.length);
 console.log(prod);
 var categoria = prod.parentElement.getAttribute("id");
    //Adiciona a categoria na planilha
+  
+   //prod.getElementsByTagName("button").item(0).style.backgroundColor = "#1c7d24";
+   //prod.getElementsByTagName("button").item(0).innerText = "Incluído";
+   
+  
+      
    var novaCelula = novalinha.insertCell(0);
    var texto = document.createTextNode(categoria);
    novaCelula.appendChild(texto);
-   prod.style.boxShadow = "0 0 2px 0px #47b374";
-   //prod.getElementsByTagName("button").item(0).style.backgroundColor = "#1c7d24";
-   //prod.getElementsByTagName("button").item(0).innerText = "Incluído"; 
+   prod.style.boxShadow = "0 0 2px 0px #47b374";   
+
+
 for(var i = 0; i  < 6; i++)
 {
    var novaCelula = novalinha.insertCell(i);
@@ -1124,8 +1105,11 @@ document.getElementById("incluir").innerText = "Incluido aos pedidos";
 document.getElementById("incluir").style.background = "#1c7d24";
 var itensLen = document.getElementById("table").getElementsByTagName("tr");
 document.getElementById("notificacao").innerText = itensLen.length - 1;
+break;
 }
-    
+
+}
+  }    
 //GRADEEEEEE------------------------------------------------
 var ModalGrade = document.getElementById('ModalGrade');
 var infoNome = document.getElementById("InfoNome");
@@ -1203,7 +1187,5 @@ function fecharGrade() {
 function fecharInicio(x) { 
   x.style.display = "none";
 }
-
   </script>
-
 </div></body></html>
