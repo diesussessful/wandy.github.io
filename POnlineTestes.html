@@ -169,7 +169,6 @@ span#sacola
 {
   z-index: 10;
 }
-
 .top-menu
 {
   font-family: 'Open Sans', sans-serif;
@@ -812,7 +811,6 @@ function detalheExpand(x)
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
-
         <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SMMV_086AW_01-1.jpg">
@@ -826,8 +824,6 @@ function detalheExpand(x)
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
-
-
         <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJNL_069CM_02-1.jpg">
@@ -870,7 +866,6 @@ function detalheExpand(x)
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">Jeans Safado com perna larga da coxa ao tornozelo</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
-
        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
   
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SW1Q_087AM_02-1.jpg">
@@ -884,7 +879,6 @@ function detalheExpand(x)
         <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
        </div>
-
        </div>
 <div id="myModal" class="modal">
   <!-- The Close Button -->
@@ -1022,11 +1016,8 @@ function mudarImagem()
         num = 1;
       }
       var rep = link.replace(imgnum,"-" + num.toString());
-      //document.getElementById("img01").src = "https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/Spinner-1s-200px.gif";
-      //document.getElementById("img01").onload = function()
-      //{
-        document.getElementById("img01").src = rep;
-      //}
+
+      document.getElementById("img01").src = rep;
       
       
       console.log(x); 
@@ -1034,12 +1025,10 @@ function mudarImagem()
  function incluirPedido(produto)
 {
  var inputVazio = document.getElementsByTagName("input"); 
-
   for (var ii = 0; ii < inputVazio.length;ii++)
   {
     if(inputVazio[ii].value != "")
     {
-
 var tags = document.getElementById("ModalGrade").getElementsByTagName("*");
 var tabela = document.getElementById("table").getElementsByTagName("tbody").item(0);
 var novalinha = tabela.insertRow(tabela.rows.length);
@@ -1056,8 +1045,6 @@ var categoria = prod.parentElement.getAttribute("id");
    var texto = document.createTextNode(categoria);
    novaCelula.appendChild(texto);
    prod.style.boxShadow = "0 0 2px 0px #47b374";   
-
-
 for(var i = 0; i  < 6; i++)
 {
    var novaCelula = novalinha.insertCell(i);
@@ -1107,7 +1094,6 @@ var itensLen = document.getElementById("table").getElementsByTagName("tr");
 document.getElementById("notificacao").innerText = itensLen.length - 1;
 break;
 }
-
 }
   }    
 //GRADEEEEEE------------------------------------------------
