@@ -60,6 +60,20 @@ table td {
 table tr:nth-child(2n+0) td {
     
 }
+
+table#table
+{
+
+
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    /* height: 90px; */
+    /* background-color: white; */
+    /* color: #734545ab; */
+    box-shadow: 0 0 0px 6px #f7f5f5;
+
+}
+
 button {
     background: #2d2d2d;
     border: 0;
@@ -386,7 +400,20 @@ img#v_expandicon
     margin-left: 20px;
 }
     /* The side navigation menu */
+
+div#sidenav-Titulo
+{
+    position: none;
+    color: azure;
+    font-size: 41px;
+    font-style: inherit;
+    cursor: pointer;
+    z-index: 1;
+    margin-bottom: 7px;
+    font-family: 'Open Sans', sans-serif;
+}
 .sidenav {
+  text-align: center;
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
@@ -700,7 +727,7 @@ div#gradeResponsiva
 </style>
   <script>
 function openNav() {
-  document.getElementById("mySidenav").style.width = "400px";
+  document.getElementById("mySidenav").style.width = "100%";
 }
 /* Set the width of the side navigation to 0 */
 function closeNav() {
@@ -782,6 +809,7 @@ function detalheExpand(x)
   </div>  
     <div id="mySidenav" class="sidenav" style="width: 0px;">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">◄</a>
+  <div id="sidenav-Titulo"  >Seus pedidos</div>
   <table id="table">
     <thead>
         <tr>
@@ -819,7 +847,7 @@ function detalheExpand(x)
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SMMV_086AW_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">D-EBBEY L.32</h2>
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
-        <h2 id="v_preco" class="produto-preco">R$497.73</h2>
+        <h2 id="v_preco" class="produto-preco">R$497,73</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00 </h2>
         <h2 id="v_descri" class="produto-descri">Bootcut style with a low waist and higher back coverage.</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
@@ -1009,7 +1037,9 @@ function mudarImagem()
     
     var link = document.getElementById("img01").src;
     var imgnum;
+    
     imgnum = document.getElementById("img01").src[92] + document.getElementById("img01").src[93];
+
     if(x != 1)
       {
         var num = Number(imgnum[1]);
@@ -1019,7 +1049,6 @@ function mudarImagem()
         num = 1;
       }
       var rep = link.replace(imgnum,"-" + num.toString());
-
       document.getElementById("img01").src = rep;
       
       
