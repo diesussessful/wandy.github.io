@@ -1,0 +1,81 @@
+function alterarCategoria(categoria)
+{
+if(categoria == 1)
+{
+ document.getElementById("5Pockets_Male").style.display = "block";
+ document.getElementById("5Pockets_Female").style.display = "none";
+ document.getElementById("Collection_Male").style.display = "none";
+}
+if(categoria == 2)
+{
+ document.getElementById("5Pockets_Male").style.display = "none";
+ document.getElementById("5Pockets_Female").style.display = "block";
+ document.getElementById("Collection_Male").style.display = "none";
+}
+if(categoria == 3)
+{
+ document.getElementById("5Pockets_Male").style.display = "none";
+ document.getElementById("5Pockets_Female").style.display = "none";
+ document.getElementById("Collection_Male").style.display = "block";
+}
+
+
+<a onclick="alterarCategoria(3);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">Collection Male</a>
+
+<div id="Collection_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
+
+        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
+  
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJ63_0091A_900-1.jpg">
+
+        <h2 id="v_titulo" class="produto-titulo">T-JUST-XZ</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$361.36</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido:R$795,00 </h2>
+        <h2 id="v_descri" class="produto-descri"> - </h2>
+        <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
+        <h2 id="referencia" style="display: none;">00SJ630091A</h2>
+        <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
+        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+       </div>
+
+        <div>
+
+        	  function trocarimg(x)
+{
+    
+
+    var link = document.getElementById("img01").src;
+
+    var imgnum;
+    var corRef;
+    var ultimoNumero;
+    var x;
+
+    corRef = link.split("_")[3];
+
+    ultimoNumero = corRef.split("-")[1];
+
+    x = ultimoNumero.length;
+    x = x - 5;
+    ultimoNumero = ultimoNumero[x];
+
+    imgnum = Number(ultimoNumero);
+
+    if(x != 1)
+      {
+        var num = imgnum;
+        num += 1;
+      }else
+      {
+        num = 1;
+      }
+
+      repla = corRef.split("-")[1];
+      var rep = link.replace(repla, num.toString() + ".jpg");
+      console.log(rep);
+      document.getElementById("img01").src = rep;
+      
+      
+      console.log(x); 
+}
