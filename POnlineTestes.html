@@ -60,20 +60,15 @@ table td {
 table tr:nth-child(2n+0) td {
     
 }
-
 table#table
 {
-
-
     margin: 0 auto;
     font-family: 'Open Sans', sans-serif;
     /* height: 90px; */
     /* background-color: white; */
     /* color: #734545ab; */
     box-shadow: 0 0 0px 6px #f7f5f5;
-
 }
-
 button {
     background: #2d2d2d;
     border: 0;
@@ -182,12 +177,15 @@ h2#season
 }
 span#sacola
 {
-  z-index: 10;
+    z-index: 10;
+    margin-top:5px;
+    float: right;
+    right: 15px;
 }
 .top-menu
 {
   font-family: 'Open Sans', sans-serif;
-  height: 90px;
+  height: 60px;
   background-color: #ffffff;
   color: black;
   top: 0;
@@ -195,15 +193,17 @@ span#sacola
 }
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #eaeaea;
+  background-color: #f3f3f4;
   overflow: hidden;
     margin: 0 auto;
     width: 100%;
     text-align: center;
     color:black;
     position: relative;
-    top: 53px;
+    
     z-index: 1;
+    bottom: 0px;
+    top: 0px;
 }
 /* Style the links inside the navigation bar */
 .topnav a {
@@ -216,16 +216,32 @@ span#sacola
     color: black;
     font-size: 12px;
     margin: 0 auto;
-    position: relative;
+    position: relative
+
+    height: 46px;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
+    
+
+
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: black;
+  color: white;
+}
+img#titulo
+{
+      width: 135px;
+    float: left;
+    
+    padding-bottom: 14px;
+    padding-left: 5px;
+    padding-top: 15px;
 }
 /* Add an active class to highlight the current page */
 .active {
-  background-color: #eaeaea;
+  background-color: #f3f3f4;
   color: white;
 }
 /* Hide the link that should open and close the topnav on small screens */
@@ -236,22 +252,33 @@ span#sacola
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
-    float: right;
+    float: left;
     display: block;
+    height: 10px;
+    padding-bottom: 19px;
+    padding-top: 19px;
+    padding-left: 13px;
+    padding-right: 13px;
   }
 }
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive a.icon {
-    position: absolute;
+
+    position: relative;
     right: 0;
     top: 0;
+    margin-top: 0px;
+    float: left;
   }
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
+    margin-top: 40px;
   }
 }
 div#main
@@ -400,7 +427,6 @@ img#v_expandicon
     margin-left: 20px;
 }
     /* The side navigation menu */
-
 div#sidenav-Titulo
 {
     position: none;
@@ -582,6 +608,7 @@ button#incluir
     text-transform: uppercase;
     right: 3px;
     position: relative;
+    transition: all 1s ease 0s;
 }
 table#tabelaGrade td#gradetr
 {
@@ -723,6 +750,23 @@ div#gradeResponsiva
     margin-bottom: 82px;
     height: 361px;
     margin-left: 0;
+  }}
+   img.imgCores {
+    width: 60px;
+    height: 80px;
+    display: inline-table;
+    padding-left: 4px;
+    padding-top: 3px;
+    cursor: pointer;
+   }
+  div#Divcores
+  {
+    width: 300px;
+    height: 80px;
+    display: none;
+  }
+  div#topoNotific
+  {
   }
 </style>
   <script>
@@ -740,11 +784,19 @@ if(categoria == 1)
 {
  document.getElementById("5Pockets_Male").style.display = "block";
  document.getElementById("5Pockets_Female").style.display = "none";
+ document.getElementById("Collection_Male").style.display = "none";
 }
 if(categoria == 2)
 {
  document.getElementById("5Pockets_Male").style.display = "none";
  document.getElementById("5Pockets_Female").style.display = "block";
+ document.getElementById("Collection_Male").style.display = "none";
+}
+if(categoria == 3)
+{
+ document.getElementById("5Pockets_Male").style.display = "none";
+ document.getElementById("5Pockets_Female").style.display = "none";
+ document.getElementById("Collection_Male").style.display = "block";
 }
 }
 function myFunction() {
@@ -779,30 +831,37 @@ function detalheExpand(x)
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body style="margin: 0px;border:none;">
-  
+
   <div id="main">
-    <span id = "sacola" style="
-    margin-top: 10px;" onclick="openNav()">
+
+
+    <div class="top-menu">
+      <div id="tituloDiv" style=" ">
+       
+       
+       <h2 id="season" class="sub-titulo" style="display: none;">SPRING &amp; SUMMER 2019</h2>
+      </div>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <div class="topnav" id="myTopnav" style="">
+        <span id = "sacola" style="
+    " onclick="openNav()">
       <div id="notificacao" class="circulo">0</div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="34px" viewBox="-59 0 473 473.913" width="34px"><linearGradient id="lg1"><stop offset="0" stop-color="#382d2d"></stop><stop offset="1" stop-color="#868686"></stop></linearGradient><linearGradient id="linear0" gradientUnits="userSpaceOnUse" x1="177.457095" x2="177.457095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><linearGradient id="linear1" gradientUnits="userSpaceOnUse" x1="126.472095" x2="126.472095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><path d="m348.570312 123.914062h-72.113281v-28.613281c0-52.550781-42.949219-95.300781-95.5-95.300781s-95.5 42.75-95.5 95.300781v28.613281h-79.113281c-1.570312-.015624-3.082031.601563-4.1875 1.714844-1.109375 1.113282-1.722656 2.628906-1.699219 4.199219v261.097656c-.007812 45.757813 37.027344 82.886719 82.785157 82.988281h188.429687c45.757813-.101562 82.792969-37.230468 82.785156-82.988281v-261.097656c.023438-1.570313-.589843-3.085937-1.699219-4.199219-1.105468-1.113281-2.617187-1.730468-4.1875-1.714844zm-251.113281-28.613281c0-45.933593 37.566407-83.300781 83.5-83.300781 45.933594 0 83.5 37.367188 83.5 83.300781v28.613281h-167zm245 295.625c.015625 39.132813-31.652343 70.894531-70.785156 70.988281h-188.429687c-39.132813-.09375-70.800782-31.855468-70.785157-70.988281v-255.011719h73v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h167v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h66zm0 0" fill="url(#linear0)"></path><path d="m77.683594 310.914062h97.574218c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6h-97.574218c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6zm0 0" fill="url(#linear1)"></path><path d="m77.683594 344.914062c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6h199.546875c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6zm0 0" fill="url(#linear0)"></path></svg>
     </span>
-    <div class="top-menu">
-      <div id="tituloDiv" =="" style=" ">
-       <h1 class="titulo" style=" ">DIESEL</h1>
-       
-       <h2 id="season" class="sub-titulo" style="
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"> </i></a><img src="https://recursos.br.diesel.com/i/logo.png" id="titulo" style=" ">
         
-        
-       ">SPRING &amp; SUMMER 2019</h2>
-      </div>
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <div class="topnav" id="myTopnav">
+
         <a onclick="alterarCategoria(1);myFunction()" style="cursor: pointer;" class="active">5 Pockets Male</a>
         <a onclick="alterarCategoria(2);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">5 Pockets Female</a>
-        <a href="#contact" style="display: none;">Collection Male</a>
+
+        <a onclick="alterarCategoria(3);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">Collection Male</a>
+
         <a href="#about" style="display: none;">Collection Female</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i></a>
+        
+        
 </div>
        
     </div>
@@ -816,8 +875,9 @@ function detalheExpand(x)
             <th>Nome</th>
             <th>Valor</th>
             <th>Ref</th>
-          <th style="display: none;">Varejo</th>
+            <th style="display: none;">Varejo</th>
             <th style="display: none;">Grade</th>
+            <th>Cor</th>
             <th>Valor Total</th>
             <th>Categoria</th>
         </tr>
@@ -841,6 +901,7 @@ function detalheExpand(x)
         <h2 id="referencia" style="display: none;">00SXJN084ZD</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;"></h2>
        </div>
         <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
@@ -854,6 +915,7 @@ function detalheExpand(x)
         <h2 id="referencia" style="display: none;">00SMMV086AW</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;"></h2>
        </div>
         <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
@@ -867,6 +929,7 @@ function detalheExpand(x)
         <h2 id="referencia" style="display: none;">00SJNL069CM</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">KRAILEY-B-NE</h2>   
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;"></h2>
        </div>
   </div>  
   <div id="5Pockets_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: block;">
@@ -882,6 +945,7 @@ function detalheExpand(x)
         <h2 id="referencia" style="display: none;">00S7VG084UU</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;"></h2>
        </div>
       
        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
@@ -896,6 +960,7 @@ function detalheExpand(x)
         <h2 id="referencia" style="display: none;">00C03GC84MX</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">Jeans Safado com perna larga da coxa ao tornozelo</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;"></h2>
        </div>
        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
   
@@ -909,8 +974,31 @@ function detalheExpand(x)
         <h2 id="referencia" style="display: none;">00SW1Q087AM</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;"></h2>
        </div>
        </div>
+
+       <div id="Collection_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
+
+        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
+  
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJ63_0091A_900-1.jpg">
+
+        <h2 id="v_titulo" class="produto-titulo">T-JUST-XZ</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$361.36</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido:R$795,00 </h2>
+        <h2 id="v_descri" class="produto-descri"> - </h2>
+        <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
+        <h2 id="referencia" style="display: none;">00SJ630091A</h2>
+        <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
+        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;">900;912;100</h2>
+       </div>
+
+        </div>
+
+
 <div id="myModal" class="modal">
   <!-- The Close Button -->
        <span onclick="closespan()" class="close">×</span>
@@ -947,6 +1035,7 @@ function detalheExpand(x)
     /* margin-left: 10%; */
     /* margin-right: 50%; */
 " >
+     
      <div id="InfoNome">Buster</div>
      <div id="InfoRef">00SDHB05678</div>
      <div id="InfoValor">R$800</div>
@@ -955,7 +1044,7 @@ function detalheExpand(x)
    style=""> <img onclick="openmodal(this.src,this.parentElement)"  style="
     max-width: 300px;
     max-height: 424px;
-    " id="imgGrade" src=""> </div>
+    " id="imgGrade" alt = "" src=""> </div>
     <div id="conteiner" style="
     
     float: left;
@@ -966,6 +1055,11 @@ function detalheExpand(x)
     height: 466px;
     
 ">
+
+  <div id="divCores">
+    
+  </div>
+
     <div id ="detalhe_expandivel" onclick="detalheExpand(this)"> 
     <h3 id = "h3hide" style="
     margin-top: 0px;
@@ -1037,22 +1131,35 @@ function mudarImagem()
     
     var link = document.getElementById("img01").src;
     var imgnum;
-    
-    imgnum = document.getElementById("img01").src[92] + document.getElementById("img01").src[93];
-
+    var corRef;
+    var ultimoNumero;
+    var x;
+    corRef = link.split("_")[3];
+    ultimoNumero = corRef.split("-")[1];
+    x = ultimoNumero.length;
+    x = x - 5;
+    ultimoNumero = ultimoNumero[x];
+    imgnum = Number(ultimoNumero);
     if(x != 1)
       {
-        var num = Number(imgnum[1]);
+        var num = imgnum;
         num += 1;
       }else
       {
         num = 1;
       }
-      var rep = link.replace(imgnum,"-" + num.toString());
+      repla = corRef.split("-")[1];
+      var rep = link.replace(repla, num.toString() + ".jpg");
+      console.log(rep);
       document.getElementById("img01").src = rep;
       
       
       console.log(x); 
+}
+function selecionarCor(srcc,altt)
+{
+  document.getElementById("imgGrade").src = srcc;
+  document.getElementById("imgGrade").alt = altt;
 }
  function incluirPedido(produto)
 {
@@ -1077,7 +1184,7 @@ var categoria = prod.parentElement.getAttribute("id");
    var texto = document.createTextNode(categoria);
    novaCelula.appendChild(texto);
    prod.style.boxShadow = "0 0 2px 0px #47b374";   
-for(var i = 0; i  < 6; i++)
+for(var i = 0; i  < 7; i++)
 {
    var novaCelula = novalinha.insertCell(i);
    
@@ -1110,9 +1217,13 @@ for(var i = 0; i  < 6; i++)
        novaCelula.appendChild(texto);
        novaCelula.setAttribute("style","display:none;");
    }
-   }else if(i == 5){
+   }else if(i == 6){
    var texto = document.createTextNode(document.getElementById("ValorTotal").innerText.replace("Total: ",""));
-   novaCelula.appendChild(texto);
+     novaCelula.appendChild(texto);
+   }else if(i == 5)
+   {
+    var texto = document.createTextNode(document.getElementById("imgGrade").alt);
+    novaCelula.appendChild(texto);
    }
    else
    {
@@ -1121,7 +1232,6 @@ for(var i = 0; i  < 6; i++)
    }
 }
 document.getElementById("incluir").innerText = "Incluido aos pedidos";
-document.getElementById("incluir").style.background = "#1c7d24";
 var itensLen = document.getElementById("table").getElementsByTagName("tr");
 document.getElementById("notificacao").innerText = itensLen.length - 1;
 break;
@@ -1182,8 +1292,28 @@ function abrirGrade(produtoinf){
   document.getElementById("incluir").innerText = "INCLUIR GRADE";
   document.getElementById("incluir").style.background = "#2d2d2d";
   document.getElementById("ValorTotal").innerText = "Total";
-  document.getElementById("ValorTotal").style.color = "#1c7d24"; 
+  document.getElementById("ValorTotal").style.color = "#1c7d24";
+   
   
+  if(prod.getElementsByTagName("h2")[8].innerText != ""){
+  //inclui cores se tiver
+   var divCores = document.getElementById("divCores");
+   var coresProduto = prod.getElementsByTagName("h2")[8].innerText.split(";");
+   var imgSrc = prod.getElementsByTagName("img")[0].src
+   var novoSrc;
+   for(i = 0; i < coresProduto.length;i++)
+   {
+     var node = document.createElement("img");
+     novoSrc = imgSrc.replace(imgSrc.split("_")[3], coresProduto[i] + "-1.jpg");
+     node.setAttribute("style","width: 60px;height: 80px;");
+     node.setAttribute("src",novoSrc);
+     node.setAttribute("class","imgCores");
+     node.setAttribute("onclick","selecionarCor(this.src,this.alt)");
+     node.setAttribute("alt",coresProduto[i]);
+     document.getElementById("divCores").appendChild(node);
+   }
+   divCores.style.display = "block";
+}
   ModalGrade.style.display = "block";
 }
  function valortotal()
@@ -1201,6 +1331,14 @@ console.log(quantidade * valor);
 }
 function fecharGrade() { 
   ModalGrade.style.display = "none";
+  var lista = document.getElementById("divCores");
+  var cont = document.getElementById("divCores").children.length;
+  if(cont > 0){
+  for ( i = 0; i < cont + 1;i++)
+  {
+    lista.removeChild(lista.childNodes[0]);
+}
+}
 }
 function fecharInicio(x) { 
   x.style.display = "none";
