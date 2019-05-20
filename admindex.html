@@ -38,6 +38,7 @@
   }  
   else                 //other browser not tested on IE 11
     sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text)); 
+    
   return (sa);}
     </script>
     <style>
@@ -63,11 +64,12 @@ table tr:nth-child(2n+0) td {
 table#table
 {
     margin: 0 auto;
-    font-family: 'Open Sans', sans-serif;
+    
     /* height: 90px; */
     /* background-color: white; */
     /* color: #734545ab; */
-    box-shadow: 0 0 0px 6px #f7f5f5;
+    box-shadow: 0 0 0px 5px #f7f5f5;
+    font-family: "Trade Gothic LT";
 }
 button {
     background: #2d2d2d;
@@ -79,6 +81,11 @@ button {
     text-transform: uppercase;
     right: 3px;
     position: relative;
+
+    margin-bottom: 0px;
+    margin-top: 15px;
+    font-family: "Trade Gothic LT";
+
 }
     </style>
     <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
@@ -106,13 +113,14 @@ align: middle; }
 </style>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+    @import url('https://recursos.br.diesel.com/Handlers/ResourceHandler.ashx?base=c&arquivos=c/font-awesome/css/font-awesome.css,core/core.css,styles.css,responsive-tablet.css,responsive-desktop.css,header.css,spot.css,footer.css,autocomplete/default.css,autocomplete/custom.css,fancybox.css&v=20180910_114835');
 .titulo
 {
     
     top: 6px;
     color: #000000;
     margin-top: 7.44;
-    font-family: 'Candal', sans-serif;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
     left: 50px; 
     height: 43px;
     font-size: 29px; 
@@ -177,12 +185,15 @@ h2#season
 }
 span#sacola
 {
-  z-index: 10;
+    z-index: 10;
+    margin-top:5px;
+    float: right;
+    right: 15px;
 }
 .top-menu
 {
-  font-family: 'Open Sans', sans-serif;
-  height: 90px;
+  font-family: "franklin-gothic-condensed",arial,sans-serif!important;
+  height: 60px;
   background-color: #ffffff;
   color: black;
   top: 0;
@@ -190,15 +201,17 @@ span#sacola
 }
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #eaeaea;
+  background-color: #f3f3f4;
   overflow: hidden;
     margin: 0 auto;
     width: 100%;
     text-align: center;
     color:black;
     position: relative;
-    top: 53px;
+    
     z-index: 1;
+    bottom: 0px;
+    top: 0px;
 }
 /* Style the links inside the navigation bar */
 .topnav a {
@@ -209,44 +222,74 @@ span#sacola
     padding: 10px 10px 10px 10px;
     text-decoration: none;
     color: black;
-    font-size: 12px;
     margin: 0 auto;
-    position: relative;
+    position: relative
+    height: 46px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 1.125rem;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
 }
+    
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: black;
+  color: white;
 }
+img#titulo
+{
+      width: 135px;
+    float: left;
+    
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+
 /* Add an active class to highlight the current page */
 .active {
-  background-color: #eaeaea;
+  background-color: #f3f3f4;
   color: white;
 }
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
   display: none;
+  
+  padding-top: 14px;
+    padding-bottom: 22px;
 }
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
-    float: right;
+    float: left;
     display: block;
+    height: 10px;
+    
+    padding-top: 14px;
+    padding-left: 13px;
+    padding-right: 13px;
+   
+    padding-bottom: 22px;
   }
 }
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive a.icon {
-    position: absolute;
+    position: relative;
     right: 0;
     top: 0;
+    margin-top: 0px;
+    float: left;
   }
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
+    margin-top: 40px;
   }
 }
 div#main
@@ -353,6 +396,8 @@ h2#v_precoVarejo.produto-preco
   margin-top: 3.79;
   font-size:13px;
   width: 200px;
+  color: black;
+  font-family: "Trade Gothic LT";
 }
 h2#v_titulo
 {
@@ -361,6 +406,8 @@ h2#v_titulo
     margin-bottom: 2.92;
     height: 30px;
   position: static;
+  color: black;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
 }
 h2#v_preco
 {
@@ -369,6 +416,8 @@ h2#v_preco
     margin-bottom: 10.92;
     margin-top: 0.92;
   font-size:17px;
+  color: #191919;
+    font-family: "Trade Gothic LT";
 }
 img#v_expandicon
 {
@@ -418,6 +467,7 @@ div#sidenav-Titulo
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+
 }
 /* The navigation menu links */
 .sidenav a {
@@ -545,6 +595,8 @@ display: none;
 div#Grade
 {
     
+    height: 290px;
+
     margin-top: 40px;
     margin-right: auto;
     margin-bottom: 0px;
@@ -558,6 +610,7 @@ table#tabelaGrade
   box-shadow: 0 0 2px 0px black;
     width: 293px;
     height: 223px;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
 }      
 button#incluir
 {
@@ -587,11 +640,13 @@ table#tabelaGrade td#gradetr
     height: 24px;
     font-size: larger;
     margin-left: 50px;
+    font-family: "Trade Gothic LT";
 }
 table#tabelaGrade input
 {
     width: 60px;
     height: 23px;
+    box-shadow: 0 0 1px black;
     
 }
 table#tabelaGrade tr
@@ -603,27 +658,36 @@ table#tabelaGrade tr
 }
 div#InfoNome
 {
+
+    padding-bottom: 7px;
     text-align: center;
     font-size: 30px;
-    
+    color: black;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
 }
 div#InfoVarejo
 {
     text-align: center;
     font-size: 15px;
     margin-bottom: 15px;
+    font-family: "Trade Gothic LT";
     
 }
 div#InfoRef{
     text-align: center;
     font-size: 16px;
-    
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
 }
 div#InfoValor
 {
+
+    padding-bottom: 11px;
+    padding-top: 12px;
+
   text-align: center;
   font-size: 22px;
   color: green;
+  font-family: "Trade Gothic LT";
 }
 }
 div#ValorTotal
@@ -671,7 +735,7 @@ h4#detalheshide
     display: none;
     margin-top: 0px;
     margin-bottom: 0px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Trade Gothic LT";
     font-size: 15px;
     color: black;
     display: block;
@@ -691,7 +755,15 @@ div#conteiner
     display: table-cell;
     padding-bottom: 3px;
     margin-left: 0px
-    height: 466px;
+       height: auto;
+
+    width: 315px;
+    
+   
+
+    height: auto;
+    box-shadow: 0 0 1px black;
+
     
 }
 div#gradeResponsiva
@@ -719,7 +791,6 @@ div#gradeResponsiva
     height: 361px;
     margin-left: 0;
   }}
-
    img.imgCores {
     width: 60px;
     height: 80px;
@@ -734,11 +805,21 @@ div#gradeResponsiva
     height: 80px;
     display: none;
   }
-
   div#topoNotific
   {
-
   }
+
+@media (max-width: 1023px){
+.icon {
+    background: url("");
+    display: inline-block;
+    vertical-align: middle;
+    *display: inline;
+    *zoom: 1;
+    *margin-right: 3px;
+}
+}
+
 
 </style>
   <script>
@@ -805,30 +886,35 @@ function detalheExpand(x)
 <body style="margin: 0px;border:none;">
 
   <div id="main">
-    <span id = "sacola" style="
-    margin-top: 10px;" onclick="openNav()">
+
+
+    <div class="top-menu">
+      <div id="tituloDiv" style=" ">
+       
+       
+       <h2 id="season" class="sub-titulo" style="display: none;">SPRING &amp; SUMMER 2019</h2>
+      </div>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <div class="topnav" id="myTopnav" style="">
+        <span id = "sacola" style="
+    " onclick="openNav()">
       <div id="notificacao" class="circulo">0</div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="34px" viewBox="-59 0 473 473.913" width="34px"><linearGradient id="lg1"><stop offset="0" stop-color="#382d2d"></stop><stop offset="1" stop-color="#868686"></stop></linearGradient><linearGradient id="linear0" gradientUnits="userSpaceOnUse" x1="177.457095" x2="177.457095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><linearGradient id="linear1" gradientUnits="userSpaceOnUse" x1="126.472095" x2="126.472095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><path d="m348.570312 123.914062h-72.113281v-28.613281c0-52.550781-42.949219-95.300781-95.5-95.300781s-95.5 42.75-95.5 95.300781v28.613281h-79.113281c-1.570312-.015624-3.082031.601563-4.1875 1.714844-1.109375 1.113282-1.722656 2.628906-1.699219 4.199219v261.097656c-.007812 45.757813 37.027344 82.886719 82.785157 82.988281h188.429687c45.757813-.101562 82.792969-37.230468 82.785156-82.988281v-261.097656c.023438-1.570313-.589843-3.085937-1.699219-4.199219-1.105468-1.113281-2.617187-1.730468-4.1875-1.714844zm-251.113281-28.613281c0-45.933593 37.566407-83.300781 83.5-83.300781 45.933594 0 83.5 37.367188 83.5 83.300781v28.613281h-167zm245 295.625c.015625 39.132813-31.652343 70.894531-70.785156 70.988281h-188.429687c-39.132813-.09375-70.800782-31.855468-70.785157-70.988281v-255.011719h73v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h167v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h66zm0 0" fill="url(#linear0)"></path><path d="m77.683594 310.914062h97.574218c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6h-97.574218c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6zm0 0" fill="url(#linear1)"></path><path d="m77.683594 344.914062c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6h199.546875c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6zm0 0" fill="url(#linear0)"></path></svg>
     </span>
-    <div class="top-menu">
-      <div id="tituloDiv" =="" style=" ">
-       <h1 class="titulo" style=" ">DIESEL</h1>
-       
-       <h2 id="season" class="sub-titulo" style="
         
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars" style="font-size: 21px;"> </i></a><img src="https://recursos.br.diesel.com/i/logo.png" id="titulo" style=" ">
         
-       ">SPRING &amp; SUMMER 2019</h2>
-      </div>
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <div class="topnav" id="myTopnav">
+
         <a onclick="alterarCategoria(1);myFunction()" style="cursor: pointer;" class="active">5 Pockets Male</a>
         <a onclick="alterarCategoria(2);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">5 Pockets Female</a>
 
         <a onclick="alterarCategoria(3);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">Collection Male</a>
 
         <a href="#about" style="display: none;">Collection Female</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i></a>
+        
+        
 </div>
        
     </div>
@@ -900,7 +986,7 @@ function detalheExpand(x)
        </div>
   </div>  
   <div id="5Pockets_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: block;">
-      <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
+      <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" ">
   
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2>
@@ -1003,10 +1089,7 @@ function detalheExpand(x)
     /* margin-right: 50%; */
 " >
      
-     <div id="InfoNome">Buster</div>
-     <div id="InfoRef">00SDHB05678</div>
-     <div id="InfoValor">R$800</div>
-     <div id="InfoVarejo">Varejo</div>
+     
      <div id="gradeResponsiva"
    style=""> <img onclick="openmodal(this.src,this.parentElement)"  style="
     max-width: 300px;
@@ -1019,20 +1102,21 @@ function detalheExpand(x)
     display: table-cell;
     padding-bottom: 3px;
     /* display: contents; */
-    height: 466px;
+       
     
 ">
-
-  <div id="divCores">
-    
-  </div>
+  <div id="InfoNome">Buster</div>
+  <div id="InfoRef">00SDHB05678</div>
+  <div id="InfoValor">R$800</div>
+  <div id="InfoVarejo">Varejo</div>
+  <div id="divCores"></div>
 
     <div id ="detalhe_expandivel" onclick="detalheExpand(this)"> 
     <h3 id = "h3hide" style="
     margin-top: 0px;
     margin-bottom: 0px;
     cursor: pointer;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'franklin-gothic-condensed',arial,sans-serif!important;
     font-size: 15px;
     color: black;
     ">Detalhes</h3>
@@ -1096,24 +1180,17 @@ function mudarImagem()
     function trocarimg(x)
 {
     
-
     var link = document.getElementById("img01").src;
-
     var imgnum;
     var corRef;
     var ultimoNumero;
     var x;
-
     corRef = link.split("_")[3];
-
     ultimoNumero = corRef.split("-")[1];
-
     x = ultimoNumero.length;
     x = x - 5;
     ultimoNumero = ultimoNumero[x];
-
     imgnum = Number(ultimoNumero);
-
     if(x != 1)
       {
         var num = imgnum;
@@ -1122,7 +1199,6 @@ function mudarImagem()
       {
         num = 1;
       }
-
       repla = corRef.split("-")[1];
       var rep = link.replace(repla, num.toString() + ".jpg");
       console.log(rep);
@@ -1131,13 +1207,11 @@ function mudarImagem()
       
       console.log(x); 
 }
-
 function selecionarCor(srcc,altt)
 {
   document.getElementById("imgGrade").src = srcc;
   document.getElementById("imgGrade").alt = altt;
 }
-
  function incluirPedido(produto)
 {
  var inputVazio = document.getElementsByTagName("input"); 
@@ -1168,21 +1242,21 @@ for(var i = 0; i  < 7; i++)
    
    if(i == 0){
     //nome
-   var texto = document.createTextNode(tags[2].innerText);
+   var texto = document.createTextNode(tags[5].innerText);
    novaCelula.appendChild(texto);
    }
    //valor
    else if(i == 1){
-   var texto = document.createTextNode(tags[4].innerText);
+   var texto = document.createTextNode(tags[7].innerText);
    novaCelula.appendChild(texto);
    }
    //ref
    else if(i == 2){
-   var texto = document.createTextNode(tags[3].innerText);
+   var texto = document.createTextNode(tags[6].innerText);
    novaCelula.appendChild(texto);
    }
    else if(i == 3){
-   var texto = document.createTextNode(tags[5].innerText);
+   var texto = document.createTextNode(tags[8].innerText);
    novaCelula.appendChild(texto);
    novaCelula.setAttribute("style","display:none;");
    }
@@ -1209,12 +1283,6 @@ for(var i = 0; i  < 7; i++)
    }
 }
 document.getElementById("incluir").innerText = "Incluido aos pedidos";
-
-
-
-
-
-
 var itensLen = document.getElementById("table").getElementsByTagName("tr");
 document.getElementById("notificacao").innerText = itensLen.length - 1;
 break;
@@ -1277,7 +1345,6 @@ function abrirGrade(produtoinf){
   document.getElementById("ValorTotal").innerText = "Total";
   document.getElementById("ValorTotal").style.color = "#1c7d24";
    
-
   
   if(prod.getElementsByTagName("h2")[8].innerText != ""){
   //inclui cores se tiver
@@ -1285,8 +1352,6 @@ function abrirGrade(produtoinf){
    var coresProduto = prod.getElementsByTagName("h2")[8].innerText.split(";");
    var imgSrc = prod.getElementsByTagName("img")[0].src
    var novoSrc;
-
-
    for(i = 0; i < coresProduto.length;i++)
    {
      var node = document.createElement("img");
@@ -1300,7 +1365,6 @@ function abrirGrade(produtoinf){
    }
    divCores.style.display = "block";
 }
-
   ModalGrade.style.display = "block";
 }
  function valortotal()
