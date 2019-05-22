@@ -478,7 +478,7 @@ img#v_expandicon
 div#sidenav-Titulo
 {
     position: none;
-    color: azure;
+    color: black;
     font-size: 41px;
     font-style: inherit;
     cursor: pointer;
@@ -1034,7 +1034,8 @@ function detalheExpand(x)
     </tbody>
 </table>
       <h4 id= "h4razao" style="margin-top: 10px;">Razão Social</h4>
-      <input type="text" name="Razão Social" id="inputRazao" style="height: 29px!important;text-align: center;">
+      <input type="text" name="Razão Social" id="inputRazao" style="height: 29px!important;text-align: center;box-shadow: 0 0 1px black;
+    width: 300px;">
       <p><button onclick="fnExcelReport()">Enviar Pedidos</button></p>
 
       
@@ -1510,10 +1511,15 @@ function abrirGrade(produtoinf){
    }
    divCores.style.display = "block";
    document.getElementById("SelecionarCor").style.display = "block";
+
+   //var altt = document.getElementsByClassName("imgCores").item(0).alt;
+   //document.getElementById("imgGrade").alt = altt;
+
+
 }else
 {
   document.getElementById("divCores").style.display = "none";
-   document.getElementById("SelecionarCor").style.display = "none";
+  document.getElementById("SelecionarCor").style.display = "none";
   
 }
   ModalGrade.style.display = "block";
