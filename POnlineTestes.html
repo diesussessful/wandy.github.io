@@ -3,6 +3,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Showroom SS19</title>
   <link rel="icon" href="https://otbpim.chalco.net/productbox/favicon.ico">
+  <script src="https://smtpjs.com/v3/smtp.js">
+</script>
   <script type="text/javascript">
        function fnExcelReport(){
   var tab_text="<table border='2px'>";
@@ -35,9 +37,32 @@
     txtArea1.document.close();
     txtArea1.focus(); 
     sa=txtArea1.document.execCommand("SaveAs",true,"PedidoOnline.xls");
+
+     
+     console.log(tab_text);
   }  
-  else                 //other browser not tested on IE 11
+  else {                //other browser not tested on IE 11
     sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text)); 
+
+    var linkPlanilha = 'data:application/vnd.ms-excel,' + encodeURIComponent(tab_text)
+
+    Email.send({
+    SecureToken : "c0edc424-cceb-4b6e-943d-7467cceeb519",
+    To : 'wandersonrnosrednaw@gmail.com',
+    From : "wandersonrnosrednaw@gmail.com",
+    Subject : "Pedidos Online",
+    Body : "Pedidos",
+    Attachments : [
+  {
+    name : "Pedidos.xls",
+    path : linkPlanilha
+  }]
+
+}).then(
+  message => alert(message)
+);
+    
+    }
   return (sa);}
     </script>
     <style>
@@ -63,11 +88,12 @@ table tr:nth-child(2n+0) td {
 table#table
 {
     margin: 0 auto;
-    font-family: 'Open Sans', sans-serif;
+    
     /* height: 90px; */
     /* background-color: white; */
     /* color: #734545ab; */
-    box-shadow: 0 0 0px 6px #f7f5f5;
+    box-shadow: 0 0 0px 5px #f7f5f5;
+    font-family: "Trade Gothic LT";
 }
 button {
     background: #2d2d2d;
@@ -79,6 +105,9 @@ button {
     text-transform: uppercase;
     right: 3px;
     position: relative;
+    margin-bottom: 0px;
+    margin-top: 15px;
+    font-family: "Trade Gothic LT";
 }
     </style>
     <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
@@ -106,13 +135,14 @@ align: middle; }
 </style>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+    @import url('https://recursos.br.diesel.com/Handlers/ResourceHandler.ashx?base=c&arquivos=c/font-awesome/css/font-awesome.css,core/core.css,styles.css,responsive-tablet.css,responsive-desktop.css,header.css,spot.css,footer.css,autocomplete/default.css,autocomplete/custom.css,fancybox.css&v=20180910_114835');
 .titulo
 {
     
     top: 6px;
     color: #000000;
     margin-top: 7.44;
-    font-family: 'Candal', sans-serif;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
     left: 50px; 
     height: 43px;
     font-size: 29px; 
@@ -121,7 +151,6 @@ align: middle; }
     margin: auto;
     margin-bottom: 10px;
     left: 0px;
-       
 }
 .ModalInicio
 {
@@ -184,7 +213,7 @@ span#sacola
 }
 .top-menu
 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "franklin-gothic-condensed",arial,sans-serif!important;
   height: 60px;
   background-color: #ffffff;
   color: black;
@@ -200,7 +229,7 @@ span#sacola
     text-align: center;
     color:black;
     position: relative;
-    
+            letter-spacing: 0.03em;
     z-index: 1;
     bottom: 0px;
     top: 0px;
@@ -209,22 +238,20 @@ span#sacola
 .topnav a {
   float: left;
     display: block;
-    color: #f2f2f2;
+    color: #1F1F1F;
     text-align: center;
     padding: 10px 10px 10px 10px;
     text-decoration: none;
-    color: black;
-    font-size: 12px;
+    
     margin: 0 auto;
     position: relative
-
     height: 46px;
     padding-bottom: 15px;
     padding-top: 15px;
+    font-size: 1.125rem;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
 }
     
-
-
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: black;
@@ -238,6 +265,7 @@ img#titulo
     padding-bottom: 14px;
     padding-left: 20px;
     padding-top: 15px;
+       padding-right: 5px;
 }
 /* Add an active class to highlight the current page */
 .active {
@@ -272,7 +300,6 @@ img#titulo
     position: relative;
   }
   .topnav.responsive a.icon {
-
     position: relative;
     right: 0;
     top: 0;
@@ -349,6 +376,7 @@ img#v_imagem
     width: 200px;
     height: 20px;
     font-size: 17px;
+    letter-spacing: .075em;
 }
 .produto-preco
 {
@@ -358,10 +386,20 @@ img#v_imagem
 h2#v_precoVarejo.produto-preco
 {
     height: 9px;
-    font-size: 13;
+    
     color: #903f3f;    
     margin-top: 10px;
     margin-bottom: 10.79;
+    margin-bottom: -1px;
+    font-family: "Trade Gothic LT";
+    padding-bottom: 11px;
+    padding-top: 1px;
+    text-align: center;
+    font-size: 12px;
+   line-height: 15px;
+    color: #191819;
+    letter-spacing: 0.05em;
+    font-weight: bold;
 }
 .produto-descri
 {
@@ -390,6 +428,8 @@ h2#v_precoVarejo.produto-preco
   margin-top: 3.79;
   font-size:13px;
   width: 200px;
+  color: black;
+  font-family: "Trade Gothic LT";
 }
 h2#v_titulo
 {
@@ -398,6 +438,8 @@ h2#v_titulo
     margin-bottom: 2.92;
     height: 30px;
   position: static;
+  color: black;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
 }
 h2#v_preco
 {
@@ -406,6 +448,8 @@ h2#v_preco
     margin-bottom: 10.92;
     margin-top: 0.92;
   font-size:17px;
+  color: #191919;
+    font-family: "Trade Gothic LT";
 }
 img#v_expandicon
 {
@@ -582,6 +626,7 @@ display: none;
 div#Grade
 {
     
+    height: 290px;
     margin-top: 40px;
     margin-right: auto;
     margin-bottom: 0px;
@@ -595,6 +640,7 @@ table#tabelaGrade
   box-shadow: 0 0 2px 0px black;
     width: 293px;
     height: 223px;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
 }      
 button#incluir
 {
@@ -624,11 +670,13 @@ table#tabelaGrade td#gradetr
     height: 24px;
     font-size: larger;
     margin-left: 50px;
+    font-family: "Trade Gothic LT";
 }
 table#tabelaGrade input
 {
     width: 60px;
     height: 23px;
+    box-shadow: 0 0 1px black;
     
 }
 table#tabelaGrade tr
@@ -640,32 +688,62 @@ table#tabelaGrade tr
 }
 div#InfoNome
 {
+    padding-bottom: 7px;
     text-align: center;
     font-size: 30px;
-    
+    color: black;
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
+    letter-spacing: 0.04em;
 }
 div#InfoVarejo
 {
     text-align: center;
     font-size: 15px;
-    margin-bottom: 15px;
+    margin-bottom: -1px;
+    font-family: "Trade Gothic LT";
+    padding-bottom: 11px;
+    padding-top: 1px;
+    text-align: center;
+    font-size: 15px;
+    
+    line-height: 32px;
+    color: #191819;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+   
     
 }
 div#InfoRef{
     text-align: center;
     font-size: 16px;
-    
+    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
 }
 div#InfoValor
 {
+    padding-bottom: 1px;
+    padding-top: 5px;
   text-align: center;
   font-size: 22px;
   color: green;
+  line-height: 32px;
+  color: #191819;
+ letter-spacing: 0.05em;
+  font-weight: bold;
+  font-family: "Trade Gothic LT";
 }
 }
 div#ValorTotal
 {
     
+    padding-bottom: 1px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 32px;
+    color: #191819;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    font-family: "Trade Gothic LT";
     margin-top: 10px;
 }
 table#tabelaGrade thead
@@ -702,13 +780,24 @@ div#detalhe_expandivel
 img#imgGrade
 {
     box-shadow: 0 0 1px 0px #b5b5b5;
+    max-width: 500px;
+    max-height: 656px;
+    
+    
 }
+@media  (max-width: 900px){
+  img#imgGrade {
+    max-width: 300px;
+    max-height: 400px;
+    
+   
+  }}
 h4#detalheshide
 {
     display: none;
     margin-top: 0px;
     margin-bottom: 0px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Trade Gothic LT";
     font-size: 15px;
     color: black;
     display: block;
@@ -728,13 +817,21 @@ div#conteiner
     display: table-cell;
     padding-bottom: 3px;
     margin-left: 0px
-    height: 466px;
+       height: auto;
+    width: 315px;
+    border-style: solid;
+    border-color: black;
+    padding-left: 5px;
+    border-left-width: 1px;
+   
+    height: auto;
+    
     
 }
 div#gradeResponsiva
 {
-    max-width: 301px;
-    max-height: 320px;
+    max-width: 401px;
+    max-height: 20px;
     
     float: left;
    
@@ -743,19 +840,27 @@ div#gradeResponsiva
     margin-bottom: 82px;
     height: 361px;
     margin-left: 0;
+    margin-right: 98px;
 }
-@media  (max-width: 700px){
+@media  (max-width: 900px){
   div#gradeResponsiva {
     max-width: 301px;
     max-height: 320px;
     
     float: none;
-   
+   margin-right: 0px;
     position: relative;
     margin-bottom: 82px;
     height: 361px;
-    margin-left: 0;
+    margin-left: 0px;
   }}
+  @media only screen and (max-width: 900px){
+  div#conteiner {
+    border-style: none;
+    padding-top: 10px;
+        height: 700px;
+  }
+}
    img.imgCores {
     width: 60px;
     height: 80px;
@@ -764,15 +869,33 @@ div#gradeResponsiva
     padding-top: 3px;
     cursor: pointer;
    }
-  div#Divcores
+  div#DivCores
   {
     width: 300px;
-    height: 80px;
+    height: 90px;
     display: none;
+    border-style: solid;
+    border-top: 1px;
+    border-color: black ;
   }
   div#topoNotific
   {
   }
+@media (max-width: 1023px){
+.icon {
+    background: url("");
+    display: inline-block;
+    vertical-align: middle;
+    *display: inline;
+    *zoom: 1;
+    *margin-right: 3px;
+}
+}
+a.a
+{
+  background-color: black;
+  color: white;
+}
 </style>
   <script>
 function openNav() {
@@ -783,25 +906,43 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-function alterarCategoria(categoria)
+function alterarCategoria(categoria,clss)
 {
+//Pega as classes da topnav para alterar a cor da seleção
+classe = clss.parentElement.getElementsByTagName("a");
 if(categoria == 1)
 {
+classe[1].className = "a";
+//limpando
+ classe[2].className = "x";
+ classe[3].className = "x";
  document.getElementById("5Pockets_Male").style.display = "block";
  document.getElementById("5Pockets_Female").style.display = "none";
  document.getElementById("Collection_Male").style.display = "none";
+ 
+  //background-color: #f3f3f4;
 }
 if(categoria == 2)
 {
+ classe[2].className = "a";
+ //limpando
+ classe[1].className = "x";
+ classe[3].className = "x";
  document.getElementById("5Pockets_Male").style.display = "none";
  document.getElementById("5Pockets_Female").style.display = "block";
  document.getElementById("Collection_Male").style.display = "none";
+ 
 }
 if(categoria == 3)
 {
+classe[3].className = "a";
+//limpando
+ classe[1].className = "x";
+ classe[2].className = "x";
  document.getElementById("5Pockets_Male").style.display = "none";
  document.getElementById("5Pockets_Female").style.display = "none";
  document.getElementById("Collection_Male").style.display = "block";
+ 
 }
 }
 function myFunction() {
@@ -833,6 +974,11 @@ function detalheExpand(x)
   }
 }
 </script>
+
+
+
+
+
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body style="margin: 0px;border:none;">
@@ -854,15 +1000,15 @@ function detalheExpand(x)
       <div id="notificacao" class="circulo">0</div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="34px" viewBox="-59 0 473 473.913" width="34px"><linearGradient id="lg1"><stop offset="0" stop-color="#382d2d"></stop><stop offset="1" stop-color="#868686"></stop></linearGradient><linearGradient id="linear0" gradientUnits="userSpaceOnUse" x1="177.457095" x2="177.457095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><linearGradient id="linear1" gradientUnits="userSpaceOnUse" x1="126.472095" x2="126.472095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><path d="m348.570312 123.914062h-72.113281v-28.613281c0-52.550781-42.949219-95.300781-95.5-95.300781s-95.5 42.75-95.5 95.300781v28.613281h-79.113281c-1.570312-.015624-3.082031.601563-4.1875 1.714844-1.109375 1.113282-1.722656 2.628906-1.699219 4.199219v261.097656c-.007812 45.757813 37.027344 82.886719 82.785157 82.988281h188.429687c45.757813-.101562 82.792969-37.230468 82.785156-82.988281v-261.097656c.023438-1.570313-.589843-3.085937-1.699219-4.199219-1.105468-1.113281-2.617187-1.730468-4.1875-1.714844zm-251.113281-28.613281c0-45.933593 37.566407-83.300781 83.5-83.300781 45.933594 0 83.5 37.367188 83.5 83.300781v28.613281h-167zm245 295.625c.015625 39.132813-31.652343 70.894531-70.785156 70.988281h-188.429687c-39.132813-.09375-70.800782-31.855468-70.785157-70.988281v-255.011719h73v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h167v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h66zm0 0" fill="url(#linear0)"></path><path d="m77.683594 310.914062h97.574218c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6h-97.574218c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6zm0 0" fill="url(#linear1)"></path><path d="m77.683594 344.914062c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6h199.546875c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6zm0 0" fill="url(#linear0)"></path></svg>
     </span>
-
+        
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars" style="font-size: 21px;"> </i></a><img src="https://recursos.br.diesel.com/i/logo.png" id="titulo" style=" ">
         
 
-        <a onclick="alterarCategoria(1);myFunction()" style="cursor: pointer;" class="active">5 Pockets Male</a>
-        <a onclick="alterarCategoria(2);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">5 Pockets Female</a>
+        <a onclick="alterarCategoria(1,this);myFunction()" style="cursor: pointer;" class="a">5 POCKETS MALE</a>
+        <a onclick="alterarCategoria(2,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">5 POCKETS FEMALE</a>
 
-        <a onclick="alterarCategoria(3);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">Collection Male</a>
+        <a onclick="alterarCategoria(3,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;">COLLECTION MALE</a>
 
         <a href="#about" style="display: none;">Collection Female</a>
         
@@ -891,7 +1037,10 @@ function detalheExpand(x)
         
     </tbody>
 </table>
-      <p><button onclick="fnExcelReport()">Baixar para Excel</button></p>
+      <p><button onclick="fnExcelReport()">Enviar Pedidos</button></p>
+      
+
+
 </div>
   <div id="5Pockets_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
     <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
@@ -938,7 +1087,7 @@ function detalheExpand(x)
        </div>
   </div>  
   <div id="5Pockets_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: block;">
-      <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
+      <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" ">
   
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
         <h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2>
@@ -1001,6 +1150,22 @@ function detalheExpand(x)
         <h2 id = "cores" style="display:none;">900;912;100</h2>
        </div>
 
+       <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
+  
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SPT0_0MXZA_100-1.jpg">
+
+        <h2 id="v_titulo" class="produto-titulo">T-Heal-Broken</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$586</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido:R$795,00 </h2>
+        <h2 id="v_descri" class="produto-descri"> Camisa polo T-Heal-Broken preto de algodão, Diesel. Com gola esporte, vista com abotoamento na frente, logo bordado no busto, mangas curtas e barra reta. </h2>
+        <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
+        <h2 id="referencia" style="display: none;">00SPT00MXZA</h2>
+        <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Camisa polo T-Heal-Broken preto de algodão, Diesel. Com gola esporte, vista com abotoamento na frente, logo bordado no busto, mangas curtas e barra reta. </h2>
+        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;">900;912;100;8HY</h2>
+       </div>
+
         </div>
 
 
@@ -1041,14 +1206,10 @@ function detalheExpand(x)
     /* margin-right: 50%; */
 " >
      
-     <div id="InfoNome">Buster</div>
-     <div id="InfoRef">00SDHB05678</div>
-     <div id="InfoValor">R$800</div>
-     <div id="InfoVarejo">Varejo</div>
+     
      <div id="gradeResponsiva"
    style=""> <img onclick="openmodal(this.src,this.parentElement)"  style="
-    max-width: 300px;
-    max-height: 424px;
+   
     " id="imgGrade" alt = "" src=""> </div>
     <div id="conteiner" style="
     
@@ -1057,20 +1218,24 @@ function detalheExpand(x)
     display: table-cell;
     padding-bottom: 3px;
     /* display: contents; */
-    height: 466px;
+       
     
 ">
-
-  <div id="divCores">
-    
-  </div>
+  <div id="InfoNome">Buster</div>
+  <div id="InfoRef">00SDHB05678</div>
+  <div id="InfoValor">R$800</div>
+  <div id="InfoVarejo">Varejo</div>
+  <div id="SelecionarCor" style="
+    padding-bottom: 1px;
+">Escolha a cor</div>
+  <div id="divCores"></div>
 
     <div id ="detalhe_expandivel" onclick="detalheExpand(this)"> 
     <h3 id = "h3hide" style="
     margin-top: 0px;
     margin-bottom: 0px;
     cursor: pointer;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'franklin-gothic-condensed',arial,sans-serif!important;
     font-size: 15px;
     color: black;
     ">Detalhes</h3>
@@ -1101,7 +1266,16 @@ function detalheExpand(x)
          </tr>
     </tbody>
      </table>
-     <div id="ValorTotal">Total: 0</div>   
+     <div id="ValorTotal" style="   padding-bottom: 1px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 32px;
+    color: #191819;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    font-family: 'Trade Gothic LT';
+    margin-top: 10px;">Total: 0</div>   
      <button id="incluir" onclick="incluirPedido()">Incluir grade</button>
    </div>
    </div>
@@ -1166,6 +1340,8 @@ function selecionarCor(srcc,altt)
   document.getElementById("imgGrade").src = srcc;
   document.getElementById("imgGrade").alt = altt;
 }
+
+
  function incluirPedido(produto)
 {
  var inputVazio = document.getElementsByTagName("input"); 
@@ -1196,21 +1372,21 @@ for(var i = 0; i  < 7; i++)
    
    if(i == 0){
     //nome
-   var texto = document.createTextNode(tags[2].innerText);
+   var texto = document.createTextNode(tags[5].innerText);
    novaCelula.appendChild(texto);
    }
    //valor
    else if(i == 1){
-   var texto = document.createTextNode(tags[4].innerText);
+   var texto = document.createTextNode(tags[7].innerText);
    novaCelula.appendChild(texto);
    }
    //ref
    else if(i == 2){
-   var texto = document.createTextNode(tags[3].innerText);
+   var texto = document.createTextNode(tags[6].innerText);
    novaCelula.appendChild(texto);
    }
    else if(i == 3){
-   var texto = document.createTextNode(tags[5].innerText);
+   var texto = document.createTextNode(tags[8].innerText);
    novaCelula.appendChild(texto);
    novaCelula.setAttribute("style","display:none;");
    }
@@ -1297,7 +1473,7 @@ function abrirGrade(produtoinf){
   document.getElementById("incluir").innerText = "INCLUIR GRADE";
   document.getElementById("incluir").style.background = "#2d2d2d";
   document.getElementById("ValorTotal").innerText = "Total";
-  document.getElementById("ValorTotal").style.color = "#1c7d24";
+  
    
   
   if(prod.getElementsByTagName("h2")[8].innerText != ""){
@@ -1318,6 +1494,12 @@ function abrirGrade(produtoinf){
      document.getElementById("divCores").appendChild(node);
    }
    divCores.style.display = "block";
+   document.getElementById("SelecionarCor").style.display = "block";
+}else
+{
+  document.getElementById("divCores").style.display = "none";
+   document.getElementById("SelecionarCor").style.display = "none";
+  
 }
   ModalGrade.style.display = "block";
 }
@@ -1344,9 +1526,50 @@ function fecharGrade() {
     lista.removeChild(lista.childNodes[0]);
 }
 }
+ document.getElementById("divCores").style.display = "none";
 }
 function fecharInicio(x) { 
   x.style.display = "none";
 }
+
+function EnviarEmail()
+{
+ 
+
+  //Email.send({
+    //Host : "smtp.elasticemail.com",
+   // Username : "wandersonrnosrednaw@gmail.com",
+   // Password : "dd1096ac-c22f-415c-8443-a160676019e1",
+   // To : 'wandersonrnosrednaw@gmail.com',
+//From : "wandersonrnosrednaw@gmail.com",
+  //  Subject : "This is the subject",
+ //   Body : tabela.innerHTML
+//}).then(
+ // message => alert(message)
+//);
+// var tabela = document.getElementById("table");
+//Email.send({
+   // SecureToken : "c0edc424-cceb-4b6e-943d-7467cceeb519",
+   // To : 'wandersonrnosrednaw@gmail.com',
+   // From : "wandersonrnosrednaw@gmail.com",
+   // Subject : "Pedidos Online",
+   // Body : tabela.innerHTML,
+   // Attachments : [
+ // {
+  //  name : "Plan",
+ //   path : ""
+ // }]
+
+//}).then(
+ // message => alert(message)
+//);
+
+}
+
+
+
+
+
+
   </script>
 </div></body></html>
