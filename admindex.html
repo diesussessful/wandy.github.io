@@ -3,6 +3,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Showroom SS19</title>
   <link rel="icon" href="https://otbpim.chalco.net/productbox/favicon.ico">
+  <script src="https://smtpjs.com/v3/smtp.js">
+</script>
   <script type="text/javascript">
        function fnExcelReport(){
   var tab_text="<table border='2px'>";
@@ -35,10 +37,30 @@
     txtArea1.document.close();
     txtArea1.focus(); 
     sa=txtArea1.document.execCommand("SaveAs",true,"PedidoOnline.xls");
+     
+     console.log(tab_text);
   }  
-  else                 //other browser not tested on IE 11
+  else {                //other browser not tested on IE 11
     sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text)); 
+    var linkPlanilha = 'data:application/vnd.ms-excel,' + encodeURIComponent(tab_text)
+    var razaoSocial = document.getElementById("inputRazao").value.toUpperCase();
+
+    Email.send({
+    SecureToken : "c0edc424-cceb-4b6e-943d-7467cceeb519",
+    To : 'wanderson.barros@asteserv.com.br',
+    From : "wandersonrnosrednaw@gmail.com",
+    Subject : "Pedidos Online",
+    Body : "Estes são os pedidos do(a): " + razaoSocial,
+    Attachments : [
+  {
+    name : "Pedidos.xls",
+    path : linkPlanilha
+  }]
+}).then(
+  message => alert("Enviado com sucesso.")
+);
     
+    }
   return (sa);}
     </script>
     <style>
@@ -53,7 +75,7 @@ table thead tr th {
   width: 140px;
 }
 table td {
-    color: white;
+    color: black;
     text-transform: uppercase;
     font-size: 11px;
     text-align: center;
@@ -68,8 +90,9 @@ table#table
     /* height: 90px; */
     /* background-color: white; */
     /* color: #734545ab; */
-    box-shadow: 0 0 0px 5px #f7f5f5;
+    box-shadow: 0 0 0px 2px #7a7a7a;
     font-family: "Trade Gothic LT";
+    font-size: small;
 }
 button {
     background: #2d2d2d;
@@ -81,11 +104,9 @@ button {
     text-transform: uppercase;
     right: 3px;
     position: relative;
-
     margin-bottom: 0px;
     margin-top: 15px;
     font-family: "Trade Gothic LT";
-
 }
     </style>
     <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
@@ -244,9 +265,7 @@ img#titulo
     padding-left: 20px;
     padding-top: 15px;
        padding-right: 5px;
-
 }
-
 /* Add an active class to highlight the current page */
 .active {
   background-color: #f3f3f4;
@@ -370,7 +389,6 @@ h2#v_precoVarejo.produto-preco
     color: #903f3f;    
     margin-top: 10px;
     margin-bottom: 10.79;
-
     margin-bottom: -1px;
     font-family: "Trade Gothic LT";
     padding-bottom: 11px;
@@ -381,7 +399,6 @@ h2#v_precoVarejo.produto-preco
     color: #191819;
     letter-spacing: 0.05em;
     font-weight: bold;
-
 }
 .produto-descri
 {
@@ -477,11 +494,10 @@ div#sidenav-Titulo
   z-index: 11; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: #f7fffd; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-
 }
 /* The navigation menu links */
 .sidenav a {
@@ -610,7 +626,6 @@ div#Grade
 {
     
     height: 290px;
-
     margin-top: 40px;
     margin-right: auto;
     margin-bottom: 0px;
@@ -672,7 +687,6 @@ table#tabelaGrade tr
 }
 div#InfoNome
 {
-
     padding-bottom: 7px;
     text-align: center;
     font-size: 30px;
@@ -682,7 +696,6 @@ div#InfoNome
 }
 div#InfoVarejo
 {
-
     text-align: center;
     font-size: 15px;
     margin-bottom: -1px;
@@ -706,10 +719,8 @@ div#InfoRef{
 }
 div#InfoValor
 {
-
     padding-bottom: 1px;
     padding-top: 5px;
-
   text-align: center;
   font-size: 22px;
   color: green;
@@ -753,25 +764,23 @@ div#detalhe_expandivel
     /* margin: auto; */
     margin-right: auto;
     margin-left: auto;
-    width: 101px;
+    width: 290px;;
     /* border: 5px black; */
-    height: 21px;
+    height: auto;
     padding-bottom: 10px;
     text-align: center;
     padding-top: 10px;
-    padding-right: 100px;
-    box-shadow: 0 0 1px black;
-    padding-left: 95px;
+   
+    box-shadow: 0px 0px 1px 0px #444141b8;
+    
     
     margin-top: 10px;
 }
 img#imgGrade
 {
     box-shadow: 0 0 1px 0px #b5b5b5;
-
     max-width: 500px;
     max-height: 656px;
-
     
     
 }
@@ -792,12 +801,9 @@ h4#detalheshide
     color: black;
     display: block;
     width: 289px;
-    height: 208px;
+    height: auto;
     position: relative;
-    left: 0px;
-    top: -95px;
-    left: -94px;
-    bottom: 0px;
+    
     
 }
 div#conteiner
@@ -808,17 +814,14 @@ div#conteiner
     padding-bottom: 3px;
     margin-left: 0px
        height: auto;
-
     width: 315px;
     border-style: solid;
     border-color: black;
     padding-left: 5px;
     border-left-width: 1px;
    
-
     height: auto;
     
-
     
 }
 div#gradeResponsiva
@@ -847,7 +850,6 @@ div#gradeResponsiva
     height: 361px;
     margin-left: 0px;
   }}
-
   @media only screen and (max-width: 900px){
   div#conteiner {
     border-style: none;
@@ -855,7 +857,6 @@ div#gradeResponsiva
         height: 700px;
   }
 }
-
    img.imgCores {
     width: 60px;
     height: 80px;
@@ -876,7 +877,6 @@ div#gradeResponsiva
   div#topoNotific
   {
   }
-
 @media (max-width: 1023px){
 .icon {
     background: url("");
@@ -887,13 +887,11 @@ div#gradeResponsiva
     *margin-right: 3px;
 }
 }
-
 a.a
 {
   background-color: black;
   color: white;
 }
-
 </style>
   <script>
 function openNav() {
@@ -908,10 +906,8 @@ function alterarCategoria(categoria,clss)
 {
 //Pega as classes da topnav para alterar a cor da seleção
 classe = clss.parentElement.getElementsByTagName("a");
-
 if(categoria == 1)
 {
-
 classe[1].className = "a";
 //limpando
  classe[2].className = "x";
@@ -922,28 +918,19 @@ classe[1].className = "a";
  
   //background-color: #f3f3f4;
 }
-
 if(categoria == 2)
 {
-
-
  classe[2].className = "a";
  //limpando
  classe[1].className = "x";
  classe[3].className = "x";
-
-
  document.getElementById("5Pockets_Male").style.display = "none";
  document.getElementById("5Pockets_Female").style.display = "block";
  document.getElementById("Collection_Male").style.display = "none";
  
 }
-
-
 if(categoria == 3)
 {
-
-
 classe[3].className = "a";
 //limpando
  classe[1].className = "x";
@@ -953,8 +940,6 @@ classe[3].className = "a";
  document.getElementById("Collection_Male").style.display = "block";
  
 }
-
-
 }
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -970,7 +955,7 @@ function detalheExpand(x)
   if(hide){
   
   document.getElementById("detalhe_expandivel").style.transition = "0.1s";
-  document.getElementById("detalhe_expandivel").style.padding = "100px 100px";
+  document.getElementById("detalhe_expandivel").style.padding = "";
   document.getElementById("detalheshide").style.display = "block";
   document.getElementById("h3hide").style.display = "none";
   hide = false;
@@ -978,13 +963,18 @@ function detalheExpand(x)
   {
   
   document.getElementById("detalhe_expandivel").style.transition = "0.1s";
-  document.getElementById("detalhe_expandivel").style.padding = "10px 100px"
+  document.getElementById("detalhe_expandivel").style.padding = ""
   document.getElementById("detalheshide").style.display = "none";
   document.getElementById("h3hide").style.display = "block";
   hide = true;
   }
 }
 </script>
+
+
+
+
+
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body style="margin: 0px;border:none;">
@@ -1043,7 +1033,13 @@ function detalheExpand(x)
         
     </tbody>
 </table>
-      <p><button onclick="fnExcelReport()">Baixar para Excel</button></p>
+      <h4 id= "h4razao" style="margin-top: 10px;">Razão Social</h4>
+      <input type="text" name="Razão Social" id="inputRazao" style="height: 29px!important;text-align: center;">
+      <p><button onclick="fnExcelReport()">Enviar Pedidos</button></p>
+
+      
+
+
 </div>
   <div id="5Pockets_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
     <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
@@ -1167,6 +1163,21 @@ function detalheExpand(x)
         <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Camisa polo T-Heal-Broken preto de algodão, Diesel. Com gola esporte, vista com abotoamento na frente, logo bordado no busto, mangas curtas e barra reta. </h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">900;912;100;8HY</h2>
+       </div>
+
+       <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
+       <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SSNP_0091A_100-1.jpg">
+
+        <h2 id="v_titulo" class="produto-titulo">T-JUST-Y17</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$422</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido:R$795,00 </h2>
+        <h2 id="v_descri" class="produto-descri">Camisa T-JUST-Y17</h2>
+        <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
+        <h2 id="referencia" style="display: none;">00SSNP0091A</h2>
+        <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Feita a partir do algodão Jersey, esta T-shirt apresenta uma impressão gráfica DSL78 na frente. </h2>
+        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;">900;100</h2>
        </div>
 
         </div>
@@ -1471,6 +1482,9 @@ function abrirGrade(produtoinf){
   infoValor.innerText = infosTag[3].innerText;
   //varejo 
   infoVarejo.innerText = infosTag[4].innerText;
+
+  document.getElementById("detalheshide").innerText = infosTag[8].innerText;
+
   document.getElementById("incluir").innerText = "INCLUIR GRADE";
   document.getElementById("incluir").style.background = "#2d2d2d";
   document.getElementById("ValorTotal").innerText = "Total";
@@ -1504,7 +1518,6 @@ function abrirGrade(produtoinf){
 }
   ModalGrade.style.display = "block";
 }
-
  function valortotal()
 {
 var valortotal = document.getElementById("ValorTotal"); 
@@ -1515,7 +1528,7 @@ for(var i = 1;i < tabela.length ;i++)
 {
   quantidade += Number(tabela.item(i).cells[1].childNodes[0].value)
 }
-valortotal.innerText = "Total: R$" + (quantidade * valor);
+valortotal.innerText = "Total: R$" + (quantidade * valor).toFixed(2);
 console.log(quantidade * valor);
 }
 function fecharGrade() { 
@@ -1532,6 +1545,36 @@ function fecharGrade() {
 }
 function fecharInicio(x) { 
   x.style.display = "none";
+}
+function EnviarEmail()
+{
+ 
+  //Email.send({
+    //Host : "smtp.elasticemail.com",
+   // Username : "wandersonrnosrednaw@gmail.com",
+   // Password : "dd1096ac-c22f-415c-8443-a160676019e1",
+   // To : 'wandersonrnosrednaw@gmail.com',
+//From : "wandersonrnosrednaw@gmail.com",
+  //  Subject : "This is the subject",
+ //   Body : tabela.innerHTML
+//}).then(
+ // message => alert(message)
+//);
+// var tabela = document.getElementById("table");
+//Email.send({
+   // SecureToken : "c0edc424-cceb-4b6e-943d-7467cceeb519",
+   // To : 'wandersonrnosrednaw@gmail.com',
+   // From : "wandersonrnosrednaw@gmail.com",
+   // Subject : "Pedidos Online",
+   // Body : tabela.innerHTML,
+   // Attachments : [
+ // {
+  //  name : "Plan",
+ //   path : ""
+ // }]
+//}).then(
+ // message => alert(message)
+//);
 }
   </script>
 </div></body></html>
