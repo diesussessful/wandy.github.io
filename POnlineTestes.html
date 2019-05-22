@@ -37,27 +37,23 @@
     txtArea1.document.close();
     txtArea1.focus(); 
     sa=txtArea1.document.execCommand("SaveAs",true,"PedidoOnline.xls");
-
      
      console.log(tab_text);
   }  
   else {                //other browser not tested on IE 11
     sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text)); 
-
     var linkPlanilha = 'data:application/vnd.ms-excel,' + encodeURIComponent(tab_text)
-
     Email.send({
     SecureToken : "c0edc424-cceb-4b6e-943d-7467cceeb519",
-    To : 'wandersonrnosrednaw@gmail.com',
+    To : 'wanderson.barros@asteserv.com.br',
     From : "wandersonrnosrednaw@gmail.com",
     Subject : "Pedidos Online",
-    Body : "Pedidos",
+    Body : "Estes são os pedidos do(a): (Nome do cliente).",
     Attachments : [
   {
     name : "Pedidos.xls",
     path : linkPlanilha
   }]
-
 }).then(
   message => alert(message)
 );
@@ -1340,8 +1336,6 @@ function selecionarCor(srcc,altt)
   document.getElementById("imgGrade").src = srcc;
   document.getElementById("imgGrade").alt = altt;
 }
-
-
  function incluirPedido(produto)
 {
  var inputVazio = document.getElementsByTagName("input"); 
@@ -1531,11 +1525,9 @@ function fecharGrade() {
 function fecharInicio(x) { 
   x.style.display = "none";
 }
-
 function EnviarEmail()
 {
  
-
   //Email.send({
     //Host : "smtp.elasticemail.com",
    // Username : "wandersonrnosrednaw@gmail.com",
@@ -1559,17 +1551,9 @@ function EnviarEmail()
   //  name : "Plan",
  //   path : ""
  // }]
-
 //}).then(
  // message => alert(message)
 //);
-
 }
-
-
-
-
-
-
   </script>
 </div></body></html>
