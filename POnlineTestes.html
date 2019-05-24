@@ -1589,42 +1589,130 @@ function EnviarEmail()
  // message => alert(message)
 //);
 }
-
 function ImportarProdutos()
 {
-
-var file = document.getElementById("DadosCsv");
-
-var reader = new FileReader();
+file = document.getElementById("DadosCsv");
+ reader = new FileReader();
 
 reader.readAsBinaryString(file.files[0]);
+ reader.onloadend = function(){
 
-var produtos = reader.result;
+ produtos = reader.result;
 
-
-var produto = [];
-
-
-var pos =30;
-var j = 15;
-
+ produto = [];
+ pos =30;
+ j = 15;
 for( i = 0; i < 3; i++)
 {
-
   for( ; j < pos; j++){
   
-
-    produto[[i,j]] = produtos.split(";")[j];
+   produto[[i,j]] = produtos.split(";")[j];
     
   }
 pos = pos+15;
  
 }
-
+}
 console.log(produto);
+
+ var PImage = 15;  
+ var Pnome = 16;
+ var Ppreco = 28;
+ var PPrecoV = 29;
+ var g = 17;
+ var gradeLimite = 27;
+
+ for( i = 0;i < 3;i++){
+
+     var nodeDivProduto = document.createElement("div");
+     var nodeImage = document.createElement("img");
+     var nodeTitulo = document.createElement("h2");
+     var nodeInfo = document.createElement("h2");
+     var nodePreco = document.createElement("h2");
+     var nodePrecoVarejo = document.createElement("h2");
+     var nodeDescri = document.createElement("h2");
+     var nodeGrade = document.createElement("h2");
+     var nodeReferencia = document.createElement("h2");
+     var nodeDetalhes = document.createElement("h2");
+     var nodeIconExpand = document.createElement("img");
+     var nodeCores = document.createElement("h2");
+
+     nodeDivProduto.setAttribute("id","produto_visu");
+     nodeDivProduto.setAttribute("onclick","abrirGrade(this)");
+     nodeDivProduto.setAttribute("class","visuali-produto");
+
+     nodeImage.setAttribute("id","v_imagem");
+     nodeImage.setAttribute("src","https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/"+ produto[[i,PImage]] +".jpg");
+
+     nodeTitulo.setAttribute("id","v_titulo");
+     nodeTitulo.setAttribute("class","produto-titulo");
+     nodeTitulo.innerText = produto[[i,Pnome]];
+     
+     nodeInfo.setAttribute("id","v_info");
+     nodeInfo.setAttribute("class","produto-info");
+     nodeInfo.setAttribute("style","font-size:13px;");
+
+     nodePreco.setAttribute("id","v_preco");
+     nodePreco.setAttribute("class","produto-preco");
+     nodePreco.innerText = produto[[i,Ppreco]];
+
+     nodePrecoVarejo.setAttribute("id","v_precoVarejo");
+     nodePrecoVarejo.setAttribute("class","produto-preco");
+     nodePreco.innerText = "Varejo sugerido: " + produto[[i,PPrecoV]];
+
+     nodeDescri.setAttribute("id","v_descri");
+     nodeDescri.setAttribute("class","produto-descri");
+     nodeDescri.innerText = produto[[i,Pnome]];
+
+     nodeGrade.setAttribute("id","grade");
+     nodeGrade.setAttribute("style","display:none;");
+
+     for(; g < gradeLimite; g++){
+      if(produto[[i,g]] != "")
+      {
+        nodeGrade.innerText += produto[[i,g]]+";";
+      }
+     
+     }
+
+
+     nodeReferencia.setAttribute("id","referencia");
+     nodeReferencia.setAttribute("style","display:none;");
+     
+
+
+     nodeDetalhes.setAttribute("id","v_detalhes");
+     nodeDetalhes.setAttribute("class","produto-descri");
+     nodeDetalhes.setAttribute("style","display:none;");
+
+     nodeIconExpand.setAttribute("id","v_expandicon");
+     nodeIconExpand.setAttribute("src","https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png");
+
+     nodeCores.setAttribute("id","cores");
+     nodeCores.setAttribute("style","display:none;");
+     nodeDivProduto.appendChild(nodeImage);
+     nodeDivProduto.appendChild(nodeTitulo);
+     nodeDivProduto.appendChild(nodeInfo);
+     nodeDivProduto.appendChild(nodePreco);
+     nodeDivProduto.appendChild(nodePrecoVarejo);
+     nodeDivProduto.appendChild(nodeDescri);
+     nodeDivProduto.appendChild(nodeGrade);
+     nodeDivProduto.appendChild(nodeReferencia);
+     nodeDivProduto.appendChild(nodeDetalhes);
+     nodeDivProduto.appendChild(nodeIconExpand);
+     nodeDivProduto.appendChild(nodeCores);
+
+     document.getElementById("5Pockets_Male").appendChild(nodeDivProduto);
+     console.log(g);
+ Pnome += 15;
+ Ppreco += 15;
+ PPrecoV += 15;
+ PImage +=15;
+ g += 5;
+ gradeLimite += 15;
 }
 
-
-
+     
+}
   </script>
 </div></body></html
