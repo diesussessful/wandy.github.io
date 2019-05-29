@@ -211,7 +211,7 @@ span#sacola
     z-index: 10;
     margin-top:5px;
     float: right;
-    right: 15px;
+    right: 30px;
 }
 .top-menu
 {
@@ -235,6 +235,7 @@ span#sacola
     z-index: 1;
     bottom: 0px;
     top: 0px;
+    left: 15px;
 }
 /* Style the links inside the navigation bar */
 .topnav a {
@@ -287,7 +288,7 @@ img#titulo
     padding-bottom: 22px;
 }
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 966px) {
+@media screen and (max-width: 1000px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: left;
@@ -302,7 +303,7 @@ img#titulo
   }
 }
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 966px) {
+@media screen and (max-width: 1000px) {
   .topnav.responsive {
     position: relative;
   }
@@ -367,6 +368,7 @@ animation: fadein 1s;
     margin-bottom: 25px;
     cursor: pointer;
     overflow-y: hidden;
+    text-align: justify;
   
   
 }
@@ -404,7 +406,7 @@ h2#v_precoVarejo.produto-preco
     font-family: "Trade Gothic LT";
     padding-bottom: 11px;
     padding-top: 1px;
-    text-align: center;
+    text-align: initial;
     font-size: 12px;
    line-height: 15px;
     color: #191819;
@@ -413,7 +415,7 @@ h2#v_precoVarejo.produto-preco
 }
 .produto-descri
 {
-  font-size: 10px;
+  font-size: 11.5px;
     
     margin-top: 1px;
     margin-bottom: 4px;
@@ -643,14 +645,15 @@ div#Grade
     margin-left: auto;
     text-align: center;
     width: max-content;
-    font-family: 'Open Sans', sans-serif;
+    font: normal normal 400 14px/1.286em Roboto,sans-serif;
 } 
 table#tabelaGrade
 {
-  box-shadow: 0 0 2px 0px black;
+  box-shadow: 0 0 1px 0px #525252;
     width: 293px;
     height: 223px;
-    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
+        font: normal normal 400 14px/1.286em Roboto,sans-serif;
+    display: table-row-group;
 }      
 button#incluir
 {
@@ -670,6 +673,7 @@ button#incluir
     right: 3px;
     position: relative;
     transition: all 1s ease 0s;
+    margin-bottom: 40px;
 }
 table#tabelaGrade td#gradetr
 {
@@ -680,13 +684,15 @@ table#tabelaGrade td#gradetr
     height: 24px;
     font-size: larger;
     margin-left: 50px;
-    font-family: "Trade Gothic LT";
+    font: normal normal 400 20px/1.286em Roboto,sans-serif;
 }
 table#tabelaGrade input
 {
     width: 60px;
     height: 23px;
     box-shadow: 0 0 1px black;
+    font: normal normal 400 14px/1.286em Roboto,sans-serif;
+    text-align: center;
     
 }
 table#tabelaGrade tr
@@ -701,9 +707,15 @@ div#InfoNome
     padding-bottom: 7px;
     text-align: center;
     font-size: 30px;
-    color: black;
-    font-family: "franklin-gothic-condensed",arial,sans-serif!important;
+    
+   
     letter-spacing: 0.04em;
+
+    color: #211915;
+    font-family: 'Roboto Condensed',sans-serif;
+    font-weight: 700;
+    
+    line-height: 1em;
 }
 div#InfoVarejo
 {
@@ -849,7 +861,7 @@ div#gradeResponsiva
     margin-left: 0;
     margin-right: 98px;
 }
-@media  (max-width: 900px){
+@media  (max-width: 899px){
   div#gradeResponsiva {
     max-width: 301px;
     max-height: 320px;
@@ -861,7 +873,7 @@ div#gradeResponsiva
     height: 361px;
     margin-left: 0px;
   }}
-  @media only screen and (max-width: 900px){
+  @media only screen and (max-width: 899px){
   div#conteiner {
     border-style: none;
     padding-top: 10px;
@@ -1092,13 +1104,13 @@ function detalheExpand(x)
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$452.27</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$995</h2>
-        <h2 id="v_descri" class="produto-descri">SLANDY</h2>
+        <h2 id="v_descri" class="produto-descri">Super-Skinny</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SXJN084ZD</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">01</h2>
-        <h2 id="Caimento" style="display: none"></h2>
+        <h2 id="dadosDoProduto" style="display: none"></h2>
        </div>
         <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
@@ -1107,13 +1119,13 @@ function detalheExpand(x)
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$497.73</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00 </h2>
-        <h2 id="v_descri" class="produto-descri">Bootcut style with a low waist and higher back coverage.</h2>
+        <h2 id="v_descri" class="produto-descri">Bootcut</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SMMV086AW</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">01</h2>
-        <h2 id="Caimento" style="display: none"></h2>
+        <h2 id="dadosDoProduto" style="display: none"></h2>
        </div>
         <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
@@ -1122,13 +1134,13 @@ function detalheExpand(x)
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$497.73</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00</h2>
-        <h2 id="v_descri" class="produto-descri">KRAILEY-B-NE</h2>
+        <h2 id="v_descri" class="produto-descri">Boyfriend</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SJNL069CM</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">KRAILEY-B-NE</h2>   
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">02</h2>
-        <h2 id="Caimento" style="display: none"></h2>
+        <h2 id="dadosDoProduto" style="display: none"></h2>
        </div>
   </div>  
   <div id="5Pockets_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: block;">
@@ -1139,13 +1151,13 @@ function detalheExpand(x)
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$859</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.695</h2>
-        <h2 id="v_descri" class="produto-descri">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
+        <h2 id="v_descri" class="produto-descri">Skinny</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00S7VG084UU</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">01</h2>
-        <h2 id="Caimento" style="display: none"></h2>
+        <h2 id="dadosDoProduto" style="display: none">SKINNY</h2>
        </div>
       
        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
@@ -1155,13 +1167,13 @@ function detalheExpand(x)
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco"> R$856  </h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.695</h2>
-        <h2 id="v_descri" class="produto-descri">Jeans Safado com perna larga da coxa ao tornozelo</h2>
+        <h2 id="v_descri" class="produto-descri">Straight</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00C03GC84MX</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;">Jeans Safado com perna larga da coxa ao tornozelo</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">01</h2>
-        <h2 id="Caimento" style="display: none"></h2>
+        <h2 id="dadosDoProduto" style="display: none"></h2>
        </div>
        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
   
@@ -1170,13 +1182,13 @@ function detalheExpand(x)
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$361.36</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido:R$795,00 </h2>
-        <h2 id="v_descri" class="produto-descri">Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa.</h2>
+        <h2 id="v_descri" class="produto-descri">Slim</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SW1Q087AM</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">02</h2>
-        <h2 id="Caimento" style="display: none"></h2>
+        <h2 id="dadosDoProduto" style="display: none"></h2>
        </div>
        </div>
 
@@ -1190,7 +1202,7 @@ function detalheExpand(x)
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$361.36</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido:R$795,00 </h2>
-        <h2 id="v_descri" class="produto-descri"> - </h2>
+        <h2 id="v_descri" class="produto-descri">Regular fit</h2>
         <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
         <h2 id="referencia" style="display: none;">00SJ630091A</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
@@ -1206,7 +1218,7 @@ function detalheExpand(x)
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$586</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido:R$795,00 </h2>
-        <h2 id="v_descri" class="produto-descri"> Camisa polo T-Heal-Broken preto de algodão, Diesel. Com gola esporte, vista com abotoamento na frente, logo bordado no busto, mangas curtas e barra reta. </h2>
+        <h2 id="v_descri" class="produto-descri">Polo</h2>
         <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
         <h2 id="referencia" style="display: none;">00SPT00MXZA</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Camisa polo T-Heal-Broken preto de algodão, Diesel. Com gola esporte, vista com abotoamento na frente, logo bordado no busto, mangas curtas e barra reta. </h2>
@@ -1221,7 +1233,7 @@ function detalheExpand(x)
         <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
         <h2 id="v_preco" class="produto-preco">R$422</h2>
         <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido:R$795,00 </h2>
-        <h2 id="v_descri" class="produto-descri">Camisa T-JUST-Y17</h2>
+        <h2 id="v_descri" class="produto-descri">Regular fit</h2>
         <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
         <h2 id="referencia" style="display: none;">00SSNP0091A</h2>
         <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Feita a partir do algodão Jersey, esta T-shirt apresenta uma impressão gráfica DSL78 na frente. </h2>
@@ -1356,11 +1368,14 @@ var img = document.getElementById('v_imagem');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 var prod;
+//visualizar imagem na tela inteira
 function openmodal(srcX,detalhes){
+
   modal.style.display = "block";
   document.getElementById("myModal").style.zIndex = "10";
   modalImg.src = detalhes.getElementsByTagName("*")[0].src;
  // captionText.innerHTML = detalhes.getElementsByTagName("*")[8].innerText;
+
 }
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -1638,10 +1653,12 @@ function EnviarEmail()
 function ImportarProdutos()
 {
 
-  //Notas sobre o formato do documento.
+  //Notas 01: sobre o formato do documento.
   //Deve ser um documento para cada categoria.
   //Após a edição no excel, cada llinha precisa ter um ponto e virgula no final, isso pode ser conferido em um bloco de notas.
-  //
+
+  //Notas 02: Sempre que uma nova coluna for adicionada à planilha, todas as variaveis abaixo devem receber um numero a mais
+
 file = document.getElementById("DadosCsv");
  reader = new FileReader();
 
@@ -1651,8 +1668,9 @@ reader.readAsBinaryString(file.files[0]);
  produtos = reader.result;
 
  produto = [];
- pos =30;
- j = 15;
+
+ pos =32;
+ j = 16;
 
 for( i = 0; i < 3; i++)
 {
@@ -1661,19 +1679,21 @@ for( i = 0; i < 3; i++)
    produto[[i,j]] = produtos.split(";")[j];
     
   }
-pos = pos+15;
+pos = pos+16;
  
 }
 }
 console.log(produto);
 
- var PImage = 15;  
- var Pnome = 16;
- var Ppreco = 28;
- var PPrecoV = 29;
- var g = 17;
- var gradeLimite = 28;
-
+ var PImage = 16;  
+ var Pnome = 17;
+ var Ppreco = 29;
+ var PPrecoV = 30;
+ var PCaimento = 31;
+ var g = 18;
+ var gradeLimite = 29;
+ var Pref = 16;
+ var cores = "";
  for( i = 0;i < 3;i++){
 
      var nodeDivProduto = document.createElement("div");
@@ -1708,32 +1728,33 @@ console.log(produto);
      nodePreco.setAttribute("class","produto-preco");
      nodePreco.innerText = produto[[i,Ppreco]];
 
+    console.log(produto[[i,Ppreco]]);
+
      nodePrecoVarejo.setAttribute("id","v_precoVarejo");
      nodePrecoVarejo.setAttribute("class","produto-preco");
-     nodePreco.innerText = "Varejo sugerido: " + produto[[i,PPrecoV]];
+     nodePrecoVarejo.innerText = "Varejo sugerido: " + produto[[i,PPrecoV]];
 
      nodeDescri.setAttribute("id","v_descri");
      nodeDescri.setAttribute("class","produto-descri");
-     nodeDescri.innerText = produto[[i,Pnome]];
+     nodeDescri.innerText = produto[[i,PCaimento]];
 
      nodeGrade.setAttribute("id","grade");
      nodeGrade.setAttribute("style","display:none;");
 
      for(; g < gradeLimite; g++){
       if(produto[[i,g]] != "")
-      {
-         nodeGrade.innerText += produto[[i,g]]+";";
-        }
-        
+        {
 
+          cores += produto[[i,g]]+";";
+        
+        }
       }
      
-     
-
+      nodeGrade.innerText = cores.substring(0,  cores.length-1);
 
      nodeReferencia.setAttribute("id","referencia");
      nodeReferencia.setAttribute("style","display:none;");
-     
+     nodeReferencia.innerText = produto[[i,Pref]].split("_")[0] + produto[[i,Pref]].split("_")[1];
 
 
      nodeDetalhes.setAttribute("id","v_detalhes");
@@ -1745,6 +1766,8 @@ console.log(produto);
 
      nodeCores.setAttribute("id","cores");
      nodeCores.setAttribute("style","display:none;");
+     nodeCores.innerText = produto[[i,Pref]].split("_")[2].split("-")[0];
+
      nodeDivProduto.appendChild(nodeImage);
      nodeDivProduto.appendChild(nodeTitulo);
      nodeDivProduto.appendChild(nodeInfo);
@@ -1759,12 +1782,15 @@ console.log(produto);
 
      document.getElementById("5Pockets_Male").appendChild(nodeDivProduto);
      console.log(g);
- Pnome += 15;
- Ppreco += 15;
- PPrecoV += 15;
- PImage +=15;
+ Pnome += 16;
+ Ppreco += 16;
+ PPrecoV += 16;
+ PImage +=16;
  g += 5;
- gradeLimite += 15;
+ gradeLimite += 16;
+ Pref += 16;
+ cores = "";
+ PCaimento += 16;
 }
 
      
