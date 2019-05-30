@@ -507,7 +507,7 @@ div#sidenav-Titulo
   z-index: 11; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #f7fffd; /* Black*/
+  background-color: #fff; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -543,7 +543,7 @@ div#sidenav-Titulo
   z-index: 11; /* Stay on top */
   top: 0; /* Stay at the top */
   right: 0;
-  background-color: #f7fffd; /* Black*/
+  background-color: #fff; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -1241,7 +1241,7 @@ function carregandoInicio()
    document.getElementById("introEsq").style.display = "none";
    document.getElementById("iconeCarregando").style.display = "none";
    }, 2000);
- 
+  document.getElementById("DadosCsv").value = "https://github.com/Darkosheen/wandy.github.io/raw/master/5PFemale_Produtos.csv";
 
 }
 
@@ -1259,14 +1259,14 @@ function carregandoInicio()
 
     <div id="introDir" style="
     ">
-      <h1 style="padding-top: 157px;font-size: 1077%;float: left;" >SEL</h1>
+      <h1 style="padding-top: 157px;font-size: 1077%;float: left;color: black;" >SEL</h1>
       <h2></h2>
     </div>
       <div id="iconeCarregando">
         <svg width="158px" height="158px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="shape-rendering: auto; animation-play-state: running; animation-delay: 0s; background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#28292f" stroke-width="1" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" style="animation-play-state: running; animation-delay: 0s;" transform="rotate(299.858 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite" style="animation-play-state: running; animation-delay: 0s;"></animateTransform></circle></svg>
       </div>
     <div id="introEsq">
-      <h1 style="padding-top: 157px;font-size: 1077%;float: right;" >DIE</h1 >
+      <h1 style="padding-top: 157px;font-size: 1077%;float: right;color: black;" >DIE</h1 >
       <h2></h2>
     </div>
 
@@ -1341,7 +1341,9 @@ function carregandoInicio()
     width: 300px;">
       <p><button onclick="fnExcelReport()">Enviar Pedidos</button></p>
          <div>
-          <input type="file" id="DadosCsv" />
+            <h4>Insira o Link para importar</h4>
+            <h5>Area de importação de produtos (Não disponível para cliente)</h5>
+           <input type="text" id="DadosCsv" /> 
           <button onclick="ImportarProdutos()">Importar Produtos</button>
          </div>
       
@@ -1426,6 +1428,9 @@ function carregandoInicio()
        </div>
   </div>  
   <div id="5Pockets_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: block;">
+
+
+
       <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" ">
   
         <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00S7VG_084UU_01-1.jpg">
@@ -1472,6 +1477,31 @@ function carregandoInicio()
         <h2 id = "cores" style="display:none;">02</h2>
         <h2 id="dadosDoProduto" style="display: none"></h2>
        </div>
+
+      <div id="produto_visu" onclick="abrirGrade(this)" class="visuali-produto"><img id="v_imagem" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/
+00SMZS_085AW_02-1.jpg"><h2 id="v_titulo" class="produto-titulo">D-ISTORT L.32</h2><h2 id="v_info" class="produto-info" style="font-size:13px;"></h2><h2 id="v_preco" class="produto-preco">R$ 679.55</h2><h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$ 1.495.00</h2><h2 id="v_descri" class="produto-descri">Skinny</h2><h2 id="grade" style="display:none;">27;28;30;32</h2><h2 id="referencia" style="display:none;"><br>00SMZS085AW</h2><h2 id="v_detalhes" class="produto-descrix" style="display:none;"></h2><img id="v_expandicon" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png"><h2 id="cores" style="display:none;">02</h2></div>
+
+<div id="produto_visu" onclick="abrirGrade(this)" class="visuali-produto"><img id="v_imagem" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/
+00S7VG_084RI_01-1.jpg"><h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2><h2 id="v_info" class="produto-info" style="font-size:13px;"></h2><h2 id="v_preco" class="produto-preco">R$ 361.36</h2><h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$ 795.00</h2><h2 id="v_descri" class="produto-descri">Skinny</h2><h2 id="grade" style="display:none;">27;28;29;30;31;32;33;34;36;38;40</h2><h2 id="referencia" style="display:none;"><br>00S7VG084RI</h2><h2 id="v_detalhes" class="produto-descrix" style="display:none;"></h2><img id="v_expandicon" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png"><h2 id="cores" style="display:none;">01</h2></div>
+
+<div id="produto_visu" onclick="abrirGrade(this)" class="visuali-produto"><img id="v_imagem" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/
+00S7VG_069AJ_01-1.jpg"><h2 id="v_titulo" class="produto-titulo">SLEENKER L.32</h2><h2 id="v_info" class="produto-info" style="font-size:13px;"></h2><h2 id="v_preco" class="produto-preco">R$ 406.82</h2><h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$ 895.00</h2><h2 id="v_descri" class="produto-descri">Skinny</h2><h2 id="grade" style="display:none;">27;28;29;30;31;32;33;34;36;38;40</h2><h2 id="referencia" style="display:none;"><br>00S7VG069AJ</h2><h2 id="v_detalhes" class="produto-descrix" style="display:none;"></h2><img id="v_expandicon" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png"><h2 id="cores" style="display:none;">01</h2></div>
+
+<div id="produto_visu" onclick="abrirGrade(this)" class="visuali-produto"><img id="v_imagem" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/
+00SD3U_084QN_01-1.jpg"><h2 id="v_titulo" class="produto-titulo">THOSHORT</h2><h2 id="v_info" class="produto-info" style="font-size:13px;"></h2><h2 id="v_preco" class="produto-preco">R$ 406.83</h2><h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$ 895.01</h2><h2 id="v_descri" class="produto-descri">Slim</h2><h2 id="grade" style="display:none;">27;28;29;30;32;34;36;38;40</h2><h2 id="referencia" style="display:none;"><br>00SD3U084QN</h2><h2 id="v_detalhes" class="produto-descrix" style="display:none;"></h2><img id="v_expandicon" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png"><h2 id="cores" style="display:none;">01</h2></div>
+
+
+<div id="produto_visu" onclick="abrirGrade(this)" class="visuali-produto"><img id="v_imagem" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/
+00C03G_C81AP_01-1.jpg"><h2 id="v_titulo" class="produto-titulo">SAFADO</h2><h2 id="v_info" class="produto-info" style="font-size:13px;"></h2><h2 id="v_preco" class="produto-preco">R$ 406.84</h2><h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$ 895.02</h2><h2 id="v_descri" class="produto-descri">Straight</h2><h2 id="grade" style="display:none;">27;28;29;30;32;34;36;38</h2><h2 id="referencia" style="display:none;"><br>00C03GC81AP</h2><h2 id="v_detalhes" class="produto-descrix" style="display:none;"></h2><img id="v_expandicon" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png"><h2 id="cores" style="display:none;">01</h2></div>
+
+<div id="produto_visu" onclick="abrirGrade(this)" class="visuali-produto"><img id="v_imagem" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/
+00C03G_C81AS_01-1.jpg"><h2 id="v_titulo" class="produto-titulo">SAFADO L.32</h2><h2 id="v_info" class="produto-info" style="font-size:13px;"></h2><h2 id="v_preco" class="produto-preco">R$ 406.85</h2><h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$ 895.03</h2><h2 id="v_descri" class="produto-descri">Straight</h2><h2 id="grade" style="display:none;">27;28;29;30;32;34;36;38</h2><h2 id="referencia" style="display:none;"><br>00C03GC81AS</h2><h2 id="v_detalhes" class="produto-descrix" style="display:none;"></h2><img id="v_expandicon" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png"><h2 id="cores" style="display:none;">01</h2></div>
+
+<div id="produto_visu" onclick="abrirGrade(this)" class="visuali-produto"><img id="v_imagem" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/
+00SD3U_081AS_01-1.jpg"><h2 id="v_titulo" class="produto-titulo">THOSHORT</h2><h2 id="v_info" class="produto-info" style="font-size:13px;"></h2><h2 id="v_preco" class="produto-preco">R$ 406.86</h2><h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$ 895.04</h2><h2 id="v_descri" class="produto-descri">Straight</h2><h2 id="grade" style="display:none;">27;28;29;30;32;34;36;38;40</h2><h2 id="referencia" style="display:none;"><br>00SD3U081AS</h2><h2 id="v_detalhes" class="produto-descrix" style="display:none;"></h2><img id="v_expandicon" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png"><h2 id="cores" style="display:none;">01</h2></div>
+
+
+
        </div>
 
        <div id="Collection_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
@@ -1941,11 +1971,32 @@ function ImportarProdutos()
 
   //Notas 02: Sempre que uma nova coluna for adicionada à planilha, todas as variaveis abaixo devem receber um numero a mais
 
-file = document.getElementById("DadosCsv");
+//file = document.getElementById("DadosCsv");
+var url = document.getElementById("DadosCsv").value;
+
+ var request = new XMLHttpRequest();
+ request.open('GET',url,true);
+ request.responseType = "blob";
+ request.send();
+ request.onloadend = function(){
  reader = new FileReader();
 
-reader.readAsBinaryString(file.files[0]);
+reader.readAsBinaryString(request.response);
  reader.onloadend = function(){
+
+
+ //var categoriaCSV = file.files[0].name.split("_")[0];
+//Incluir todas as categorias possiveis
+// if(categoriaCSV == "5PMale")
+// {
+   // categCSV = "5Pockets_Male";
+// }
+
+// if(categoriaCSV == "5PFemale")
+// {
+    //categCSV = "5Pockets_Female";
+ //}
+
 
  produtos = reader.result;
 
@@ -1963,6 +2014,7 @@ for( i = 0; i < 7; i++)
   }
 pos = pos+16;
  
+}
 }
 }
 console.log(produto);
@@ -2062,7 +2114,7 @@ console.log(produto);
      nodeDivProduto.appendChild(nodeIconExpand);
      nodeDivProduto.appendChild(nodeCores);
 
-     document.getElementById("5Pockets_Male").appendChild(nodeDivProduto);
+     document.getElementById(categoriaAtual).appendChild(nodeDivProduto);
      console.log(g);
  Pnome += 16;
  Ppreco += 16;
