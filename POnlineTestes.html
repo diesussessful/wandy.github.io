@@ -533,6 +533,68 @@ div#sidenav-Titulo
   font-size: 36px;
   margin-left: 50px;
 }
+
+.sideNavFiltro
+{
+  text-align: center;
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 11; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: #f7fffd; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  
+}
+
+.closebtnfiltro
+{
+    text-decoration: none;
+    cursor: pointer;
+    color: #191919;
+    outline: medium none;
+}
+
+div#sidenav-Titulo-Filtro
+{
+    position: none;
+    color: black;
+    font-size: 41px;
+    font-style: inherit;
+    cursor: pointer;
+    z-index: 1;
+    margin-bottom: 7px;
+    font: normal normal 400 22px/1.286em Roboto,sans-serif;
+
+    height: 25px;
+    margin-left: 10px;
+
+}
+a.closebtnfiltro
+{
+  text-decoration: none;
+    cursor: pointer;
+    color: #44a46c;
+    outline: medium none;
+    font-weight: initial;
+    background-color: #f5efff;
+    font-size: 20px;
+    
+    font: normal normal 1000 19px/1.286em Roboto,sans-serif;
+    /* font-family: frn-icon!important; */
+    box-shadow: 0 0 1px 0px black;
+    width: 44px;
+    height: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+
+    /* font-family: frn-icon!important; */
+}
+
 span {
     position: absolute;
     color: azure;
@@ -920,6 +982,7 @@ a.x
   color: #969696;
 }
 
+
 img#icone_filtro
 {
 
@@ -931,6 +994,81 @@ img#icone_filtro
     cursor: pointer;
 
 }
+
+/* The container ----------------------------------*/
+.containerCaim {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font: normal normal 400 20px/1.286em Roboto,sans-serif;
+}
+
+/* Hide the browser's default checkbox */
+.containerCaim input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  box-shadow: 0 0 1px 0px #847f7f;
+}
+
+/* On mouse-over, add a grey background color */
+.containerCaim:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.containerCaim input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.containerCaim input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.containerCaim .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+
+
 </style>
   <script>
 function openNav() {
@@ -940,6 +1078,24 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
+function openNavFiltro()
+{
+  document.getElementById("mySidenavFiltro").style.width = "100%";
+  
+  var contVisuProd = document.getElementById(categoriaAtual).getElementsByClassName("visuali-produto").length
+for(var x = 0; x < contVisuProd; x++)
+{
+  document.getElementById(categoriaAtual).getElementsByClassName("visuali-produto")[x].style.display = "inline-block";
+}
+  
+}
+
+function closeNavFiltro() {
+  document.getElementById("mySidenavFiltro").style.width = "0%";
+  document.getElementById("mySidenavFiltro").boxShadow = ""
+}
+
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function alterarCategoria(categoria,clss)
 {
@@ -954,9 +1110,14 @@ classe[1].className = "a";
  document.getElementById("5Pockets_Male").style.display = "block";
  document.getElementById("5Pockets_Female").style.display = "none";
  document.getElementById("Collection_Male").style.display = "none";
+ categoriaAtual = document.getElementById("5Pockets_Male").id
  
+
+
+ }
+
   //background-color: #f3f3f4;
-}
+
 if(categoria == 2)
 {
  classe[2].className = "a";
@@ -966,8 +1127,13 @@ if(categoria == 2)
  document.getElementById("5Pockets_Male").style.display = "none";
  document.getElementById("5Pockets_Female").style.display = "block";
  document.getElementById("Collection_Male").style.display = "none";
- 
-}
+ categoriaAtual = document.getElementById("5Pockets_Female").id
+//////////
+   
+  
+ }
+
+
 if(categoria == 3)
 {
 classe[3].className = "a";
@@ -977,9 +1143,15 @@ classe[3].className = "a";
  document.getElementById("5Pockets_Male").style.display = "none";
  document.getElementById("5Pockets_Female").style.display = "none";
  document.getElementById("Collection_Male").style.display = "block";
+ categoriaAtual = document.getElementById("Collection_Male").id
+ //////////
+   
  
-}
-}
+
+ }
+ }
+
+
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -1036,7 +1208,7 @@ function detalheExpand(x)
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="34px" viewBox="-59 0 473 473.913" width="34px"><linearGradient id="lg1"><stop offset="0" stop-color="#382d2d"></stop><stop offset="1" stop-color="#868686"></stop></linearGradient><linearGradient id="linear0" gradientUnits="userSpaceOnUse" x1="177.457095" x2="177.457095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><linearGradient id="linear1" gradientUnits="userSpaceOnUse" x1="126.472095" x2="126.472095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><path d="m348.570312 123.914062h-72.113281v-28.613281c0-52.550781-42.949219-95.300781-95.5-95.300781s-95.5 42.75-95.5 95.300781v28.613281h-79.113281c-1.570312-.015624-3.082031.601563-4.1875 1.714844-1.109375 1.113282-1.722656 2.628906-1.699219 4.199219v261.097656c-.007812 45.757813 37.027344 82.886719 82.785157 82.988281h188.429687c45.757813-.101562 82.792969-37.230468 82.785156-82.988281v-261.097656c.023438-1.570313-.589843-3.085937-1.699219-4.199219-1.105468-1.113281-2.617187-1.730468-4.1875-1.714844zm-251.113281-28.613281c0-45.933593 37.566407-83.300781 83.5-83.300781 45.933594 0 83.5 37.367188 83.5 83.300781v28.613281h-167zm245 295.625c.015625 39.132813-31.652343 70.894531-70.785156 70.988281h-188.429687c-39.132813-.09375-70.800782-31.855468-70.785157-70.988281v-255.011719h73v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h167v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h66zm0 0" fill="url(#linear0)"></path><path d="m77.683594 310.914062h97.574218c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6h-97.574218c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6zm0 0" fill="url(#linear1)"></path><path d="m77.683594 344.914062c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6h199.546875c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6zm0 0" fill="url(#linear0)"></path></svg>
     </span>
 
-    <img id="icone_filtro" src="https://github.com/Darkosheen/wandy.github.io/raw/master/_imagens/_icones/002-filter-results-button.png">
+    <img id="icone_filtro" src="https://github.com/Darkosheen/wandy.github.io/raw/master/_imagens/_icones/002-filter-results-button.png" onclick="openNavFiltro()">
 
 
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -1096,6 +1268,38 @@ function detalheExpand(x)
          </div>
       
 </div>
+
+</div> 
+
+<div id="mySidenavFiltro" class="sideNavFiltro" style="width: 0px;">
+
+  <div style="width: 100%;height: 60px;text-align: center;">
+  <div id="sidenav-Titulo-Filtro" >Filtrar por caimento</div>
+  <a href="javascript:void(0)" class="closebtnfiltro" onclick="closeNavFiltro();filtrar()">OK</a>
+  </div>
+
+ <div id="FiltroCaimentos" style="display: inline-block;margin-top: 50px;">
+
+<label  class="containerCaim">Skinny
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="containerCaim">Straight
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="containerCaim">Slim
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+ </div>
+</div>
+
+
+
   <div id="5Pockets_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
     <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
@@ -1107,7 +1311,7 @@ function detalheExpand(x)
         <h2 id="v_descri" class="produto-descri">Super-Skinny</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SXJN084ZD</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">SLANDY</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">01</h2>
         <h2 id="dadosDoProduto" style="display: none"></h2>
@@ -1122,7 +1326,7 @@ function detalheExpand(x)
         <h2 id="v_descri" class="produto-descri">Bootcut</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SMMV086AW</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;">SLANDY</h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">SLANDY</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">01</h2>
         <h2 id="dadosDoProduto" style="display: none"></h2>
@@ -1137,7 +1341,7 @@ function detalheExpand(x)
         <h2 id="v_descri" class="produto-descri">Boyfriend</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SJNL069CM</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;">KRAILEY-B-NE</h2>   
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">KRAILEY-B-NE</h2>   
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">02</h2>
         <h2 id="dadosDoProduto" style="display: none"></h2>
@@ -1154,7 +1358,7 @@ function detalheExpand(x)
         <h2 id="v_descri" class="produto-descri">Skinny</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00S7VG084UU</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">Estilo Skinny, com perna estreita da coxa ao tornozelo</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">01</h2>
         <h2 id="dadosDoProduto" style="display: none">SKINNY</h2>
@@ -1170,7 +1374,7 @@ function detalheExpand(x)
         <h2 id="v_descri" class="produto-descri">Straight</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00C03GC84MX</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;">Jeans Safado com perna larga da coxa ao tornozelo</h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">Jeans Safado com perna larga da coxa ao tornozelo</h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">01</h2>
         <h2 id="dadosDoProduto" style="display: none"></h2>
@@ -1185,7 +1389,7 @@ function detalheExpand(x)
         <h2 id="v_descri" class="produto-descri">Slim</h2>
         <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
         <h2 id="referencia" style="display: none;">00SW1Q087AM</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">02</h2>
         <h2 id="dadosDoProduto" style="display: none"></h2>
@@ -1205,7 +1409,7 @@ function detalheExpand(x)
         <h2 id="v_descri" class="produto-descri">Regular fit</h2>
         <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
         <h2 id="referencia" style="display: none;">00SJ630091A</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;"> Estilo fino com um design limpo. A perna fica estreita do joelho ao tornozelo e tem mais espaço na coxa. </h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">900;912;100</h2>
        </div>
@@ -1221,7 +1425,7 @@ function detalheExpand(x)
         <h2 id="v_descri" class="produto-descri">Polo</h2>
         <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
         <h2 id="referencia" style="display: none;">00SPT00MXZA</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Camisa polo T-Heal-Broken preto de algodão, Diesel. Com gola esporte, vista com abotoamento na frente, logo bordado no busto, mangas curtas e barra reta. </h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;"> Camisa polo T-Heal-Broken preto de algodão, Diesel. Com gola esporte, vista com abotoamento na frente, logo bordado no busto, mangas curtas e barra reta. </h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">900;912;100;8HY</h2>
        </div>
@@ -1236,7 +1440,7 @@ function detalheExpand(x)
         <h2 id="v_descri" class="produto-descri">Regular fit</h2>
         <h2 id="grade" style="display:none;">PP;P;G;GG;XG;XXG</h2>
         <h2 id="referencia" style="display: none;">00SSNP0091A</h2>
-        <h2 id="v_detalhes" class="produto-descri" style="display: none;"> Feita a partir do algodão Jersey, esta T-shirt apresenta uma impressão gráfica DSL78 na frente. </h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;"> Feita a partir do algodão Jersey, esta T-shirt apresenta uma impressão gráfica DSL78 na frente. </h2>
         <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
         <h2 id = "cores" style="display:none;">900;100</h2>
         
@@ -1672,7 +1876,7 @@ reader.readAsBinaryString(file.files[0]);
  pos =32;
  j = 16;
 
-for( i = 0; i < 3; i++)
+for( i = 0; i < 7; i++)
 {
   for( ; j < pos; j++){
   
@@ -1694,7 +1898,7 @@ console.log(produto);
  var gradeLimite = 29;
  var Pref = 16;
  var cores = "";
- for( i = 0;i < 3;i++){
+ for( i = 0;i < 7;i++){
 
      var nodeDivProduto = document.createElement("div");
      var nodeImage = document.createElement("img");
@@ -1758,7 +1962,7 @@ console.log(produto);
 
 
      nodeDetalhes.setAttribute("id","v_detalhes");
-     nodeDetalhes.setAttribute("class","produto-descri");
+     nodeDetalhes.setAttribute("class","produto-descrix");
      nodeDetalhes.setAttribute("style","display:none;");
 
      nodeIconExpand.setAttribute("id","v_expandicon");
@@ -1795,5 +1999,60 @@ console.log(produto);
 
      
 }
+
+var categoriaAtual = "5Pockets_Male";
+function filtrar()
+{
+////////////////////////////////////
+
+
+
+
+
+
+  //////////////////////////////
+
+var checks = document.getElementsByClassName("ContainerCaim");
+var qtdCaimentos = document.getElementById(categoriaAtual).getElementsByClassName("produto-descri").length;
+
+var contVisuProd = document.getElementById(categoriaAtual).getElementsByClassName("visuali-produto").length
+for(var x = 0; x < contVisuProd; x++)
+{
+  document.getElementById(categoriaAtual).getElementsByClassName("visuali-produto")[x].style.display = "none";
+}
+
+var allFalso = false;
+
+for(var i = 0;i < checks.length;i++)
+  {
+    //Saber se nenhuma caixa foi selecionada
+     allFalso += checks[i].getElementsByTagName("input")[0].checked;
+
+    console.log(allFalso);
+
+    if(checks[i].getElementsByTagName("input")[0].checked)
+    {
+      console.log(checks[i].innerText);
+      for(var ii = 0;ii< qtdCaimentos; ii++){
+      if(document.getElementById(categoriaAtual).getElementsByClassName("produto-descri")[ii].innerText == checks[i].innerText)
+      {
+          document.getElementById(categoriaAtual).getElementsByClassName("produto-descri")[ii].parentElement.style.display = "inline-block";
+      }
+
+    }
+    }
+  }
+
+  if(allFalso == 0)
+  {
+    for(var x = 0; x < contVisuProd; x++)
+{
+  document.getElementById(categoriaAtual).getElementsByClassName("visuali-produto")[x].style.display = "inline-block";
+}
+  }
+
+
+}
+
   </script>
 </div></body></html
