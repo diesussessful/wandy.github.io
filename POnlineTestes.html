@@ -1981,6 +1981,7 @@ function ImportarProdutos()
 //file = document.getElementById("DadosCsv");
 var url = document.getElementById("DadosCsv").value;
 
+
  var request = new XMLHttpRequest();
  request.open('GET',url,true);
  request.responseType = "blob";
@@ -1992,17 +1993,17 @@ reader.readAsBinaryString(request.response);
  reader.onloadend = function(){
 
 
- //var categoriaCSV = file.files[0].name.split("_")[0];
+ var categoriaCSV = url.split("_")[0];
 //Incluir todas as categorias possiveis
-// if(categoriaCSV == "5PMale")
-// {
-   // categCSV = "5Pockets_Male";
-// }
+ if(categoriaCSV == "5PMale")
+ {
+    categCSV = "5Pockets_Male";
+ }
 
-// if(categoriaCSV == "5PFemale")
-// {
-    //categCSV = "5Pockets_Female";
- //}
+if(categoriaCSV == "5PFemale")
+ {
+    categCSV = "5Pockets_Female";
+ }
 
 
  produtos = reader.result;
@@ -2121,7 +2122,7 @@ console.log(produto);
      nodeDivProduto.appendChild(nodeIconExpand);
      nodeDivProduto.appendChild(nodeCores);
 
-     document.getElementById(categoriaAtual).appendChild(nodeDivProduto);
+     document.getElementById(categCSV).appendChild(nodeDivProduto);
      console.log(g);
  Pnome += 16;
  Ppreco += 16;
@@ -2220,7 +2221,7 @@ while( fc ) {
     
     contem[i] = categoria.children[i].getElementsByClassName("produto-descri")[0].innerText;   
   }
-  
+
   let unique = [...new Set(contem)];
   for(i = 0; i < unique.length;i++){
 
