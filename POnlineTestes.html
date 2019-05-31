@@ -1225,6 +1225,8 @@ function detalheExpand(x)
 
 function carregandoInicio()
 {
+  document.getElementById("DadosCsv").value = "5PFemale_Produtos.csv";
+  ImportarProdutos();
   setTimeout(function(){ 
    console.log("carregou!");
   document.getElementById("iconeCarregando").style.opacity = "0";
@@ -1242,7 +1244,7 @@ function carregandoInicio()
    document.getElementById("introEsq").style.display = "none";
    document.getElementById("iconeCarregando").style.display = "none";
    }, 2000);
-  document.getElementById("DadosCsv").value = "5PFemale_Produtos.csv";
+  
   atualizarFiltro()
 }
 
