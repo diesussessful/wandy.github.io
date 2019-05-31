@@ -1671,7 +1671,10 @@ function carregandoInicio()
 
 
 
-   <!-- SCRIPTS -->
+ 
+</div>
+
+  <!-- SCRIPTS -->
         <script>
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -2167,7 +2170,7 @@ for(var i = 0;i < checks.length;i++)
     {
       console.log(checks[i].innerText);
       for(var ii = 0;ii< qtdCaimentos; ii++){
-      if(document.getElementById(categoriaAtual).getElementsByClassName("produto-descri")[ii].innerText == checks[i].innerText)
+      if(document.getElementById(categoriaAtual).getElementsByClassName("produto-descri")[ii].innerText.replace(/\s+/g, '') == checks[i].innerText.replace(/\s+/g, ''))
       {
           document.getElementById(categoriaAtual).getElementsByClassName("produto-descri")[ii].parentElement.style.display = "inline-block";
       }
@@ -2196,4 +2199,5 @@ function funcFiltrarFechar()
 }
 
   </script>
-</div></body></html
+
+</body></html
