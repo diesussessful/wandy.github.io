@@ -1241,7 +1241,7 @@ function carregandoInicio()
    document.getElementById("introEsq").style.display = "none";
    document.getElementById("iconeCarregando").style.display = "none";
    }, 2000);
- 
+  document.getElementById("DadosCsv").value = "5PFemale_Produtos.csv";
 
 }
 
@@ -1341,7 +1341,9 @@ function carregandoInicio()
     width: 300px;">
       <p><button onclick="fnExcelReport()">Enviar Pedidos</button></p>
          <div>
-          <input type="file" id="DadosCsv" />
+            <h4>Insira o Link para importar</h4>
+            <h5>Area de importação de produtos (Não disponível para cliente)</h5>
+           <input type="text" id="DadosCsv" /> 
           <button onclick="ImportarProdutos()">Importar Produtos</button>
          </div>
       
@@ -1353,7 +1355,7 @@ function carregandoInicio()
 
   <div style="width: 100%;height: 60px;text-align: center;">
   <div id="sidenav-Titulo-Filtro" >Filtrar por caimento</div>
-  <a href="javascript:void(0)" class="closebtnfiltro" onclick="closeNavFiltro();filtrar()">OK</a>
+  <a href="javascript:void(0)" class="closebtnfiltro" onclick="funcFiltrarFechar()" >OK</a>
   </div>
 
  <div id="FiltroCaimentos" style="display: inline-block;margin-top: 50px;">
@@ -1969,11 +1971,32 @@ function ImportarProdutos()
 
   //Notas 02: Sempre que uma nova coluna for adicionada à planilha, todas as variaveis abaixo devem receber um numero a mais
 
-file = document.getElementById("DadosCsv");
+//file = document.getElementById("DadosCsv");
+var url = document.getElementById("DadosCsv").value;
+
+ var request = new XMLHttpRequest();
+ request.open('GET',url,true);
+ request.responseType = "blob";
+ request.send();
+ request.onloadend = function(){
  reader = new FileReader();
 
-reader.readAsBinaryString(file.files[0]);
+reader.readAsBinaryString(request.response);
  reader.onloadend = function(){
+
+
+ //var categoriaCSV = file.files[0].name.split("_")[0];
+//Incluir todas as categorias possiveis
+// if(categoriaCSV == "5PMale")
+// {
+   // categCSV = "5Pockets_Male";
+// }
+
+// if(categoriaCSV == "5PFemale")
+// {
+    //categCSV = "5Pockets_Female";
+ //}
+
 
  produtos = reader.result;
 
@@ -1991,6 +2014,7 @@ for( i = 0; i < 7; i++)
   }
 pos = pos+16;
  
+}
 }
 }
 console.log(produto);
@@ -2090,7 +2114,7 @@ console.log(produto);
      nodeDivProduto.appendChild(nodeIconExpand);
      nodeDivProduto.appendChild(nodeCores);
 
-     document.getElementById("5Pockets_Male").appendChild(nodeDivProduto);
+     document.getElementById(categoriaAtual).appendChild(nodeDivProduto);
      console.log(g);
  Pnome += 16;
  Ppreco += 16;
@@ -2107,6 +2131,8 @@ console.log(produto);
 }
 
 var categoriaAtual = "5Pockets_Male";
+
+
 function filtrar()
 {
 ////////////////////////////////////
@@ -2122,13 +2148,14 @@ var checks = document.getElementsByClassName("ContainerCaim");
 var qtdCaimentos = document.getElementById(categoriaAtual).getElementsByClassName("produto-descri").length;
 
 var contVisuProd = document.getElementById(categoriaAtual).getElementsByClassName("visuali-produto").length
+//Desabilitando visualização dos itens para a filtragem
 for(var x = 0; x < contVisuProd; x++)
 {
   document.getElementById(categoriaAtual).getElementsByClassName("visuali-produto")[x].style.display = "none";
 }
 
 var allFalso = false;
-
+//Iniciando a filtragem
 for(var i = 0;i < checks.length;i++)
   {
     //Saber se nenhuma caixa foi selecionada
@@ -2157,6 +2184,14 @@ for(var i = 0;i < checks.length;i++)
 }
   }
 
+
+}
+
+function funcFiltrarFechar()
+{
+  filtrar();
+  closeNavFiltro();
+  
 
 }
 
