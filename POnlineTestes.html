@@ -1151,7 +1151,8 @@ classe[1].className = "a";
  document.getElementById("5Pockets_Female").style.display = "none";
  document.getElementById("Collection_Male").style.display = "none";
  categoriaAtual = document.getElementById("5Pockets_Male").id
- 
+
+  atualizarFiltro();
 
 
  }
@@ -1169,7 +1170,7 @@ if(categoria == 2)
  document.getElementById("Collection_Male").style.display = "none";
  categoriaAtual = document.getElementById("5Pockets_Female").id
 //////////
-   
+    atualizarFiltro();
   
  }
 
@@ -1186,7 +1187,7 @@ classe[3].className = "a";
  categoriaAtual = document.getElementById("Collection_Male").id
  //////////
    
- 
+  atualizarFiltro();
 
  }
  }
@@ -1242,8 +1243,11 @@ function carregandoInicio()
    document.getElementById("iconeCarregando").style.display = "none";
    }, 2000);
   document.getElementById("DadosCsv").value = "5PFemale_Produtos.csv";
-
+  atualizarFiltro()
 }
+
+
+
 
 </script>
 
@@ -1355,7 +1359,7 @@ function carregandoInicio()
 
   <div style="width: 100%;height: 60px;text-align: center;">
   <div id="sidenav-Titulo-Filtro" >Filtrar por caimento</div>
-  <a href="javascript:void(0)" class="closebtnfiltro" onclick="closeNavFiltro();filtrar()">OK</a>
+  <a href="javascript:void(0)" class="closebtnfiltro" onclick="filtrar();closeNavFiltro();" >OK</a>
   </div>
 
  <div id="FiltroCaimentos" style="display: inline-block;margin-top: 50px;">
@@ -1671,7 +1675,10 @@ function carregandoInicio()
 
 
 
-   <!-- SCRIPTS -->
+ 
+</div>
+
+  <!-- SCRIPTS -->
         <script>
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -2131,12 +2138,18 @@ console.log(produto);
 }
 
 var categoriaAtual = "5Pockets_Male";
+
+
+
+
+
+
+
+
+
 function filtrar()
 {
 ////////////////////////////////////
-
-
-
 
 
 
@@ -2146,13 +2159,14 @@ var checks = document.getElementsByClassName("ContainerCaim");
 var qtdCaimentos = document.getElementById(categoriaAtual).getElementsByClassName("produto-descri").length;
 
 var contVisuProd = document.getElementById(categoriaAtual).getElementsByClassName("visuali-produto").length
+//Desabilitando visualização dos itens para a filtragem
 for(var x = 0; x < contVisuProd; x++)
 {
   document.getElementById(categoriaAtual).getElementsByClassName("visuali-produto")[x].style.display = "none";
 }
 
 var allFalso = false;
-
+//Iniciando a filtragem
 for(var i = 0;i < checks.length;i++)
   {
     //Saber se nenhuma caixa foi selecionada
@@ -2164,7 +2178,7 @@ for(var i = 0;i < checks.length;i++)
     {
       console.log(checks[i].innerText);
       for(var ii = 0;ii< qtdCaimentos; ii++){
-      if(document.getElementById(categoriaAtual).getElementsByClassName("produto-descri")[ii].innerText == checks[i].innerText)
+      if(document.getElementById(categoriaAtual).getElementsByClassName("produto-descri")[ii].innerText.replace(/\s+/g, '') == checks[i].innerText.replace(/\s+/g, ''))
       {
           document.getElementById(categoriaAtual).getElementsByClassName("produto-descri")[ii].parentElement.style.display = "inline-block";
       }
@@ -2184,5 +2198,56 @@ for(var i = 0;i < checks.length;i++)
 
 }
 
+
+function atualizarFiltro()
+{
+  var categoria = document.getElementById(categoriaAtual);
+  var contCategoria = document.getElementById(categoriaAtual).children.length;
+  var filtroCateg = document.getElementById("FiltroCaimentos");
+
+  var fc = filtroCateg.firstChild;
+
+while( fc ) {
+    filtroCateg.removeChild( fc );
+    fc = filtroCateg.firstChild;
+}
+
+ if(filtroCateg.children.length == 0){
+  contem = [];
+
+  for(var i = 0; i < contCategoria; i++)
+  {
+    
+    contem[i] = categoria.children[i].getElementsByClassName("produto-descri")[0].innerText;   
+  }
+  
+  let unique = [...new Set(contem)];
+  for(i = 0; i < unique.length;i++){
+
+    var nodeLabel = document.createElement("label");
+    var nodeInput = document.createElement("input");
+    var nodeSpan = document.createElement("span");
+
+    nodeLabel.setAttribute("class","containerCaim");
+    nodeLabel.innerText = unique[i];//categoria.children[i].getElementsByClassName("produto-descri")[0].innerText;
+
+    nodeInput.setAttribute("type","checkbox");
+
+    nodeSpan.setAttribute("class","checkmark");
+
+    nodeLabel.appendChild(nodeInput);
+    nodeLabel.appendChild(nodeSpan);
+    document.getElementById("FiltroCaimentos").appendChild(nodeLabel);
+
+  }
+}
+
+}
+
+
+
+
+
   </script>
-</div></body></html
+
+</body></html
