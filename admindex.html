@@ -231,11 +231,12 @@ span#sacola
     text-align: center;
     color:black;
     position: relative;
-            letter-spacing: 0.03em;
+    letter-spacing: 0.03em;
     z-index: 1;
+    display: inline-flex;
     bottom: 0px;
-    top: 0px;
-    left: 15px;
+    top: 8px;
+    left: 0px;
 }
 /* Style the links inside the navigation bar */
 .topnav a {
@@ -252,7 +253,7 @@ span#sacola
     padding-bottom: 15px;
     font-weight: 700;
     padding-top: 15px;
-    font-size: 14px;
+    font-size: 0.9vw;
     font-family: 'Roboto Condensed',sans-serif;
 }
     
@@ -294,8 +295,8 @@ img#titulo
     float: left;
     display: block;
     height: 10px;
+    padding-top: 16px;
     
-    padding-top: 14px;
     padding-left: 13px;
     padding-right: 13px;
    
@@ -306,6 +307,7 @@ img#titulo
 @media screen and (max-width: 1000px) {
   .topnav.responsive {
     position: relative;
+
   }
   .topnav.responsive a.icon {
     position: relative;
@@ -313,6 +315,7 @@ img#titulo
     top: 0;
     margin-top: 0px;
     float: left;
+
   }
   .topnav.responsive a {
     float: none;
@@ -320,8 +323,15 @@ img#titulo
     text-align: left;
     margin-top: 40px;
     background-color: #fff;
+    font-size: 13px;
 
   }
+.topnav
+{
+  top:-28px;
+  display: inline-table;
+}
+
 }
 div#main
 {
@@ -748,21 +758,29 @@ button#incluir
 table#tabelaGrade td#gradetr
 {
      color: black;
-    border: 1px solid #acbcd8c2;
+    
     position: absolute;
     width: 40px;
     height: 24px;
     font-size: larger;
     margin-left: 50px;
     font: normal normal 400 20px/1.286em Roboto,sans-serif;
+    box-shadow: 0 0 1px black;
+    
 }
 table#tabelaGrade input
 {
+    
+
     width: 60px;
     height: 23px;
-    box-shadow: 0 0 1px black;
+    /* box-shadow: 0 0 1px black; */
     font: normal normal 400 14px/1.286em Roboto,sans-serif;
+    
+    border: #acbcd8c2;
+    
     text-align: center;
+    box-shadow: 0 0 1px black;
     
 }
 table#tabelaGrade tr
@@ -994,12 +1012,13 @@ a.x
 img#icone_filtro
 {
 
-        position: relative;
+    position: relative;
     width: 25px;
     float: right;
     right: 75px;
     top: 12px;
     cursor: pointer;
+    z-index: 2;
 
 }
 
@@ -1148,57 +1167,34 @@ function closeNavFiltro() {
 function alterarCategoria(categoria,clss)
 {
 //Pega as classes da topnav para alterar a cor da seleção
-classe = clss.parentElement.getElementsByTagName("a");
-if(categoria == 1)
+//o primeiro "a" é o icone.
+var classe = document.getElementById("myTopnav").getElementsByTagName("a");
+
+
+
+
+var ii = 1;
+for(var i = 0; i < 10;i++)
 {
-classe[1].className = "a";
-//limpando
- classe[2].className = "x";
- classe[3].className = "x";
- document.getElementById("5Pockets_Male").style.display = "block";
- document.getElementById("5Pockets_Female").style.display = "none";
- document.getElementById("Collection_Male").style.display = "none";
- categoriaAtual = document.getElementById("5Pockets_Male").id
-
-  atualizarFiltro();
-
-
- }
-
-  //background-color: #f3f3f4;
-
-if(categoria == 2)
-{
- classe[2].className = "a";
- //limpando
- classe[1].className = "x";
- classe[3].className = "x";
- document.getElementById("5Pockets_Male").style.display = "none";
- document.getElementById("5Pockets_Female").style.display = "block";
- document.getElementById("Collection_Male").style.display = "none";
- categoriaAtual = document.getElementById("5Pockets_Female").id
-//////////
-    atualizarFiltro();
   
- }
+  document.getElementsByClassName("categorias")[i].style.display = "none";
+  classe[ii].className = "x";
+  ii += 1;
+}
+
+  console.log(document.getElementsByClassName("categorias")[categoria])
+  document.getElementsByClassName("categorias")[categoria].style.display = "block";
+   categoriaAtual = document.getElementsByClassName("categorias")[categoria].id;
+   clss.className="a";
 
 
-if(categoria == 3)
-{
-classe[3].className = "a";
-//limpando
- classe[1].className = "x";
- classe[2].className = "x";
- document.getElementById("5Pockets_Male").style.display = "none";
- document.getElementById("5Pockets_Female").style.display = "none";
- document.getElementById("Collection_Male").style.display = "block";
- categoriaAtual = document.getElementById("Collection_Male").id
- //////////
-   
   atualizarFiltro();
 
  }
- }
+
+
+
+ 
 
 
 function myFunction() {
@@ -1290,27 +1286,47 @@ function carregandoInicio()
        <h2 id="season" class="sub-titulo" style="display: none;">SPRING &amp; SUMMER 2019</h2>
       </div>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-      <div class="topnav" id="myTopnav" style="">
         <span id = "sacola" style="
     " onclick="openNav()">
       <div id="notificacao" class="circulo">0</div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="34px" viewBox="-59 0 473 473.913" width="34px"><linearGradient id="lg1"><stop offset="0" stop-color="#382d2d"></stop><stop offset="1" stop-color="#868686"></stop></linearGradient><linearGradient id="linear0" gradientUnits="userSpaceOnUse" x1="177.457095" x2="177.457095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><linearGradient id="linear1" gradientUnits="userSpaceOnUse" x1="126.472095" x2="126.472095" xlink:href="#lg1" y1="14.626" y2="460.945"></linearGradient><path d="m348.570312 123.914062h-72.113281v-28.613281c0-52.550781-42.949219-95.300781-95.5-95.300781s-95.5 42.75-95.5 95.300781v28.613281h-79.113281c-1.570312-.015624-3.082031.601563-4.1875 1.714844-1.109375 1.113282-1.722656 2.628906-1.699219 4.199219v261.097656c-.007812 45.757813 37.027344 82.886719 82.785157 82.988281h188.429687c45.757813-.101562 82.792969-37.230468 82.785156-82.988281v-261.097656c.023438-1.570313-.589843-3.085937-1.699219-4.199219-1.105468-1.113281-2.617187-1.730468-4.1875-1.714844zm-251.113281-28.613281c0-45.933593 37.566407-83.300781 83.5-83.300781 45.933594 0 83.5 37.367188 83.5 83.300781v28.613281h-167zm245 295.625c.015625 39.132813-31.652343 70.894531-70.785156 70.988281h-188.429687c-39.132813-.09375-70.800782-31.855468-70.785157-70.988281v-255.011719h73v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h167v58.144532c0 3.316406 2.6875 6 6 6s6-2.683594 6-6v-58.144532h66zm0 0" fill="url(#linear0)"></path><path d="m77.683594 310.914062h97.574218c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6h-97.574218c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6zm0 0" fill="url(#linear1)"></path><path d="m77.683594 344.914062c-3.3125 0-6 2.683594-6 6 0 3.3125 2.6875 6 6 6h199.546875c3.3125 0 6-2.6875 6-6 0-3.316406-2.6875-6-6-6zm0 0" fill="url(#linear0)"></path></svg>
     </span>
 
-    <img id="icone_filtro" src="https://github.com/Darkosheen/wandy.github.io/raw/master/_imagens/_icones/002-filter-results-button.png" onclick="openNavFiltro()">
+    <img id="icone_filtro" src="https://github.com/Darkosheen/wandy.github.io/raw/master/_imagens/_icones/002-filter-results-button.png" onclick="openNavFiltro()" >
+
+      <div class="topnav" id="myTopnav" style="">
+        
+
+    
 
 
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars" style="font-size: 21px;"> </i></a>
         
 
-        <a onclick="alterarCategoria(1,this);myFunction()" style="cursor: pointer;" class="a">5 POCKETS MALE</a>
-        <a onclick="alterarCategoria(2,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;" class="x">5 POCKETS FEMALE</a>
+        <a onclick="alterarCategoria(0,this);myFunction()" style="cursor: pointer;" class="a">5 POCKETS MALE</a>
 
-        <a onclick="alterarCategoria(3,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">COLLECTION MALE</a>
+        <a onclick="alterarCategoria(1,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;" class="x">5 POCKETS FEMALE</a>
 
-        <a href="#about" style="display: none;">Collection Female</a>
+        <a onclick="alterarCategoria(2,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">COLLECTION MALE</a>
+
+        <a onclick="alterarCategoria(3,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">COLLECTION FEMALE</a>
+
+        <a onclick="alterarCategoria(4,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">FOOT MALE</a>
+
+        <a onclick="alterarCategoria(5,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">FOOT FEMALE</a>
+
+        <a onclick="alterarCategoria(6,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">SSP MALE</a>
+
+        <a onclick="alterarCategoria(7,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">SMALL MALE</a>
+
+        <a onclick="alterarCategoria(8,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">BAGS MALE</a>
+
+        <a onclick="alterarCategoria(9,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">BAGS FEMALE</a>
+
+        <a onclick="alterarCategoria(10,this);myFunction()" style="cursor: pointer;border-left-width: 1px;margin-top: 0px;/* border: 5px black; */border-top-width: 1px;"class="x">UNDER</a>
+
+        
         </div>          
 
        
@@ -1393,53 +1409,7 @@ function carregandoInicio()
 
 
 
-  <div id="5Pockets_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
-    <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
   
-        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SXJN_084ZD_01-1.jpg">
-        <h2 id="v_titulo" class="produto-titulo">SLANDY L.32</h2>
-        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
-        <h2 id="v_preco" class="produto-preco">R$452.27</h2>
-        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$995</h2>
-        <h2 id="v_descri" class="produto-descri">Super-Skinny</h2>
-        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
-        <h2 id="referencia" style="display: none;">00SXJN084ZD</h2>
-        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">SLANDY</h2>
-        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
-        <h2 id = "cores" style="display:none;">01</h2>
-        <h2 id="dadosDoProduto" style="display: none"></h2>
-       </div>
-        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
-  
-        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SMMV_086AW_01-1.jpg">
-        <h2 id="v_titulo" class="produto-titulo">D-EBBEY L.32</h2>
-        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
-        <h2 id="v_preco" class="produto-preco">R$497.73</h2>
-        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00 </h2>
-        <h2 id="v_descri" class="produto-descri">Bootcut</h2>
-        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
-        <h2 id="referencia" style="display: none;">00SMMV086AW</h2>
-        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">SLANDY</h2>
-        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
-        <h2 id = "cores" style="display:none;">01</h2>
-        <h2 id="dadosDoProduto" style="display: none"></h2>
-       </div>
-        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
-  
-        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJNL_069CM_02-1.jpg">
-        <h2 id="v_titulo" class="produto-titulo">KRAILEY-B-NE</h2>
-        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
-        <h2 id="v_preco" class="produto-preco">R$497.73</h2>
-        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00</h2>
-        <h2 id="v_descri" class="produto-descri">Boyfriend</h2>
-        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
-        <h2 id="referencia" style="display: none;">00SJNL069CM</h2>
-        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">KRAILEY-B-NE</h2>   
-        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
-        <h2 id = "cores" style="display:none;">02</h2>
-        <h2 id="dadosDoProduto" style="display: none"></h2>
-       </div>
-  </div>  
   <div id="5Pockets_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: block;">
 
 
@@ -1517,6 +1487,54 @@ function carregandoInicio()
 
        </div>
 
+       <div id="5Pockets_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
+    <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
+  
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SXJN_084ZD_01-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">SLANDY L.32</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$452.27</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$995</h2>
+        <h2 id="v_descri" class="produto-descri">Super-Skinny</h2>
+        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
+        <h2 id="referencia" style="display: none;">00SXJN084ZD</h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">SLANDY</h2>
+        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;">01</h2>
+        <h2 id="dadosDoProduto" style="display: none"></h2>
+       </div>
+        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
+  
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SMMV_086AW_01-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">D-EBBEY L.32</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$497.73</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00 </h2>
+        <h2 id="v_descri" class="produto-descri">Bootcut</h2>
+        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
+        <h2 id="referencia" style="display: none;">00SMMV086AW</h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">SLANDY</h2>
+        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;">01</h2>
+        <h2 id="dadosDoProduto" style="display: none"></h2>
+       </div>
+        <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style=" font-family: 'Open Sans', sans-serif;">
+  
+        <img id="v_imagem"  src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/00SJNL_069CM_02-1.jpg">
+        <h2 id="v_titulo" class="produto-titulo">KRAILEY-B-NE</h2>
+        <h2 id="v_info" style="font-size:13px;" class="produto-info"></h2>
+        <h2 id="v_preco" class="produto-preco">R$497.73</h2>
+        <h2 id="v_precoVarejo" class="produto-preco">Varejo sugerido: R$1.095,00</h2>
+        <h2 id="v_descri" class="produto-descri">Boyfriend</h2>
+        <h2 id="grade" style="display:none;">27;28;29;30;31;32</h2>
+        <h2 id="referencia" style="display: none;">00SJNL069CM</h2>
+        <h2 id="v_detalhes" class="produto-descrix" style="display: none;">KRAILEY-B-NE</h2>   
+        <img id="v_expandicon" onclick="openmodal(this.src,this.parentElement)" src="https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png ">
+        <h2 id = "cores" style="display:none;">02</h2>
+        <h2 id="dadosDoProduto" style="display: none"></h2>
+       </div>
+  </div>  
+
        <div id="Collection_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;">
 
         <div id="produto_visu" onclick=" abrirGrade(this)" class="visuali-produto" style="">
@@ -1568,6 +1586,22 @@ function carregandoInicio()
        </div>
 
         </div>
+
+        <div id="Collection_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;"></div>
+
+        <div id="Foot_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;"></div>
+
+        <div id="Foot_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;"></div>
+
+        <div id="SSP_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;"></div>
+
+        <div id="Small_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;"></div>
+
+        <div id="Bags_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;"></div>
+
+        <div id="Bags_Female" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;"></div>
+
+        <div id="Under_Male" class="Categorias" style="margin: auto; position: sticky; text-align: center; display: none;"></div>
 
 
 <div id="myModal" class="modal">
@@ -1642,7 +1676,14 @@ function carregandoInicio()
     ">Detalhes</h3>
     <h4 id="detalheshide" style="
     display: none;
-    ">Tudo que você pode esperar encontrar em uma coleção de Jeans da Diesel.As lavagens que você espera, procura e deseja encontrar em qualquer coleção de jeans que valha a pena. Um Jeans para cada ocasião. Do mais básico ao mais detalhado. Do mais escuro ao mais claro. Um Jeans para todos os dias. Todos os momentos. Mas não para todo mundo.</h4>
+    ">Descrição:</h4>
+    <h4 id="detalheshide" style="
+    display: none;
+    ">Imagem:</h4>
+     <h4 id="detalheshide" style="
+    display: none;
+    ">Estilo:</h4>
+     
      
      </div>
     <div id="Grade">
@@ -1686,6 +1727,14 @@ function carregandoInicio()
 
  
 </div>
+
+<footer id="footer" style="display: none">
+  <div>Local Showroom: Avenida Paulista</div>
+  <div>Contatos:</div>
+  <div>Informações</div>
+
+
+</footer>
 
   <!-- SCRIPTS -->
         <script>
@@ -1887,6 +1936,7 @@ function abrirGrade(produtoinf){
    novaCelulaG = novalinhaG.insertCell(1);
    var input = document.createElement("input");
    input.setAttribute("id","input");
+   input.setAttribute("onclick"," gradeSelection(this)")
    input.setAttribute("type","Number");
    input.setAttribute("onchange","valortotal()");
    novaCelulaG.appendChild(input);
@@ -2277,6 +2327,24 @@ function RemoverItem(item)
   item.remove();
 }
 
+
+function gradeSelection(x){
+
+
+
+
+x.parentElement.parentElement.getElementsByTagName("td")[0].style.boxShadow = "0 0 5px 0 black";
+
+
+x.onblur = function lvx()
+{
+
+x.parentElement.parentElement.getElementsByTagName("td")[0].style.boxShadow = "0 0 1px 0 black";
+}
+
+
+
+}
 
 
   </script>
