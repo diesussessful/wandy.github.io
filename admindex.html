@@ -351,6 +351,14 @@ animation: fadein 1s;
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+@media only screen and (max-width: 410px)
+{
+.categorias{
+  zoom:125%;
+}
+}
+
 .visuali-produto
 {
   font: normal normal 400 14px/1.286em Roboto,sans-serif;
@@ -1151,7 +1159,8 @@ classe[1].className = "a";
  document.getElementById("5Pockets_Female").style.display = "none";
  document.getElementById("Collection_Male").style.display = "none";
  categoriaAtual = document.getElementById("5Pockets_Male").id
- 
+
+  atualizarFiltro();
 
 
  }
@@ -1169,7 +1178,7 @@ if(categoria == 2)
  document.getElementById("Collection_Male").style.display = "none";
  categoriaAtual = document.getElementById("5Pockets_Female").id
 //////////
-   
+    atualizarFiltro();
   
  }
 
@@ -1186,7 +1195,7 @@ classe[3].className = "a";
  categoriaAtual = document.getElementById("Collection_Male").id
  //////////
    
- 
+  atualizarFiltro();
 
  }
  }
@@ -1242,8 +1251,11 @@ function carregandoInicio()
    document.getElementById("iconeCarregando").style.display = "none";
    }, 2000);
   document.getElementById("DadosCsv").value = "5PFemale_Produtos.csv";
-
+  atualizarFiltro()
 }
+
+
+
 
 </script>
 
@@ -1330,6 +1342,7 @@ function carregandoInicio()
             <th>Cor</th>
             <th>Valor Total</th>
             <th>Categoria</th>
+            <th>Remover</th>
         </tr>
     </thead>
     <tbody>
@@ -1355,7 +1368,7 @@ function carregandoInicio()
 
   <div style="width: 100%;height: 60px;text-align: center;">
   <div id="sidenav-Titulo-Filtro" >Filtrar por caimento</div>
-  <a href="javascript:void(0)" class="closebtnfiltro" onclick="funcFiltrarFechar()" >OK</a>
+  <a href="javascript:void(0)" class="closebtnfiltro" onclick="filtrar();closeNavFiltro();" >OK</a>
   </div>
 
  <div id="FiltroCaimentos" style="display: inline-block;margin-top: 50px;">
@@ -1770,7 +1783,6 @@ for(var i = 0; i  < 7; i++)
 {
    var novaCelula = novalinha.insertCell(i);
    
-   
    if(i == 0){
     //nome
    var texto = document.createTextNode(tags[5].innerText);
@@ -1812,7 +1824,26 @@ for(var i = 0; i  < 7; i++)
     var texto = document.createTextNode("X");
     novaCelula.appendChild(texto);
    }
+   
 }
+
+var apag = document.getElementById("table").getElementsByTagName("tbody").item(0);
+
+
+
+for(var x = 0; x < apag.childElementCount;x++)
+{
+  if(!apag.children[x].getElementsByTagName("td")[8]){
+
+  var apagador = document.createElement("td");
+      apagador.setAttribute("onclick","RemoverItem(this.parentElement)");
+      apagador.setAttribute("style","cursor:pointer");
+      apagador.innerText = "X";
+      apag.children[x].appendChild(apagador)
+    }
+}
+
+
 document.getElementById("incluir").innerText = "Incluido aos pedidos";
 var itensLen = document.getElementById("table").getElementsByTagName("tr");
 document.getElementById("notificacao").innerText = itensLen.length - 1;
@@ -1977,6 +2008,7 @@ function ImportarProdutos()
 //file = document.getElementById("DadosCsv");
 var url = document.getElementById("DadosCsv").value;
 
+
  var request = new XMLHttpRequest();
  request.open('GET',url,true);
  request.responseType = "blob";
@@ -1988,17 +2020,17 @@ reader.readAsBinaryString(request.response);
  reader.onloadend = function(){
 
 
- //var categoriaCSV = file.files[0].name.split("_")[0];
+ var categoriaCSV = url.split("_")[0];
 //Incluir todas as categorias possiveis
-// if(categoriaCSV == "5PMale")
-// {
-   // categCSV = "5Pockets_Male";
-// }
+ if(categoriaCSV == "5PMale")
+ {
+    categCSV = "5Pockets_Male";
+ }
 
-// if(categoriaCSV == "5PFemale")
-// {
-    //categCSV = "5Pockets_Female";
- //}
+if(categoriaCSV == "5PFemale")
+ {
+    categCSV = "5Pockets_Female";
+ }
 
 
  produtos = reader.result;
@@ -2117,7 +2149,7 @@ console.log(produto);
      nodeDivProduto.appendChild(nodeIconExpand);
      nodeDivProduto.appendChild(nodeCores);
 
-     document.getElementById(categoriaAtual).appendChild(nodeDivProduto);
+     document.getElementById(categCSV).appendChild(nodeDivProduto);
      console.log(g);
  Pnome += 16;
  Ppreco += 16;
@@ -2136,12 +2168,16 @@ console.log(produto);
 var categoriaAtual = "5Pockets_Male";
 
 
+
+
+
+
+
+
+
 function filtrar()
 {
 ////////////////////////////////////
-
-
-
 
 
 
@@ -2190,13 +2226,58 @@ for(var i = 0;i < checks.length;i++)
 
 }
 
-function funcFiltrarFechar()
+
+function atualizarFiltro()
 {
-  filtrar();
-  closeNavFiltro();
-  
+  var categoria = document.getElementById(categoriaAtual);
+  var contCategoria = document.getElementById(categoriaAtual).children.length;
+  var filtroCateg = document.getElementById("FiltroCaimentos");
+
+  var fc = filtroCateg.firstChild;
+
+while( fc ) {
+    filtroCateg.removeChild( fc );
+    fc = filtroCateg.firstChild;
+}
+
+ if(filtroCateg.children.length == 0){
+  contem = [];
+
+  for(var i = 0; i < contCategoria; i++)
+  {
+    
+    contem[i] = categoria.children[i].getElementsByClassName("produto-descri")[0].innerText;   
+  }
+
+  let unique = [...new Set(contem)];
+  for(i = 0; i < unique.length;i++){
+
+    var nodeLabel = document.createElement("label");
+    var nodeInput = document.createElement("input");
+    var nodeSpan = document.createElement("span");
+
+    nodeLabel.setAttribute("class","containerCaim");
+    nodeLabel.innerText = unique[i];//categoria.children[i].getElementsByClassName("produto-descri")[0].innerText;
+
+    nodeInput.setAttribute("type","checkbox");
+
+    nodeSpan.setAttribute("class","checkmark");
+
+    nodeLabel.appendChild(nodeInput);
+    nodeLabel.appendChild(nodeSpan);
+    document.getElementById("FiltroCaimentos").appendChild(nodeLabel);
+
+  }
+}
 
 }
+
+function RemoverItem(item)
+{
+  item.remove();
+}
+
+
 
   </script>
 
