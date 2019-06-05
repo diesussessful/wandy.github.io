@@ -1988,24 +1988,24 @@ for(X = 0;X < 2; X++)
 {
   if(X == 0)
   {
-      document.getElementById("DadosCsv").value = "5PFemale_Produtos.csv";
+      var url = "5PFemale_Produtos.csv";
   }
 
   if(X == 1)
   {
-     document.getElementById("DadosCsv").value = "FootMale_Produtos.csv";
+     var url = "FootMale_Produtos.csv";
   }
 
 
-var url = document.getElementById("DadosCsv").value;
+
  var request = new XMLHttpRequest();
  request.open('GET',url,true);
  request.responseType = "blob";
  request.send();
- request.onloadend = function(){
+ request.onload = function(){
  reader = new FileReader();
 reader.readAsBinaryString(request.response);
- reader.onloadend = function(){
+ reader.onload = function(){
  var categoriaCSV = url.split("_")[0];
 //Incluir todas as categorias possiveis
  if(categoriaCSV == "5PMale")
@@ -2128,6 +2128,9 @@ console.log(produto);
 }
   }  
 }
+
+
+
 var categoriaAtual = "5Pockets_Male";
 function filtrar()
 {
