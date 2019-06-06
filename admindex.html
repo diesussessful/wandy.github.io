@@ -2003,10 +2003,10 @@ for(X = 0;X < 2; X++)
  request.open('GET',url,true);
  request.responseType = "blob";
  request.send();
- request.onloadend = function(){
+ request.onload = function(){
  reader = new FileReader();
-reader.readAsBinaryString(request.response);
-setTimeout(function(){ 
+ reader.readAsBinaryString(request.response);
+
    
    
 
@@ -2040,7 +2040,6 @@ pos = pos+16;
  
 }
 }
-}, 3000);
 }
 
 console.log(produto);
