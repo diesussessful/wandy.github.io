@@ -2002,12 +2002,12 @@ for(X = 0;X < 2; X++)
  var request = new XMLHttpRequest();
  request.open('GET',url,true);
  request.responseType = "blob";
- request.send();
  request.onloadend = function(){
+ request.send();
  reader = new FileReader();
-reader.readAsBinaryString(request.response);
+ reader.readAsBinaryString(request.response);
 
-
+}
    
 
  reader.onload = function(){
@@ -2131,7 +2131,7 @@ console.log(produto);
  cores = "";
  PCaimento += 16;
 }
-}
+
 
 }
   }  
