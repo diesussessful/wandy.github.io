@@ -1979,9 +1979,10 @@ function EnviarEmail()
 }
 
 var request = new XMLHttpRequest();
+var url = "5PFemale_Produtos.csv";
 function carregar()
 {
-var url = "5PFemale_Produtos.csv";
+
  //var request = new XMLHttpRequest();
  request.open('GET',url,true);
  request.responseType = "blob";
@@ -1989,7 +1990,7 @@ var url = "5PFemale_Produtos.csv";
  request.addEventListener("load", ImportarProdutos, false);
 }
 
-function ImportarProdutos()
+function ImportarProdutos(evt)
 {
   //Notas 01: sobre o formato do documento.
   //Deve ser um documento para cada categoria.
@@ -2009,7 +2010,7 @@ function ImportarProdutos()
  //    var url = "FootMale_Produtos.csv";
  // }
 
- console.log("Foi");
+ console.log("Foi: "+ evt);
 
  
  //request.onloadend = function(){
