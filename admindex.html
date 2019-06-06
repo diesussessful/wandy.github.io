@@ -1978,11 +1978,11 @@ function EnviarEmail()
 //);
 }
 
-
+var request = new XMLHttpRequest();
 function carregar()
 {
 var url = "5PFemale_Produtos.csv";
- var request = new XMLHttpRequest();
+ //var request = new XMLHttpRequest();
  request.open('GET',url,true);
  request.responseType = "blob";
  request.send();
