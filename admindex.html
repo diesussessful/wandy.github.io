@@ -2055,12 +2055,17 @@ console.log(produto);
  var Pnome = 18;
  var Ppreco = 30;
  var PPrecoV = 31;
+ //posição da referencia do produto na variavel do produto;
+ var existenciaProduto = 17;
+
  var PCaimento = 32;
  var g = 19;
  var gradeLimite = 30;
  var Pref = 17;
  var cores = "";
+
  for( i = 0;i < 8;i++){
+  if(!produto[[i,existenciaProduto]]){
      var nodeDivProduto = document.createElement("div");
      var nodeImage = document.createElement("img");
      var nodeTitulo = document.createElement("h2");
@@ -2140,6 +2145,8 @@ console.log(produto);
  Pref += 17;
  cores = "";
  PCaimento += 17;
+ existenciaProduto += 17;
+ }
 }
 
 
