@@ -2006,10 +2006,9 @@ for(X = 0;X < 2; X++)
  request.onloadend = function(){
  reader = new FileReader();
 reader.readAsBinaryString(request.response);
-reader.onerror = function()
-{
-  console.log("O erro aconteceu.");
-}
+setTimeout(function(){ 
+   
+   
 
  reader.onloadend = function(){
  var categoriaCSV = url.split("_")[0];
@@ -2041,7 +2040,9 @@ pos = pos+16;
  
 }
 }
+}, 3000);
 }
+
 console.log(produto);
  var PImage = 16;  
  var Pnome = 17;
