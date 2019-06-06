@@ -1986,8 +1986,9 @@ function carregar()
  //var request = new XMLHttpRequest();
  request.open('GET',url,true);
  request.responseType = "blob";
- request.send();
+ 
  request.addEventListener("load", ImportarProdutos, false);
+ request.send();
 }
 
 function ImportarProdutos(evt)
