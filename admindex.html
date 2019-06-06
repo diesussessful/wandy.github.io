@@ -2005,12 +2005,12 @@ for(X = 0;X < 2; X++)
  request.send();
  request.onload = function(){
  reader = new FileReader();
- reader.readAsBinaryString(request.response);
+reader.readAsBinaryString(request.response);
 
- };  
+   
    
 
- reader.onloadend = function(){
+ reader.onload = function(){
  var categoriaCSV = url.split("_")[0];
 //Incluir todas as categorias possiveis
  if(categoriaCSV == "5PMale")
@@ -2039,8 +2039,8 @@ for( i = 0; i < 7; i++)
 pos = pos+16;
  
 }
-};
-
+}
+}
 
 console.log(produto);
  var PImage = 16;  
