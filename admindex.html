@@ -1979,20 +1979,28 @@ function EnviarEmail()
 }
 
 var request = new XMLHttpRequest();
-var url = "5PFemale_Produtos.csv";
+var url = ["5PFemale_Produtos.csv","FootMale_Produtos.csv"];
+var uIndex = 0;
 function carregar()
 {
 
  //var request = new XMLHttpRequest();
- request.open('GET',url,true);
+ request.open('GET',url[uIndex],true);
  request.responseType = "blob";
- 
- request.addEventListener("load", ImportarProdutos, false);
  request.send();
+ request.addEventListener("load", ImportarProdutos, false);
+
 }
 
 function ImportarProdutos(evt)
 {
+
+  console.log("Foi: "+ evt);
+ if(!evt)
+ {
+  carregar();
+ }else{
+
   //Notas 01: sobre o formato do documento.
   //Deve ser um documento para cada categoria.
   //Após a edição no excel, cada llinha precisa ter um ponto e virgula no final, isso pode ser conferido em um bloco de notas.
@@ -2011,11 +2019,7 @@ function ImportarProdutos(evt)
  //    var url = "FootMale_Produtos.csv";
  // }
 
- console.log("Foi: "+ evt);
- if(!evt)
- {
-  carregar();
- }else{
+ 
  
  //request.onloadend = function(){
  reader = new FileReader();
@@ -2147,6 +2151,13 @@ console.log(produto);
 }
 }
 
+}
+if(uIndex == 2)
+{
+
+}else{
+uIndex += 1;
+carregar();
 }
   }  
 //}
