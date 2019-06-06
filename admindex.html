@@ -1981,7 +1981,7 @@ function EnviarEmail()
 var request = new XMLHttpRequest();
 
 //se adicionar mais produtos, precisará mudar no final do código importarProduto o if do uIndex
-var url = ["5PFemale_Produtos.csv","FootMale_Produtos.csv","CollectionMale_Produtos.csv"];
+var url = ["5PFemale_Produtos.csv","FootMale_Produtos.csv"];
 var uIndex = 0;
 function carregar()
 {
@@ -2045,23 +2045,22 @@ for( i = 0; i < 8; i++)
    produto[[i,j]] = produtos.split(";")[j];
     
   }
-pos = pos+18;
+pos = pos+17;
  
 }
 
 
 console.log(produto);
- var PImage = 17;  
- var Pnome = 18;
- var Ppreco = 30;
- var PPrecoV = 31;
- var PCaimento = 32;
- var g = 19;
- var gradeLimite = 30;
- var Pref = 17;
+ var PImage = 16;  
+ var Pnome = 17;
+ var Ppreco = 29;
+ var PPrecoV = 30;
+ var PCaimento = 31;
+ var g = 18;
+ var gradeLimite = 29;
+ var Pref = 16;
  var cores = "";
- //DESCOBRIR O QUE É ESSE 7
- for( i = 0;i < 7;i++){
+ for( i = 0;i < 8;i++){
      var nodeDivProduto = document.createElement("div");
      var nodeImage = document.createElement("img");
      var nodeTitulo = document.createElement("h2");
@@ -2117,9 +2116,7 @@ console.log(produto);
      nodeIconExpand.setAttribute("src","https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png");
      nodeCores.setAttribute("id","cores");
      nodeCores.setAttribute("style","display:none;");
-
      nodeCores.innerText = produto[[i,Pref]].split("_")[2].split("-")[0];
-
      nodeDivProduto.appendChild(nodeImage);
      nodeDivProduto.appendChild(nodeTitulo);
      nodeDivProduto.appendChild(nodeInfo);
