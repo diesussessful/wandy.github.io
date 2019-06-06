@@ -1981,7 +1981,7 @@ function EnviarEmail()
 var request = new XMLHttpRequest();
 
 //se adicionar mais produtos, precisará mudar no final do código importarProduto o if do uIndex
-var url = ["5PFemale_Produtos.csv","FootMale_Produtos.csv","CollectionMale_Produtos"];
+var url = ["5PFemale_Produtos.csv","CollectionMale_Produtos","FootMale_Produtos.csv"];
 var uIndex = 0;
 function carregar()
 {
@@ -2116,7 +2116,7 @@ console.log(produto);
      nodeIconExpand.setAttribute("src","https://raw.githubusercontent.com/Darkosheen/wandy.github.io/master/_imagens/_icones/full-size.png");
      nodeCores.setAttribute("id","cores");
      nodeCores.setAttribute("style","display:none;");
-     nodeCores.innerText = produto[[i,Pref]].split("_")[2].split("-")[0];
+     //nodeCores.innerText = produto[[i,Pref]].split("_")[2].split("-")[0];
      nodeDivProduto.appendChild(nodeImage);
      nodeDivProduto.appendChild(nodeTitulo);
      nodeDivProduto.appendChild(nodeInfo);
