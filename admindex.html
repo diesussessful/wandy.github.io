@@ -2011,7 +2011,10 @@ function ImportarProdutos(evt)
  // }
 
  console.log("Foi: "+ evt);
-
+ if(!evt)
+ {
+  carregar();
+ }else{
  
  //request.onloadend = function(){
  reader = new FileReader();
@@ -2143,7 +2146,7 @@ console.log(produto);
 }
 }
 
-//}
+}
   }  
 //}
 
