@@ -1987,12 +1987,12 @@ function ImportarProdutos()
 
 for(X = 0;X < 2; X++)
 {
-  if(X == 1)
+  if(X == 0)
   {
       var url = "5PFemale_Produtos.csv";
   }
 
-  if(X == 2)
+  if(X == 1)
   {
      var url = "FootMale_Produtos.csv";
   }
@@ -2003,11 +2003,11 @@ for(X = 0;X < 2; X++)
  request.open('GET',url,true);
  request.responseType = "blob";
  request.send();
- request.onload = function(){
+ request.onloadend = function(){
  reader = new FileReader();
 reader.readAsBinaryString(request.response);
 
-}
+
    
 
  reader.onload = function(){
@@ -2130,6 +2130,7 @@ console.log(produto);
  Pref += 16;
  cores = "";
  PCaimento += 16;
+}
 }
 
 }
