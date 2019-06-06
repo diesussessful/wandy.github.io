@@ -1997,7 +1997,7 @@ for(X = 0;X < 2; X++)
      var url = "FootMale_Produtos.csv";
   }
 
-
+ console.log("O X está nessa posição: " X);
 
  var request = new XMLHttpRequest();
  request.open('GET',url,true);
@@ -2211,7 +2211,11 @@ while( fc ) {
 function RemoverItem(item)
 {
   item.remove();
+  var itensLen = document.getElementById("table").getElementsByTagName("tr");
+  var itensQuantidade = parseInt(document.getElementById("notificacao").innerText);
+  document.getElementById("notificacao").innerText = itensQuantidade - 1;
 }
+
 function gradeSelection(x){
 x.parentElement.parentElement.getElementsByTagName("td")[0].style.boxShadow = "0 0 5px 0 black";
 x.onblur = function lvx()
