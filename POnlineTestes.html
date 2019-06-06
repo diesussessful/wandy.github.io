@@ -1189,6 +1189,7 @@ function carregandoInicio()
 
   ImportarProdutos();
 
+
   
 
 }
@@ -1976,37 +1977,44 @@ function EnviarEmail()
  // message => alert(message)
 //);
 }
-function ImportarProdutos()
+
+var request = new XMLHttpRequest();
+
+//se adicionar mais produtos, precisará mudar no final do código importarProduto o if do uIndex
+var url = ["5PFemale_Produtos.csv","FootMale_Produtos.csv"];
+var uIndex = 0;
+function carregar()
 {
+
+ //var request = new XMLHttpRequest();
+ request.open('GET',url[uIndex],true);
+ request.responseType = "blob";
+ request.send();
+ request.addEventListener("load", ImportarProdutos, false);
+
+}
+
+function ImportarProdutos(evt)
+{
+
+  console.log("Foi: "+ evt);
+ if(!evt)
+ {
+  carregar();
+ }else{
+console.log("O uIndex está aqui:" + uIndex)
   //Notas 01: sobre o formato do documento.
   //Deve ser um documento para cada categoria.
   //Após a edição no excel, cada llinha precisa ter um ponto e virgula no final, isso pode ser conferido em um bloco de notas.
   //Notas 02: Sempre que uma nova coluna for adicionada à planilha, todas as variaveis abaixo devem receber um numero a mais
 //file = document.getElementById("DadosCsv");
 
-for(X = 0;X < 2; X++)
-{
-  if(X == 0)
-  {
-      var url = "5PFemale_Produtos.csv";
-  }
-
-  if(X == 1)
-  {
-     var url = "FootMale_Produtos.csv";
-  }
-
-
-
- var request = new XMLHttpRequest();
- request.open('GET',url,true);
- request.responseType = "blob";
- request.send();
- request.onload = function(){
- reader = new FileReader();
+reader = new FileReader();
 reader.readAsBinaryString(request.response);
- reader.onload = function(){
- var categoriaCSV = url.split("_")[0];
+reader.onload = function(){
+
+
+ var categoriaCSV = url[uIndex].split("_")[0];
 //Incluir todas as categorias possiveis
  if(categoriaCSV == "5PMale")
  {
@@ -2020,6 +2028,9 @@ if(categoriaCSV == "5PFemale")
  {
     categCSV = "Foot_Male";
  }
+
+
+ 
  produtos = reader.result;
  produto = [];
  pos =32;
@@ -2034,8 +2045,8 @@ for( i = 0; i < 7; i++)
 pos = pos+16;
  
 }
-}
-}
+
+
 console.log(produto);
  var PImage = 16;  
  var Pnome = 17;
@@ -2115,6 +2126,7 @@ console.log(produto);
      nodeDivProduto.appendChild(nodeIconExpand);
      nodeDivProduto.appendChild(nodeCores);
      document.getElementById(categCSV).appendChild(nodeDivProduto);
+     console.log("O uIndex está no " + uIndex + " e a CategCSV está no: " + categCSV);
      console.log(g);
  Pnome += 16;
  Ppreco += 16;
@@ -2126,8 +2138,23 @@ console.log(produto);
  cores = "";
  PCaimento += 16;
 }
-  }  
+
+
+
+if(uIndex == 1)
+{
+
+}else{
+uIndex += 1;
+carregar();
 }
+
+}
+
+}
+
+  }  
+//}
 
 
 
@@ -2205,7 +2232,11 @@ while( fc ) {
 function RemoverItem(item)
 {
   item.remove();
+  var itensLen = document.getElementById("table").getElementsByTagName("tr");
+  var itensQuantidade = parseInt(document.getElementById("notificacao").innerText);
+  document.getElementById("notificacao").innerText = itensQuantidade - 1;
 }
+
 function gradeSelection(x){
 x.parentElement.parentElement.getElementsByTagName("td")[0].style.boxShadow = "0 0 5px 0 black";
 x.onblur = function lvx()
