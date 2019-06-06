@@ -1977,6 +1977,18 @@ function EnviarEmail()
  // message => alert(message)
 //);
 }
+
+
+function carregar()
+{
+var url = "5PFemale_Produtos.csv";
+ var request = new XMLHttpRequest();
+ request.open('GET',url,true);
+ request.responseType = "blob";
+ request.send();
+ request.addEventListener("load", ImportarProdutos, false);
+}
+
 function ImportarProdutos()
 {
   //Notas 01: sobre o formato do documento.
@@ -1985,29 +1997,26 @@ function ImportarProdutos()
   //Notas 02: Sempre que uma nova coluna for adicionada à planilha, todas as variaveis abaixo devem receber um numero a mais
 //file = document.getElementById("DadosCsv");
 
-for(X = 0;X < 2; X++)
-{
-  if(X == 0)
-  {
-      var url = "5PFemale_Produtos.csv";
-  }
+//for(X = 0;X < 2; X++)
+//{
+ // if(X == 0)
+ // {
+ //     var url = "5PFemale_Produtos.csv";
+ // }
 
-  if(X == 1)
-  {
-     var url = "FootMale_Produtos.csv";
-  }
+ // if(X == 1)
+ // {
+ //    var url = "FootMale_Produtos.csv";
+ // }
 
  console.log("O X está nessa posição: " + X);
 
- var request = new XMLHttpRequest();
- request.open('GET',url,true);
- request.responseType = "blob";
- request.onloadend = function(){
- request.send();
+ 
+ //request.onloadend = function(){
  reader = new FileReader();
- reader.readAsBinaryString(request.response);
+reader.readAsBinaryString(request.response);
 
-}
+
    
 
  reader.onload = function(){
@@ -2131,9 +2140,9 @@ console.log(produto);
  cores = "";
  PCaimento += 16;
 }
-
-
 }
+
+//}
   }  
 }
 
