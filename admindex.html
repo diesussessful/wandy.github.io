@@ -1882,7 +1882,7 @@ function abrirGrade(produtoinf){
   infoRef.innerText = infosTag[7].innerText;
   
   //valor
-  infoValor.innerText = infosTag[3].innerText;
+  infoValor.innerText = infosTag[3].innerText.replace(",",".");
   //varejo 
   infoVarejo.innerText = infosTag[4].innerText;
   document.getElementById("detalheshide").innerText = infosTag[8].innerText;
