@@ -1872,6 +1872,9 @@ function abrirGrade(produtoinf){
    input.setAttribute("onclick"," gradeSelection(this)")
    input.setAttribute("type","Number");
    input.setAttribute("onchange","valortotal()");
+   input.setAttribute("min","0");
+   input.setAttribute("oninput","this.value = Math.abs(this.value)");
+
    novaCelulaG.appendChild(input);
    }
    //Informações do produto
